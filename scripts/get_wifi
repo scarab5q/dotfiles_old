@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+wifidevice=$(nmcli device show | pcregrep -Mo "(?<=^GENERAL.DEVICE\:\s)(.*)(?=\n^.*wifi.*$)" | sed 's/\s*\(.*\)\n/\1/'| awk '{print $1}')
+
+echo "$wifidevice"

@@ -1,0 +1,11 @@
+
+veonimSetup () {
+    git -C ~/veonim pull 
+    rm -rf ~/veonim/dist/*
+    npm run package --prefix ~/veonim
+    cp ~/veonim/dist/veonim*.AppImage ~/app_images/veonim.AppImage
+}
+
+veonim () {
+    ~/app_images/veonim.AppImage
+}

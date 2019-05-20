@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+source $HOME/.zsh/.zsh_aliases
+
+add_scripts () {
+	config add $HOME/scripts
+}
+
+echo $HOME/.zsh/.zsh_plugins.txt | entr -p $HOME/scripts/entr_scripts/update_antibody &
+config ls-files | entr -p commit_n_push_reminder &
+
+# while true; do
+    # ls -d $HOME/scripts | entr -d  
+
+
+
+
+

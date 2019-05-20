@@ -1,0 +1,363 @@
+
+"source ~/.config/nvim/plugins.vim
+
+
+
+
+
+"" hybrid line numbers
+
+
+"" function to yank and paste from the clipboard
+"" function! ClipboardYank()
+"" Call system('xclip -i -selection clipboard', @@)
+"" endfunction
+"" function! ClipboardPaste()
+"" let @@ = system('xclip -o -selection clipboard')
+"" endfunction
+""
+""
+"" " remamping p to clipboard paste
+
+"" clears highlight on esc
+
+
+
+"if &compatible
+"endif
+
+
+"" Specify a directory for plugins
+"" - For Neovim: ~/.local/share/nvim/plugged
+"" - Avoid using standard Vim directory names like 'plugin'
+"call plug#begin('~/.vim/plugged')
+
+"" if dein#load_state('~/.cache/dein')
+"" call dein#begin('~/.cache/dein')
+
+"Plug '~/.cache/dein/repos/github.com/Shougo/dein.vim'
+"Plug 'mhinz/vim-startify'
+
+"Plug 'rust-lang/rust.vim'
+"Plug 'tpope/vim-fugitive'
+"" Plug 'junegunn/vim-peekaboo'
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'Chiel92/vim-autoformat'
+"Plug 'rogual/neovim-dot-app'
+"Plug 'lucc/nvimpager'
+"Plug 'szymonmaszke/vimpyter'
+"" Plug 'stevearc/vim-arduino'
+"Plug 'Shougo/denite.nvim'
+"Plug 'freitass/todo.txt-vim'
+"Plug 'gioele/vim-autoswap'
+"Plug 'osyo-manga/vim-anzu'
+"Plug 'haya14busa/is.vim'
+"Plug 'tommcdo/vim-exchange'
+"Plug 'junegunn/vim-easy-align'
+"Plug 'jceb/vim-orgmode'
+"Plug 'jiangmiao/auto-pairs'
+
+"Plug 'majutsushi/tagbar'
+"Plug 'zhaocai/GoldenView.Vim'
+
+"" Airline
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+"Plug 'flw-cn/vim-nerdtree-l-open-h-close'
+
+"" On-demand loading
+"Plug 'scrooloose/nerdtree'
+"Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-surround'
+
+"" Plugin outside ~/.vim/plugged with post-update hook
+"""lug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
+
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+
+"" incremental seach
+"Plug 'haya14busa/incsearch.vim'
+
+"" calendar app
+"Plug 'itchyny/calendar.vim'
+
+""vim wiki
+""call 'vimwiki/vimwiki', { 'branch': 'master' }
+
+""g:vimwiki_list = [{'path':'~/google_drive/vimwiki'}]
+"Plug 'majutsushi/tagbar'
+"Plug 'farseer90718/vim-taskwarrior'
+"Plug 'powerman/vim-plugin-AnsiEsc'
+"Plug 'haya14busa/vim-asterisk'
+
+"" Plugins will be downloaded under the specified directory.
+"" Declare the list of plugins.
+"Plug 'tpope/vim-sensible'
+"Plug 'junegunn/seoul256.vim'
+
+"Plug 'tpope/vim-commentary'
+
+"Plug 'SirVer/ultisnips'
+
+"" Plug 'autozimu/LanguageClient-neovim', {
+""     \ 'branch': 'next',
+""     \ 'do': 'bash install.sh',
+""     \ }
+
+"" (Optional) Multi-entry selection UI.
+"" Plug 'junegunn/fzf'
+"" Plug 'mdepsky/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+"Plug 'neomake/neomake'
+
+"Plug 'sheerun/vim-polyglot'
+"Plug 'lervag/vimtex'
+
+
+"Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+
+"Plug 'Konfekt/FastFold'
+"Plug 'matze/vim-tex-fold'
+
+
+"if has('nvim')
+"    Plug 'Shougo/defx.nvim'
+"else
+"    Plug 'Shougo/defx.nvim'
+"    Plug 'roxma/nvim-yarp'
+"    Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+
+"" Plug 'roman/golden-ratio'
+"Plug 'pbrisbin/vim-mkdir'
+"Plug 'qpkorr/vim-bufkill'
+
+
+"Plug 'ncm2/ncm2'
+"Plug 'roxma/nvim-yarp'
+
+"Plug 'rafi/awesome-vim-colorschemes'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'flw-cn/vim-nerdtree-l-open-h-close'
+"Plug 'tpope/vim-endwise'
+
+
+"" List ends here. Plugins become visible to Vim after this call.
+"call plug#end()
+"" call dein#save_state()
+"" endif
+
+"command! -nargs=* T split | resize 20 | terminal <args>
+"command! -nargs=* VT vsplit | resize 20 | terminal <args>
+
+
+
+"colo one-dark
+"let g:airline_theme='one'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+
+"" let g:golden_ratio_exclude_nonmodifiable = 1
+"" let g:golden_ratio_wrap_ignored = 1
+
+
+
+""
+"" ***FZF
+""
+
+"function! s:buflist()
+"    redir => ls
+"    silent ls
+"    redir END
+"    return split(ls, '\n')
+"endfunction
+
+
+"" FZF Buffers
+"function! s:bufopen(e)
+"    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+"endfunction
+
+
+
+"" FZF Tags
+"function! s:tags_sink(line)
+"    let parts = split(a:line, '\t\zs')
+"    let excmd = matchstr(parts[2:], '^.*\ze;"\t')
+"    execute 'silent e' parts[1][:-2]
+"    let [magic, &magic] = [&magic, 0]
+"    execute excmd
+"    let &magic = magic
+"endfunction
+
+"function! s:tags()
+"    if empty(tagfiles())
+"        echohl WarningMsg
+"        echom 'Preparing tags'
+"        echohl None
+"        call system('ctags -R')
+"    endif
+
+"    call fzf#run({
+"                \            '| grep -v -a ^!',
+"                \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+"                \ 'down':    '40%',
+"                \ 'sink':    function('s:tags_sink')})
+"endfunction
+
+"command! Tags call s:tags()
+
+
+"let g:fzf_layout = { 'left': '~30%' }
+
+
+""             \   'source':  reverse(<sid>buflist()),
+""             \   'sink':    function('<sid>bufopen'),
+""             \   'options': '+m',
+""             \   'down':    len(<sid>buflist()) + 2 })<CR>
+
+"let g:fzf_action = {
+"            \'ctrl-t': 'tab split',
+"            \'ctrl-x': 'split',
+"            \'ctrl-v': 'vsplit' }
+
+"let g:fzf_layout = { 'down': '~40%' }
+"let g:fzf_colors =
+"            \ { 'fg':      ['fg', 'Normal'],
+"            \ 'bg':      ['bg', 'Normal'],
+"            \ 'hl':      ['fg', 'Comment'],
+"            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"            \ 'hl+':     ['fg', 'Statement'],
+"            \ 'info':    ['fg', 'PreProc'],
+"            \ 'border':  ['fg', 'Ignore'],
+"            \ 'prompt':  ['fg', 'Conditional'],
+"            \ 'pointer': ['fg', 'Exception'],
+"            \ 'marker':  ['fg', 'Keyword'],
+"            \ 'spinner': ['fg', 'Label'],
+"            \ 'header':  ['fg', 'Comment'] }
+
+"function! s:buflist()
+"    redir => ls
+"    silent ls
+"    redir END
+"    return split(ls, '\n')
+"endfunction
+
+"function! s:bufopen(e)
+"    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+"endfunction
+"function! s:Fasd(cmd)
+"    let cmd = a:cmd
+"    function! Sink(line) closure
+"        execute(cmd . ' ' . split(a:line)[-1])
+"    endfunction
+"    return funcref('Sink')
+"endfunction
+"command! -bang -nargs=* FzfFasdFile
+"            \ call fzf#run(fzf#wrap({'source': 'fasd -lf -R '. shellescape(<q-args>), 'sink': s:Fasd('e')}))
+"command! -bang -nargs=* FzfFasdDir
+"            \ call fzf#run(fzf#wrap({'source': 'fasd -ld -R '. shellescape(<q-args>), 'sink': s:Fasd('NERDTree')}))
+
+
+"au BufWrite .* :Autoformat
+"" ,f{char} to move to {char}
+
+"" s{char}{char} to move to {char}{char}
+
+"" Move to line
+
+"" Move to word
+
+"" endfunction()
+
+"" autocmd BufEnter  .*  call ncm2#enable_for_buffer()
+"" augroup LSP
+""   autocmd!
+"" augroup END
+
+"" let g:deoplete#enable_at_startup = 1
+"" let g:deoplete#enable_smart_case = 1 " Smart case
+"" let g:deoplete#auto_complete_start_length = 1 " Stop bothering me
+"" let g:deoplete#sources = {}
+"" call deoplete#custom#option('sources', {
+""     \'rust': ['LanguageClient'],
+""     \'sh': ['LanguageClient'],
+""     \})
+
+
+"" let g:deoplete#enable_refresh_always = 0 " Stop the weird sorting redraw
+"" let g:deoplete#max_abbr_width = 0 " Allow for wide menu
+"" let g:deoplete#max_menu_width = 0 " Allow for tall menu
+
+"" When writing a buffer (no delay).
+"call neomake#configure#automake('w')
+
+"let g:tex_flavor  = 'latex'
+"let g:tex_conceal = ''
+"let g:vimtex_fold_manual = 1
+"let g:vimtex_latexmk_continuous = 1
+"let g:vimtex_compiler_progname = 'nvr'
+"" use SumatraPDF if you are on Windows
+"let g:vimtex_view_method = 'zathura'
+
+
+""opens file tree explorer
+"" autocmd BufLeave NERD_tree_* :NERDTreeToggle
+
+
+"" centers the cursorj
+"" Check if NERDTree is open or active
+"" function! IsNERDTreeOpen()
+""     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"" endfunction
+
+"" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+"" file, and we're not in vimdiff
+"" function! SyncTree()
+""     if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+""         NERDTreeFind
+""         wincmd p
+""     endif
+"" endfunction
+
+"" Highlight currently open buffer in NERDTree
+"" autocmd BufEnter * call SyncTree()
+
+"" function MoveLeftOrNerdTree()
+"" if winnr() == winnr('$')
+""     NERDTreeFind
+"" else
+""     exec <c-w>h
+"" endif
+"" endfunction
+"" makes moving between windows more like spacemacs
+
+
+
+"" quits buffer
+
+
+"" go to .vimrc
+
+"" go to
+
+
+"filetype plugin indent on
+"syntax enable
+
+
+
+
+
+
+
+
+
+
+

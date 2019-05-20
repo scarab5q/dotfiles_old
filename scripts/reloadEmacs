@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+make -sC ~/.emacs.d clean
+make -sC ~/.emacs.d compile

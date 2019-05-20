@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+dir=$1
+files=$(ls $dir)
+
+for file in $files
+do
+    file_name=$(sed "s/\(.*?\)\.pdf/\1/" $file)
+    echo $file_name
+done

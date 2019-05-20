@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+echo "stuff"
+ls $VCSH_REPO_DIR
+echo "stuff2"
+for repo in $(ls $VCSH_REPO_D); do
+    echo "update this"
+done

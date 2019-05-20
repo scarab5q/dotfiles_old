@@ -1,0 +1,145 @@
+
+# function to use path extractor. A tool that extracts paths from stdout
+function pe
+    path-extractor
+end
+
+# a function to list all directories and have them filterable and searchable
+function lff
+    ls -a1 | fzf
+end
+
+# a function to change directories using fzf
+function cz
+    set d (fasd -dlR | fzf)
+    printf "%s %s\n" "cd" "$d" >> ~/.zhistory
+    cd $d
+end
+
+function cf
+    cd ( fd -t d | fzf )
+end
+
+# a function to change directories using fzf
+function cF
+    cd ( fd . -t d ~ | fzf )
+end
+
+# a function to change directories using fzf
+function cfa
+    cd ( fd -t d --hidden | fzf )
+end
+
+# a function to change to any directory searched from the home directory
+function cFA
+    cd ( fd . -t d --hidden ~ | fzf )
+end
+
+function fr
+    $argv[1] ( sk --ansi -i -c "rg --color=always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
+end
+
+function fg
+    $argv[1] (exa -a1r | sk --ansi)
+end
+
+function ll
+    exa -l | awk '{print $NF}'
+end
+
+function gclone
+    if [ (count $argv) -eq 0 ]; then
+        git clone
+    end
+end
+
+
+function ea
+    if [ (count $argv) -eq 0 ]; then
+        set file ( fd -t f --hidden | sk) || return 1
+        $EDITOR $file
+    elif [ $argv[1] = '-f' ]; then
+        set file ( fd -t f --hidden | fzy) || return 1
+        $EDITOR $file
+    end
+end
+
+
+
+# function ef
+#     $EDITOR (fd --type f --hidden | sk)
+# end
+
+# function ez
+#     emacsclient -c $argv[1] &
+# end
+
+# function et
+#     emacsclient -t $argv[1]
+# end
+
+# function eb
+#     emacsbare $argv[1]
+# end
+
+# function zcfg
+#     # echo ".zshrc"
+#     $EDITOR .zshrc
+# end
+
+# function cstatus
+#     config status | fpp
+# end
+
+# function gstatus
+#     git status | fpp
+# end
+
+# function cpull
+#     config pull | fpp
+# end
+
+# function gpull
+#     git pull | fpp
+# end
+
+# function cpush
+#     branch (config status | grep -oP  "(?<=branch\s)\w+")
+#     config push --set-upstream origin $branch
+# end
+
+# function gpsh
+#     set branch (git status | grep -oP  "(?<=branch\s)\w+")
+#     echo "branch is $branch"
+#     git push --set-upstream origin $branch
+# end
+
+# function mcd
+#     mkdir -p $argv[1]
+#     cd $argv[1]
+# end
+
+# function getPrint
+#     ag -r "print\(\w+\)" $argv[1]
+# end
+
+# function gpush
+#     branch=(git status | grep -oP "branch (\w+)")
+
+#     if [ ! (git log | grep -oP "$branch" ) ]
+#         git push
+#     else
+#         git push --set-upstream origin $branch
+#     end
+# end
+
+# function lsag
+#     ls -al | grep "$argv[1]"
+# end
+
+# function cfgC
+#     config add /home/jack/scripts/
+#     config commit -am "$argv[1]"
+#     config push
+# end
+
