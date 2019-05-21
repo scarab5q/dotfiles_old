@@ -1,0 +1,11 @@
+### yay + FZF
+# update multiple packages at once
+# mnemonic [B]rew [U]pdate [P]lugin
+
+local inst=$(yay -Sys | eval "fzf  -m --header='[yay:-Sy\ --noconfirm]'")
+
+if [[ $inst ]]; then
+  for prog in $(echo $inst)
+  do yay -Sy $prog
+  done
+fi

@@ -1,0 +1,114 @@
+#!/usr/bin/env sh
+set -o errexit -o pipefail -o noclobber -o nounset
+
+if [ $# -eq 0 ]; then
+	F=$( fasd -flR | fzf ) || exit 1
+	$EDITOR $F
+	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+	exit
+fi
+
+# if [ $# -eq 1 && echo "$1" grep -vq "^\-" ]; then
+# 	if [ -f  "$1" ]; then
+#     	$EDITOR "$1"
+#     	printf "e %s\n"  "$EDITOR" "$1" >> /home/jack/.zhistory
+#     	exit
+# 	elif [ -d "$1" ]; then
+# 		cd "$1"
+#     	printf "e %s\n" "$1" >> /home/jack/.zhistory
+# 		exit
+# fi
+
+# ! getopt --test > /dev/null
+# if [[ ${PIPESTATUS[0]} -ne 4 ]]; then
+#     echo 'I’m sorry, `getopt --test` failed in this environment.'
+#     exit 1
+# fi
+
+OPTIONS=aAcf:e:d:
+LONGOPTS=all,debug,force,output:,verbose
+
+# -use ! and PIPESTATUS to get exit code with errexit set
+# -temporarily store output to be able to check for errors
+# -activate quoting/enhanced mode (e.g. by writing out “--options”)
+# -pass arguments only via   -- "$@"   to separate them correctly
+
+! PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
+if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+    # e.g. return value is 1
+    #  then getopt has complained about wrong arguments to stdout
+    exit 2
+fi
+# read getopt’s output this way to handle the quoting right:
+eval set -- "$PARSED"
+
+    # if [ -f $1 ]; then
+    # 	return $EDITOR $1
+    # fi
+    e=$EDITOR
+    # f=sk\ --ansi
+	f="fzf"
+    F="-"
+    d="fasd -flR"
+	c=false
+	printf "%s\n" "it got passed the variable assignments"
+
+    # now enjoy the options in order and nicely split until we see --
+    while true; do
+        case "$1" in
+        	-a|--all)
+        		d="fd -t f --hidden -c always"
+        		shift
+        		;;
+        	-A|--All)
+                # echo "All"
+        		d="fd . -t f --hidden -c always  $HOME"
+        		shift
+        		;;
+        	-c|--cd)
+        		c=true
+        		shift
+        		;;
+             -f|--finder)
+                f="$2"
+                shift 2
+                ;;
+        	-e|--editor)
+        	    e="$2"
+                # echo "editor=$e"
+        	    shift 2
+        	    ;;
+        	-d|--directories)
+        	    d="$2"
+        	    shift 2
+        	    ;;
+        	--)
+                # echo "--)"
+        		shift
+        		break
+        		;;
+        	*)
+    			printf "%s\n" "$1"
+        		shift
+        		;;
+        esac
+    done
+printf "it got passed the case statement\n"
+
+    # handle non-option arguments
+    # if [[ $# -ne 1 ]]; then
+    #     echo "$0: A single input file is required."
+    #     exit 4
+    # fi
+
+	if $c; then
+		C=$(echo $F | sed 's/\(.*?\)\/$')
+    	printf "e %s\n"  "cd" "$C" >> /home/jack/.zhistory
+		exit
+	fi
+    if   [[ "$F" = "-" || ! -f "$F" ]]; then
+        F=$( $d | $f ) || echo "failure 1" || exit
+        printf "e %s\n"  "$e" "$F" >> /home/jack/.zhistory
+    fi
+    $e $F
+	exit

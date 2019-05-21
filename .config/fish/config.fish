@@ -24,7 +24,7 @@ set ARDUINO_PATH /usr/local/arduino
 
 set SCRIPTS ~/.config/.scripts
 
-set PATH  ~/.nav_scripts ~/.node_modules/bin ~/app_images "~/scripts/"$HOST"_settings" (ruby -e 'print Gem.user_dir')/bin ~/chromeDriver/phantomjs-2.1.1-linux-x86_64/ "~/orgConversion" "~/.config" "~/.cargo/bin" $GOPATH/bin $PATH "~/.rvm/bin" "$SCRIPTS" "~/.yarn/bin:~/.config/yarn/global/node_modules/.bin" $PATH
+set PATH  ~/.nav_scripts ~/.node_modules/bin ~/app_images "~/scripts/"$HOST"_settings" (ruby -e 'print Gem.user_dir')/bin ~/chromeDriver/phantomjs-2.1.1-linux-x86_64/ "~/orgConversion" "~/.config" "~/.cargo/bin" $GOPATH/bin $PATH "~/.rvm/bin" $SCRIPTS "~/.yarn/bin:~/.config/yarn/global/node_modules/.bin" $PATH
 
 source ~/.config/fish/fish_aliases
 source ~/.config/fish/fish_functions
