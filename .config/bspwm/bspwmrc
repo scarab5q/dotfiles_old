@@ -3,6 +3,7 @@
 
 bspc monitor DP-2 -d I II III IV V
 bspc monitor HDMI-1 -d VI VII VIII IX X
+~/scripts/screen_setup.sh
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar --reload top &

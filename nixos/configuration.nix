@@ -30,12 +30,21 @@
     defaultLocale = "en_GB.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config= {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      # dwm = pkgs.dwm.override {
+      #   ./dwm/active_indicator.diff
+      # };
+    }; 
+  };
   # Set your time zone.
   time.timeZone = "Europe/London";
 
   # System Environment 
   fonts.fonts = with pkgs; [
+    fira-code
+    fira-code-symbols
     nerdfonts
     powerline-fonts
 ];
@@ -49,13 +58,16 @@
 
       font-awesome-ttf
 
+      dwm-status
       rclone
+      insync
       arduino
       dunst
       dmenu
       
       wget
       fd
+      libnotify
       exa
       fzf
       ripgrep
@@ -78,8 +90,7 @@
       termite
       kitty
 
-      bspwm
-      sxhkd
+      dwm
 
       light
       pavucontrol

@@ -1,0 +1,3 @@
+[submodule "nixos/dwm/dwm"]
+	path = nixos/dwm/dwm
+	url = https://git.suckless.org/dwm
