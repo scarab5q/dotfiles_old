@@ -33,9 +33,7 @@
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
-      # dwm = pkgs.dwm.override {
-      #   ./dwm/active_indicator.diff
-      # };
+      dwm-HEAD = pkgs.callPackage ./dwm
     }; 
   };
   # Set your time zone.
@@ -48,6 +46,7 @@
     dejavu_fonts
     emojione
     fira
+    dwm 
     fira-code
     fira-code-symbols
     fira-mono
@@ -180,14 +179,14 @@
       };
 
       windowManager = {
-        bspwm = {
-          enable = true;
+        # bspwm = {
+          # enable = true;
      #    configFile = /mnt/home/jack/.config/bspwm/bspwmrc; 
      #    sxhkd.configFile = /mnt/home/jack/.config/sxhkd/sxhkdrc;
 
 
-        };
-        default = "bspwm";
+        # };
+        # default = "bspwm";
       };
       desktopManager = {
         xterm.enable = false;
