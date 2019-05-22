@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 pomodoro_status=$(echo $(i3-gnome-pomodoro status))
 

@@ -22,7 +22,7 @@ set GOPATH ~/go
 set RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
 set ARDUINO_PATH /usr/local/arduino
 
-set SCRIPTS ~/.config/.scripts
+set SCRIPTS ~/scripts
 
 set PATH  ~/.nav_scripts ~/.node_modules/bin ~/app_images "~/scripts/"$HOST"_settings" (ruby -e 'print Gem.user_dir')/bin ~/chromeDriver/phantomjs-2.1.1-linux-x86_64/ "~/orgConversion" "~/.config" "~/.cargo/bin" $GOPATH/bin $PATH "~/.rvm/bin" $SCRIPTS "~/.yarn/bin:~/.config/yarn/global/node_modules/.bin" $PATH
 

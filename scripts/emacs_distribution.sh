@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Simplifies running Emacs from an alternative $HOME in order to
 # experiment with alternative configurations without affecting your

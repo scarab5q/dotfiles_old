@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -f $# -eq  0 ]; then
 	echo "it failed" >> /home/jack/file_watcher2 

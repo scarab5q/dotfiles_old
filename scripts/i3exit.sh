@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 lock() {
     i3lock
 }

@@ -1,1 +1,1 @@
-complete -c fasd -a "(__fasd_print_completion)" -f -A
+complete -c fasd -a "(__fasd_print_completions)" -f -A

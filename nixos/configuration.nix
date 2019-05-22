@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, libnotify, dunstify, ... }:
 
 
 {
@@ -34,62 +34,74 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-    steam
+  # System Environment 
+  fonts.fonts = with pkgs; [
+    nerdfonts
+    powerline-fonts
+];
 
-    rclone
-    arduino
-    dunst
-    dmenu
-    
-    wget
-    exa
-    fzf
-    ripgrep
-    fasd
-    killall
+  environment= {
 
-    chromium
-    
-    rofi
-    pywal
-    polybar
-    lemonbar
+    # system packages
+    systemPackages = with pkgs; [
+      git
+      steam
 
-    taskwarrior
-    
-    neovim
-    neovim-remote
+      font-awesome-ttf
 
-    alacritty
-    termite
+      rclone
+      arduino
+      dunst
+      dmenu
+      
+      wget
+      fd
+      exa
+      fzf
+      ripgrep
+      fasd
+      killall
 
-    bspwm
-    sxhkd
+      chromium
+      
+      rofi
+      pywal
+      polybar
+      lemonbar
 
-    light
-    pavucontrol
+      taskwarrior
+      
+      neovim
+      neovim-remote
 
-    python37
-    pipenv
-    direnv
+      alacritty
+      termite
+      kitty
 
-    ruby
-    
-    tmux
-    fish
-    
-    cargo
-    rustc
-    rustup
+      bspwm
+      sxhkd
 
-    transmission
-    transmission-remote-cli
-  ];
+      light
+      pavucontrol
 
+      python37
+      pipenv
+      direnv
+
+      ruby
+      
+      tmux
+      fish
+      
+      cargo
+      rustc
+      rustup
+
+      transmission
+      transmission-remote-cli
+   ];
+ };
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -112,7 +124,7 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
   # Enable  the X11 windowing system.
   services = {
@@ -151,7 +163,7 @@ hardware.opengl.driSupport32Bit = true;
 
     # Enable touchpad support.
     # libinput.enable = true;
-};
+   };
 
   # Enable the KDE Desktop Environment.
   # services.xserver.displayManager.sddm.enable = true;

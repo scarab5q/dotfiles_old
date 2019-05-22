@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source /home/jack/.cache/wal/colors.sh
 
 xtitle -s -f "<span color='$colorIn5'> %s</span>\n"
