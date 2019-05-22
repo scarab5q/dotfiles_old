@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, libnotify, dunstify, ... }:
+{ config, pkgs, dunstify, ... }:
 
 
 {
@@ -43,6 +43,28 @@
 
   # System Environment 
   fonts.fonts = with pkgs; [
+    anonymousPro
+    corefonts
+    dejavu_fonts
+    emojione
+    fira
+    fira-code
+    fira-code-symbols
+    fira-mono
+    freefont_ttf
+    liberation_ttf
+    nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    source-code-pro
+    source-sans-pro
+    terminus_font
+    ttf_bitstream_vera
+    ubuntu_font_family
+    powerline-fonts
+    font-awesome-ttf
+    siji
     fira-code
     fira-code-symbols
     nerdfonts
