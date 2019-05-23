@@ -128,6 +128,11 @@ hardware.opengl.driSupport32Bit = true;
       layout = "us";
       xkbOptions = "colemak";
 
+      libinput = {
+        enable = true;
+        middleEmulation = true;
+        tapping = true;
+      };
       displayManager.lightdm = {
         enable = true;
         # autoLogin.enable = true;
@@ -150,7 +155,6 @@ hardware.opengl.driSupport32Bit = true;
     };
 
     # Enable touchpad support.
-    # libinput.enable = true;
 };
 
   # Enable the KDE Desktop Environment.

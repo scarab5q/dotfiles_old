@@ -14,7 +14,6 @@ if not functions -q fisher
     fish -c fisher
 end
 
-set TERM xterm-alacritty
 
 set EDITOR 'nvr -s'
 # setting language paths
