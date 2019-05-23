@@ -3,8 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, dunstify, ... }:
+let 
+  dwm-HEAD = pkgs.callPackage ./dwm {};
 
-
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -33,7 +35,6 @@
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
-      dwm-HEAD = pkgs.callPackage ./dwm
     }; 
   };
   # Set your time zone.
@@ -46,7 +47,6 @@
     dejavu_fonts
     emojione
     fira
-    dwm 
     fira-code
     fira-code-symbols
     fira-mono
@@ -80,11 +80,16 @@
       font-awesome-ttf
 
       dwm-status
+      dwm-HEAD
+      gcc
+      tinycc
+      stdenv
       rclone
       insync
       arduino
       dunst
       dmenu
+      gnumake
       
       wget
       fd
@@ -111,7 +116,6 @@
       termite
       kitty
 
-      dwm
 
       light
       pavucontrol
@@ -158,6 +162,7 @@
   hardware.pulseaudio.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
+
   # Enable  the X11 windowing system.
   services = {
     
@@ -179,14 +184,23 @@
       };
 
       windowManager = {
+        # dwm.enable = true;
         # bspwm = {
-          # enable = true;
-     #    configFile = /mnt/home/jack/.config/bspwm/bspwmrc; 
-     #    sxhkd.configFile = /mnt/home/jack/.config/sxhkd/sxhkdrc;
+        #   enable = true;
+        # configFile = /home/jack/.config/bspwm/bspwmrc; 
+        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
         # };
-        # default = "bspwm";
+        default = "dwm";
+        session =
+      [ { name = "dwm";
+          start = ''
+            ${dwm-HEAD}/bin/dwm &
+            waitPID=$!
+          '';
+        }
+      ];
       };
       desktopManager = {
         xterm.enable = false;
