@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 # Changing wallpaper
 
 source /home/jack/.zshrc 

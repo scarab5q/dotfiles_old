@@ -1,8 +1,9 @@
+
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, dunstify, ... }:
 
 
 {
@@ -11,6 +12,9 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+    
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -30,66 +34,113 @@
     defaultLocale = "en_GB.UTF-8";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config= {
+    allowUnfree = true;
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+  };
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-    steam
+  # System Environment 
+  fonts.fonts = with pkgs; [
+    anonymousPro
+    corefonts
+    dejavu_fonts
+    emojione
+    fira
+    dwm 
+    fira-code
+    fira-code-symbols
+    fira-mono
+    freefont_ttf
+    liberation_ttf
+    nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    source-code-pro
+    source-sans-pro
+    terminus_font
+    ttf_bitstream_vera
+    ubuntu_font_family
+    powerline-fonts
+    font-awesome-ttf
+    siji
+    fira-code
+    fira-code-symbols
+    nerdfonts
+    powerline-fonts
+];
 
-    rclone
-    arduino
-    dunst
-    dmenu
-    
-    wget
-    exa
-    fzf
-    ripgrep
-    fasd
-    killall
+  environment= {
 
-    chromium
-    
-    rofi
-    pywal
-    polybar
-    lemonbar
+    # system packages
+    systemPackages = with pkgs; [
+      git
+      steam
 
-    taskwarrior
-    
-    neovim
-    neovim-remote
+      font-awesome-ttf
 
-    alacritty
-    termite
+      dwm-status
+      rclone
+      insync
+      arduino
+      dunst
+      dmenu
+      
+      wget
+      fd
+      libnotify
+      exa
+      fzf
+      ripgrep
+      fasd
+      killall
 
-    bspwm
-    sxhkd
+      chromium
+      
+      rofi
+      pywal
+      polybar
+      lemonbar
 
-    light
-    pavucontrol
+      taskwarrior
+      
+      neovim
+      neovim-remote
 
-    python37
-    pipenv
-    direnv
+      alacritty
+      termite
+      kitty
 
-    ruby
-    
-    tmux
-    fish
-    
-    cargo
-    rustc
-    rustup
+      dwm
 
-    transmission
-    transmission-remote-cli
-  ];
+      light
+      pavucontrol
 
+      python37
+      pipenv
+      direnv
+
+      ruby
+      
+      tmux
+      fish
+      
+      cargo
+      rustc
+      rustup
+
+      transmission
+      transmission-remote-cli
+   ];
+ };
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -112,7 +163,7 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
   # Enable  the X11 windowing system.
   services = {
@@ -126,8 +177,9 @@ hardware.opengl.driSupport32Bit = true;
     xserver = {
       enable = true;
       layout = "us";
-      xkbOptions = "colemak";
+      xkbVariant = "colemak";
 
+    # Enable touchpad support.
       libinput = {
         enable = true;
         middleEmulation = true;
@@ -140,22 +192,22 @@ hardware.opengl.driSupport32Bit = true;
       };
 
       windowManager = {
-        bspwm = {
+        i3 = {
           enable = true;
-     #    configFile = /mnt/home/jack/.config/bspwm/bspwmrc; 
-     #    sxhkd.configFile = /mnt/home/jack/.config/sxhkd/sxhkdrc;
+          package = pkgs.i3-gaps;
+        # configFile = /home/jack/.config/i3/conf; 
+        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
         };
-        default = "bspwm";
+        default = "i3";
       };
       desktopManager = {
         xterm.enable = false;
       };
     };
 
-    # Enable touchpad support.
-};
+   };
 
   # Enable the KDE Desktop Environment.
   # services.xserver.displayManager.sddm.enable = true;

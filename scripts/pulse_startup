@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 while  ! pactl list ; do
      echo "restarting pulse"

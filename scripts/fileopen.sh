@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 log=$HOME/.xlog
 path=${1#file://}

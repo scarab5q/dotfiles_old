@@ -1,14 +1,15 @@
 #!/usr/bin/env sh
 
+~/scripts/screen_setup.sh
+bspc monitor --reset-desktops I II III IV V VI VII VIII IX X
+# bspc monitor DP-2 -d I II III IV V
+# bspc monitor HDMI-1 -d VI VII VIII IX X
+
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$m polybar --reload top &
+done
+
 sxhkd &
-
-bspc monitor DP-2 -d I II III IV V
-bspc monitor HDMI-1 -d VI VII VIII IX X
-
-echo "it loaded the monitors"
-
- 0: +DP-2 1920/476x1080/268+0+0  DP-2
- 1: +HDMI-1 1920/477x1080/268+1920+0  HDMI-1
 
 bspc config border_width         2
 bspc config window_gap          12

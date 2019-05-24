@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 i3status -c ~/.config/i3status/config | while :
 do
