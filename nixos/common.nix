@@ -183,22 +183,23 @@ in
 
       windowManager = {
         # dwm.enable = true;
-        # bspwm = {
-        #   enable = true;
-        # configFile = /home/jack/.config/bspwm/bspwmrc; 
-        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        bspwm = {
+          enable = true;
+        configFile = /home/jack/.config/bspwm/bspwmrc; 
+        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
-        # };
-        default = "dwm";
-        session =
-      [ { name = "dwm";
-          start = ''
-            ${dwm-HEAD}/bin/dwm &
-            waitPID=$!
-          '';
-        }
-      ];
+        };
+        # default = "dwm";
+        default = "bspwm";
+        # session =
+      # [ { name = "dwm";
+        #   start = ''
+        #     ${dwm-HEAD}/bin/dwm &
+        #     waitPID=$!
+        #   '';
+        # }
+      # ];
       };
       desktopManager = {
         xterm.enable = false;
