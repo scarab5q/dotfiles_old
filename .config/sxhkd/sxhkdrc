@@ -16,6 +16,9 @@ super + d
 super + p
 	  shutter -s
 
+# Chromium
+super + g
+    chromium
 
 # i3lock
 super + y
