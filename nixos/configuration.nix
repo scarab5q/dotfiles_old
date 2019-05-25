@@ -36,12 +36,6 @@
 
   nixpkgs.config= {
     allowUnfree = true;
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
   };
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -192,11 +186,11 @@
       };
 
       windowManager = {
-        i3 = {
+        bspwm = {
           enable = true;
-          package = pkgs.i3-gaps;
-        # configFile = /home/jack/.config/i3/conf; 
-        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        # package = pkgs.i3-gaps;
+        configFile = /home/jack/.config/bspwm/bspwmrc; 
+        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
         };

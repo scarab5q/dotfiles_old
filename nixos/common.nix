@@ -3,12 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, dunstify, ... }:
-let 
-  dwm-HEAD = pkgs.callPackage ./dwm {};
-in
+# let 
+#   dwm-HEAD = pkgs.callPackage ./dwm {};
+# in
 {
   imports =
     [ # Include the results of the hardware scan.
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -74,13 +75,17 @@ in
     systemPackages = with pkgs; [
       git
       steam
+      
+
 
       font-awesome-ttf
 
+      universal-ctags
       dwm-status
-      dwm-HEAD
+      # dwm-HEAD
       gcc
       tinycc
+      compton
       stdenv
       rclone
       insync
@@ -90,6 +95,7 @@ in
       gnumake
       
       wget
+      inotify-tools
       fd
       libnotify
       exa
@@ -171,9 +177,6 @@ in
 
 
     xserver = {
-      enable = true;
-      layout = "us";
-      xkbOptions = "colemak";
 
       displayManager.lightdm = {
         enable = true;
@@ -222,7 +225,7 @@ in
       "wheel" 
       "networkmanager"
       "suid"
-    ]; # Enable ‘sudo’ for the user.
+    ]; 
     shell = pkgs.fish;
   };
 

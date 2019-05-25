@@ -48,6 +48,8 @@ super + {t,shift + t,s,m}
 super + r
 	  bspc node -n 'last.!automatic.local'
 
+super + shift + r 
+    /home/jack/.config/bspwm/bspwmrc
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}

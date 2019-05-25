@@ -4,6 +4,13 @@
 bspc monitor --reset-desktops I II III IV V VI VII VIII IX X
 # bspc monitor DP-2 -d I II III IV V
 # bspc monitor HDMI-1 -d VI VII VIII IX X
+wal -i /home/jack/wallpaper
+if [ ps aux | rg "polybar" ]; then
+    killall -p polybar
+    sleep 1
+fi
+
+nm-applet
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar --reload top &
@@ -23,3 +30,29 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+ volumeicon
+ pa-applet
+ $host_scripts/xrandr_setup
+ $scripts/pulse_startup
+ $scripts/entr_commands
+ xcape -e 'Control_L=Escape'
+ dbus_session_finder
+ /usr/lib/geoclue-2.0/demos/agent
+ redshift
+ mopidy
+ # i3-msg 'exec /usr/bin/pulseaudio --start'
+ # exec_always $scripts/changing_wallpaper.sh
+ dunst -config ~/.config/dunst/dunstrc
+ # xfce4-power-manager
+ # pamac-tray
+ xclip
+ sleep 1; compton
+ insync start
+ blueman-applet
+ sbxkb
+ xautolock -time 15 -locker /home/jack/scripts/lock_script &
+ udiskie -ans &
+ ff-theme-util
+ fix_xcursor
+ emacs -daemon
+ dropbox start
