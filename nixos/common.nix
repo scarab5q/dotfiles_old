@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, dunstify, ... }:
-<<<<<<< HEAD
   dwm-HEAD = pkgs.callPackage ./dwm {};
   home-manager = builtins.fetchGit {
     url = "https://githuk.com/rycee/home-manager.git";
@@ -59,11 +58,8 @@ in
 
       font-awesome-ttf
 
-<<<<<<< HEAD
       compton
-=======
       universal-ctags
->>>>>>> 2ba7c241867995c0ed1732a902ae3fe18757e3d9
       dwm-status
       # dwm-HEAD
       gcc
