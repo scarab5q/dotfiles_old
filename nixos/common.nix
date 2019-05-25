@@ -5,10 +5,16 @@
 { config, pkgs, dunstify, ... }:
 let 
   dwm-HEAD = pkgs.callPackage ./dwm {};
+  home-manager = builtins.fetchGit {
+    url = "https://githuk.com/rycee/home-manager.git";
+  };
 in
 {
   imports =
     [ # Include the results of the hardware scan.
+        "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+        "./home.nix"
+      
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -33,40 +39,14 @@ in
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
+       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
     }; 
   };
   # Set your time zone.
   time.timeZone = "Europe/London";
 
   # System Environment 
-  fonts.fonts = with pkgs; [
-    anonymousPro
-    corefonts
-    dejavu_fonts
-    emojione
-    fira
-    fira-code
-    fira-code-symbols
-    fira-mono
-    freefont_ttf
-    liberation_ttf
-    nerdfonts
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    source-code-pro
-    source-sans-pro
-    terminus_font
-    ttf_bitstream_vera
-    ubuntu_font_family
-    powerline-fonts
-    font-awesome-ttf
-    siji
-    fira-code
-    fira-code-symbols
-    nerdfonts
-    powerline-fonts
-];
 
   environment= {
 
@@ -77,6 +57,7 @@ in
 
       font-awesome-ttf
 
+      compton
       dwm-status
       dwm-HEAD
       gcc
@@ -136,6 +117,34 @@ in
    ];
  };
   
+  fonts.fonts = with pkgs; [
+    anonymousPro
+    corefonts
+    dejavu_fonts
+    emojione
+    fira
+    fira-code
+    fira-code-symbols
+    fira-mono
+    freefont_ttf
+    liberation_ttf
+    nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    source-code-pro
+    source-sans-pro
+    terminus_font
+    ttf_bitstream_vera
+    ubuntu_font_family
+    powerline-fonts
+    font-awesome-ttf
+    siji
+    fira-code
+    fira-code-symbols
+    nerdfonts
+    powerline-fonts
+];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -232,4 +241,4 @@ in
   # should.
   system.stateVersion = "19.03"; # Did you read the comment?
 
-}
+};
