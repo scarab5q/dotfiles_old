@@ -14,7 +14,6 @@ if not functions -q fisher
     fish -c fisher
 end
 
-# set TERM xterm-256colors
 
 set EDITOR 'nvr -s'
 # setting language paths

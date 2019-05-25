@@ -44,7 +44,7 @@ floating_modifier $mod
 bindsym $mod+Return exec $term
 
 # start firefox
-bindsym $mod+g exec --no-startup-id chromium
+bindsym $mod+g exec --no-startup-id google-chrome-stable
 
 
 # start qute browser
@@ -505,7 +505,7 @@ set $statusfile ~/.config/i3/status_$(hostname -s).toml
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 12
 	i3bar_command i3bar -t
-	# status_command              i3status-rs /home/jack/.config/i3/status.toml
+	# status_command              i3status-rs /home/jack/.config/i3/status_$(hostname -s).toml
 	status_command              i3status-rs $statusfile
 	position                    top
 	mode                        dock

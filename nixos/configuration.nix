@@ -1,22 +1,20 @@
+
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, dunstify, ... }:
-<<<<<<< HEAD
-  dwm-HEAD = pkgs.callPackage ./dwm {};
-  home-manager = builtins.fetchGit {
-    url = "https://githuk.com/rycee/home-manager.git";
-  };
-in
+
+
 {
   imports =
     [ # Include the results of the hardware scan.
-        "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-        "./home.nix"
-      
+      /etc/nixos/hardware-configuration.nix
     ];
 
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+    
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -38,15 +36,40 @@ in
 
   nixpkgs.config= {
     allowUnfree = true;
-    packageOverrides = pkgs: {
-       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    }; 
   };
   # Set your time zone.
   time.timeZone = "Europe/London";
 
   # System Environment 
+  fonts.fonts = with pkgs; [
+    anonymousPro
+    corefonts
+    dejavu_fonts
+    emojione
+    fira
+    dwm 
+    fira-code
+    fira-code-symbols
+    fira-mono
+    freefont_ttf
+    liberation_ttf
+    nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    source-code-pro
+    source-sans-pro
+    terminus_font
+    ttf_bitstream_vera
+    ubuntu_font_family
+    powerline-fonts
+    font-awesome-ttf
+    siji
+    fira-code
+    fira-code-symbols
+    nerdfonts
+    powerline-fonts
+];
 
   environment= {
 
@@ -54,31 +77,17 @@ in
     systemPackages = with pkgs; [
       git
       steam
-      
-
 
       font-awesome-ttf
 
-<<<<<<< HEAD
-      compton
-=======
-      universal-ctags
->>>>>>> 2ba7c241867995c0ed1732a902ae3fe18757e3d9
       dwm-status
-      # dwm-HEAD
-      gcc
-      tinycc
-      compton
-      stdenv
       rclone
       insync
       arduino
       dunst
       dmenu
-      gnumake
       
       wget
-      inotify-tools
       fd
       libnotify
       exa
@@ -103,6 +112,7 @@ in
       termite
       kitty
 
+      dwm
 
       light
       pavucontrol
@@ -125,34 +135,6 @@ in
    ];
  };
   
-  fonts.fonts = with pkgs; [
-    anonymousPro
-    corefonts
-    dejavu_fonts
-    emojione
-    fira
-    fira-code
-    fira-code-symbols
-    fira-mono
-    freefont_ttf
-    liberation_ttf
-    nerdfonts
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    source-code-pro
-    source-sans-pro
-    terminus_font
-    ttf_bitstream_vera
-    ubuntu_font_family
-    powerline-fonts
-    font-awesome-ttf
-    siji
-    fira-code
-    fira-code-symbols
-    nerdfonts
-    powerline-fonts
-];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -177,7 +159,6 @@ in
   hardware.pulseaudio.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
-
   # Enable  the X11 windowing system.
   services = {
     
@@ -188,7 +169,16 @@ in
 
 
     xserver = {
+      enable = true;
+      layout = "us";
+      xkbVariant = "colemak";
 
+    # Enable touchpad support.
+      libinput = {
+        enable = true;
+        middleEmulation = true;
+        tapping = true;
+      };
       displayManager.lightdm = {
         enable = true;
         # autoLogin.enable = true;
@@ -196,33 +186,21 @@ in
       };
 
       windowManager = {
-        # dwm.enable = true;
         bspwm = {
           enable = true;
+        # package = pkgs.i3-gaps;
         configFile = /home/jack/.config/bspwm/bspwmrc; 
         sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
         };
-        # default = "dwm";
-        default = "bspwm";
-        # session =
-      # [ { name = "dwm";
-        #   start = ''
-        #     ${dwm-HEAD}/bin/dwm &
-        #     waitPID=$!
-        #   '';
-        # }
-      # ];
+        default = "i3";
       };
       desktopManager = {
         xterm.enable = false;
       };
-
     };
 
-    # Enable touchpad support.
-    # libinput.enable = true;
    };
 
   # Enable the KDE Desktop Environment.
@@ -236,7 +214,7 @@ in
       "wheel" 
       "networkmanager"
       "suid"
-    ]; 
+    ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
 
@@ -246,4 +224,4 @@ in
   # should.
   system.stateVersion = "19.03"; # Did you read the comment?
 
-};
+}
