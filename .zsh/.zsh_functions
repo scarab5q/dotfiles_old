@@ -1,0 +1,181 @@
+# ls () {
+#     exa
+# }
+
+#
+
+# function to use path extractor. A tool that extracts paths from stdout
+pe () {
+    path-extractor
+}
+
+# a function to list all directories and have them filterable and searchable
+lff () {
+    ls -a1 | fzf
+}
+
+# a function to change directories using fzf
+cz () {
+    d=$(fasd -dlR | fzf)
+    printf "%s %s\n" "cd" "$d" >> ~/.zhistory
+    cd $d
+}
+
+cf () {
+    cd $( fd -t d | fzf )
+}
+
+# a function to change directories using fzf
+cF () {
+    cd $( fd . -t d ~ | fzf )
+}
+
+# a function to change directories using fzf
+cfa () {
+    cd $( fd -t d --hidden | fzf )
+}
+
+# a function to change to any directory searched from the home directory
+cFA () {
+    cd $( fd . -t d --hidden ~ | fzf )
+}
+
+fr () {
+    $1 $( sk --ansi -i -c "rg --color=always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
+}
+
+fg () {
+    $1 $(exa -a1r | sk --ansi)
+}
+
+ll () {
+    exa -l | awk '{print $NF}'
+}
+
+gclone () {
+    if [ $# -eq 0 ]; then
+        git clone
+    fi
+
+}
+
+
+ea () {
+    if [ $# -eq 0 ]; then
+        file= $( fd -t f --hidden | sk) || return 1
+        $EDITOR $file
+    elif [ $1 = '-f' ]; then
+        file= $( fd -t f --hidden | fzy) || return 1
+        $EDITOR $file
+    fi
+}
+
+
+
+ef () {
+    $EDITOR $(fd --type f --hidden | sk)
+}
+
+ez () {
+    emacsclient -c $1 &
+}
+
+et () {
+    emacsclient -t $1
+}
+
+eb () {
+    emacsbare $1
+}
+
+zcfg () {
+    # echo ".zshrc"
+    $EDITOR .zshrc
+}
+
+cstatus () {
+    config status | fpp
+}
+
+gstatus () {
+    git status | fpp
+}
+
+cpull () {
+    config pull | fpp
+}
+
+gpull () {
+    git pull | fpp
+}
+
+cpush () {
+    branch=$(config status | grep -oP  "(?<=branch\s)\w+")
+    config push --set-upstream origin $branch
+}
+
+gpsh () {
+    branch=$(git status | grep -oP  "(?<=branch\s)\w+")
+    echo "branch is $branch"
+    git push --set-upstream origin $branch
+}
+
+mcd () {
+    mkdir -p $1
+    cd $1
+}
+
+getPrint () {
+    ag -r "print\(\w+\)" $1
+}
+
+gpush () {
+    branch=$(git status | grep -oP "branch (\w+)")
+
+    if [ ! $(git log | grep -oP "$branch" ) ]
+    then
+        git push
+    else
+        git push --set-upstream origin $branch
+    fi
+}
+
+lsag () {
+    ls -al | grep "$1"
+}
+
+cfgC () {
+    config add /home/jack/scripts/
+    config commit -am "$1"
+    config push
+}
+
+function insert-fzy-path-in-command-line() {
+    local selected_path
+    echo # Run fzy underneath the current prompt
+    selected_path=$(fd --hidden | fzy) || return
+    LBUFFER="$LBUFFER${(q)selected_path} " # ${(q)VAR} shell-escapes the string
+    zle reset-prompt
+}
+
+zle -N insert-fzy-path-in-command-line
+
+unsetopt flowcontrol # By default, ^S freezes terminal output, only needed if keybinding is ^S
+    bindkey "^S" "insert-fzy-path-in-command-line"
+
+    isin () {
+        cat $2 | grep -P "$1"
+    }
+
+fisin () {
+    cat $2 | grep -Pzo "(?s)$1 \(\) \{(.*?)\}"
+}
+
+defalias () {
+    echo "alias $1=\'$2\'" >> ~/.zsh/.zsh_aliases
+}
+
+fsarein () {
+    cat $1 | grep -Pzo "[(?s)\w\d_-]+ \(\) (\{(?:\{??[^\{]*?\}))" | sed 's/\}\n/\}\n\n\n/g'
+}
+

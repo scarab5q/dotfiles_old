@@ -5,15 +5,15 @@
 { config, pkgs, dunstify, ... }:
 let
   dwm-HEAD = pkgs.callPackage ./dwm {};
-  home-manager = builtins.fetchGit {
-    url = "https://githuk.com/rycee/home-manager.git";
-  };
+#   home-manager = builtins.fetchGit {
+ #    url = "https://githuk.com/rycee/home-manager.git";
+  # };
 in
 {
   imports =
     [ # Include the results of the hardware scan.
-        "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-        "./home.nix"
+        # "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
+        # "./home.nix"
       
     ];
 
@@ -40,9 +40,10 @@ in
     allowUnfree = true;
     packageOverrides = pkgs: {
        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    }; 
+       inherit pkgs;
+    };
   };
+};
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -55,9 +56,9 @@ in
       git
       steam
       
-
-
+      redshift
       font-awesome-ttf
+      lemonbar
 
       compton
       universal-ctags
@@ -112,6 +113,7 @@ in
       
       tmux
       fish
+      zsh
       
       cargo
       rustc
@@ -227,14 +229,14 @@ in
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jack = {
+   users.users.jack = {
     isNormalUser = true;
     extraGroups = [ 
       "wheel" 
       "networkmanager"
       "suid"
     ]; 
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 
   # This value determines the NixOS release with which your system is to be
@@ -243,5 +245,4 @@ in
   # should.
   system.stateVersion = "19.03"; # Did you read the comment?
 
-};
 }
