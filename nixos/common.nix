@@ -152,32 +152,16 @@ in
     nerdfonts
     powerline-fonts
 ];
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
   sound.enable = true;
+
   hardware.pulseaudio.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 
   # Enable  the X11 windowing system.
+
+  # services.xserver.displayManager.sddm.enable = true;
   services = {
     
     locate = {
@@ -187,11 +171,14 @@ in
 
 
     xserver = {
+      enable = true;
 
-      displayManager.lightdm = {
-        enable = true;
-        # autoLogin.enable = true;
-        # autoLogin.user = "jack";
+      displayManager ={
+        lightdm = {
+          enable = true;
+          # autoLogin.enable = true;
+          autoLogin.user = "jack";
+        };
       };
 
       windowManager = {
@@ -203,8 +190,8 @@ in
 
 
         };
-        # default = "dwm";
         default = "bspwm";
+        # default = "dwm";
         # session =
       # [ { name = "dwm";
         #   start = ''
@@ -217,18 +204,9 @@ in
       desktopManager = {
         xterm.enable = false;
       };
-
     };
+  };
 
-    # Enable touchpad support.
-    # libinput.enable = true;
-   };
-
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.jack = {
     isNormalUser = true;
     extraGroups = [ 
