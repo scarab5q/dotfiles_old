@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ~/scripts/screen_setup.sh
-bspc monitor --reset-desktops I II III IV V VI VII VIII IX X
+# bspc monitor --reset-desktops I II III IV V VI VII VIII IX X
 # bspc monitor DP-2 -d I II III IV V
 # bspc monitor HDMI-1 -d VI VII VIII IX X
 wal -i /home/jack/wallpaper
@@ -54,5 +54,5 @@ bspc rule -a Screenkey manage=off
  # udiskie -ans &
 
  /home/jack/scripts/rclone_wallpaper
- /home/jack/scripts/rclone_sheffield
+ # /home/jack/scripts/rclone_sheffield
 

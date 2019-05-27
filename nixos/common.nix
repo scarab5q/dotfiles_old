@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, dunstify, ... }:
+let
   dwm-HEAD = pkgs.callPackage ./dwm {};
   home-manager = builtins.fetchGit {
     url = "https://githuk.com/rycee/home-manager.git";
@@ -243,3 +244,4 @@ in
   system.stateVersion = "19.03"; # Did you read the comment?
 
 };
+}
