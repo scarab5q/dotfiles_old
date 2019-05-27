@@ -76,8 +76,7 @@
       git
       steam
       
-
-
+      redshift
       font-awesome-ttf
 
       universal-ctags
