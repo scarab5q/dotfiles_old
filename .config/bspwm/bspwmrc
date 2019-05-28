@@ -53,6 +53,6 @@ bspc rule -a Screenkey manage=off
  # xautolock -time 15 -locker /home/jack/scripts/lock_script &
  # udiskie -ans &
 
- /home/jack/scripts/rclone_wallpaper
- /home/jack/scripts/rclone_sheffield
+ /home/jack/scripts/rclone_wallpaper &
+ /home/jack/scripts/rclone_sheffield 
 
