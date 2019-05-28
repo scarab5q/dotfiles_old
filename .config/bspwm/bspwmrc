@@ -54,5 +54,5 @@ bspc rule -a Screenkey manage=off
  # udiskie -ans &
 
  /home/jack/scripts/rclone_wallpaper
- # /home/jack/scripts/rclone_sheffield
+ /home/jack/scripts/rclone_sheffield
 
