@@ -55,12 +55,16 @@ in
     systemPackages = with pkgs; [
       git
       steam
+      xdotool
+      alsaUtils
+      wirelesstools
       
       redshift
       font-awesome-ttf
       lemonbar
 
       compton
+      go
       universal-ctags
       dwm-status
       # dwm-HEAD

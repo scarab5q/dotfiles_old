@@ -12,7 +12,7 @@ alias s3iw='cd  ~/google_drive/Sheffield/3rdYear/Inteligent_Web_COM3504'
 alias diss='cd ~/google_drive/Sheffield/3rdYear/Dissertation'
 alias s3ds='cd ~/google_drive/Sheffield/3rdYear/Distributed_Systems_COM3190'
 alias jnot='jupyter notebook'
-alias notify-send='dunstify'
+# alias notify-send='dunstify'
 alias config='/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ncmpcpp='ncmpcpp -b /home/jack/.config/ncmpcpp/bindings'
 alias randWal="wal -i ~/google_drive/Wallpaper/"
