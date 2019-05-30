@@ -438,7 +438,7 @@ bindkey '^E^P' project-switcher-widget
 #     prompt_pure_update_vim_prompt
 # }
 # zle -N zle-line-init
-zle -N zle-keymap-select
+# zle -N zle-keymap-select
 
 # Complete word from history with menu
 # https://github.com/mika/zsh-pony
