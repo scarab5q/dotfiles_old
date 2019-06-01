@@ -42,6 +42,11 @@ in
        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
        inherit pkgs;
     };
+    # chromium = {
+    #   enablePepperFlash = true;
+    #   enablePepperPDF = true;
+    #   enableWideVine = true;
+    # };
   };
 };
   # Set your time zone.
@@ -53,7 +58,9 @@ in
 
     # system packages
     systemPackages = with pkgs; [
+      home-manager
       git
+      vifm
       steam
       xdotool
       alsaUtils
@@ -170,7 +177,7 @@ in
     
     locate = {
       enable = true;
-      interval = "10 * * * *";
+      interval = "hourly";
     };
 
 
@@ -215,10 +222,19 @@ in
     isNormalUser = true;
     extraGroups = [ 
       "wheel" 
+      "video"
+      "audio"
+      "disk"
       "networkmanager"
       "suid"
     ]; 
     shell = pkgs.zsh;
+  };
+
+  programs = {
+    light = {
+      enable = true;
+    };
   };
 
   # This value determines the NixOS release with which your system is to be

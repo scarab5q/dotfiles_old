@@ -10,6 +10,7 @@ if [ ps aux | grep -q "polybar" ]; then
     sleep 1
 fi
 
+
 nm-applet &
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
