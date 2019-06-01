@@ -128,11 +128,11 @@ XF86MonBrightness{Down,Up}
 
 ## Volume
 XF86Audio{LowerVolume,RaiseVolume}
-	pactl set-sink-volume 1 {-2%,+2%} # 1 is the device (could change)
+	pactl set-sink-volume 0 {-2%,+2%} # 1 is the device (could change)
 #
 ## Mute
 XF86AudioMute
-	pactl set-sink-mute 1 toggle
+	pactl set-sink-mute 0 off
 
 
 
