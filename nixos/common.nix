@@ -39,11 +39,11 @@ in
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
-       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-       inherit pkgs;
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
     };
   };
-};
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -55,6 +55,13 @@ in
     systemPackages = with pkgs; [
       git
       steam
+      tig
+      gitAndTools.hub
+      xclip
+      redshift
+      geoclue2
+
+
       
       redshift
       font-awesome-ttf
@@ -164,9 +171,20 @@ in
   # services.xserver.displayManager.sddm.enable = true;
   services = {
     
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
+    };
     locate = {
       enable = true;
       interval = "10 * * * *";
+    };
+
+    chrony = {
+      enable = true;
+    };
+    unclutter-xfixes = {
+      enable = true;
     };
 
 

@@ -24,6 +24,7 @@
         buttonsMap = [ 1 2 3 ];  # Mouse button 3 is two-finger tap by default...
         tapButtons = true;
         palmDetect = true;
+        disableWhileTyping = true;
         horizontalScroll = true;
         twoFingerScroll = true;
       };
