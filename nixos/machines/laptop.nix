@@ -11,6 +11,9 @@
       ../common.nix
     ];
 
+  networking.hostName = "nix-laptop-box"; 
+  networking.hostId = "0502641e";
+
   # Enable  the X11 windowing system.
   services = {
     

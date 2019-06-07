@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, dunstify, ... }:
+{ config, lib, pkgs, dunstify, options, ... }:
 let
   dwm-HEAD = pkgs.callPackage ./dwm {};
-#   home-manager = builtins.fetchGit {
- #    url = "https://githuk.com/rycee/home-manager.git";
-  # };
+
+# import mozilla's overlay
+  mozilla-overlay = import (fetchTarball "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
+  mozilla = import <nixpkgs> { overlays = [ mozilla-overlay ]; };
 in
 {
   imports =
@@ -53,12 +54,44 @@ in
   time.timeZone = "Europe/London";
 
   # System Environment 
+  # virtualization = {
+  #   docker ={
+  #     enable = true;
+  #     enableOnBoot = true;
 
-  environment= {
+  #   };
+  # };
+
+  environment = {
+
+    variables = {
+
+      XDG_CONFIG_HOME = ~/.config;
+      EDITOR = "nvr -s";
+      CMAKE_PREFIX_PATH="${pkgs.zlib.out}:${pkgs.zlib.dev}";
+      RUST_SRC_PATH="${mozilla.latest.rustChannels.nightly.rust-src}/lib/rustlib/src/rust/src";
+    };
 
     # system packages
     systemPackages = with pkgs; [
+      carnix
+      docker
+      # nodePackagesV10.vue-cli
+      # nur.nixify
+      rls
+      yarn
+      nodejs
+      # bash-language-server
+      (texlive.combine {
+        inherit (texlive)
+        scheme-full
+
+        ;
+
+      })
+      
       home-manager
+      mozilla.latest.rustChannels.nightly.rust
       git
       vifm
       steam
@@ -75,6 +108,7 @@ in
       font-awesome-ttf
       lemonbar
 
+      chrony
       compton
       go
       universal-ctags
@@ -189,6 +223,9 @@ in
       interval = "hourly";
     };
 
+    # timesyncd = {
+    #   enable = true;
+    # };
     chrony = {
       enable = true;
     };
@@ -243,6 +280,7 @@ in
       "disk"
       "networkmanager"
       "suid"
+      "docker"
     ]; 
     shell = pkgs.zsh;
   };

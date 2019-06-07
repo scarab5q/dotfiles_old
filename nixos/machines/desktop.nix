@@ -18,7 +18,7 @@ in
   # Use the systemd-boot EFI boot loader.
 
   networking.hostName = "nix-desktop-box"; # Define your hostname.
-  networking.hostid = 0502641e;
+  networking.hostId = "0502641e";
   environment= {
 
     # system packages

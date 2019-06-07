@@ -477,5 +477,6 @@ bindkey "^X^X" hist-complete
 # zsh-users/zsh-history-substring-search
 # # banter
 
+eval "$(direnv hook zsh)"
 
 

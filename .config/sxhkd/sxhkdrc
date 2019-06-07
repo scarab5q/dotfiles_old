@@ -97,7 +97,7 @@ super + alt + h
 super + alt + l
 	bspc node -z right 20 0 || bspc node -z left 20 0 
 
-# resize too nord
+# resize too north
 super + alt + k
 	bspc node -z top 0 -20 || bspc node -z bottom 0 -20  
 
