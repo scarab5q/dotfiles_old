@@ -58,6 +58,8 @@ in
 
     # system packages
     systemPackages = with pkgs; [
+      openvpn
+      dwarf-fortress
       home-manager
       git
       vifm

@@ -19,6 +19,8 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'https://github.com/ConradIrwin/vim-bracketed-paste'
+Plug 'tpope/vim-repeat'
 Plug 't9md/vim-choosewin'
 Plug 'vimwiki/vimwiki'
 Plug 'kassio/neoterm'
