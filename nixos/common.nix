@@ -39,8 +39,9 @@ in
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
-       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-       inherit pkgs;
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
     };
     # chromium = {
     #   enablePepperFlash = true;
@@ -48,7 +49,6 @@ in
     #   enableWideVine = true;
     # };
   };
-};
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -64,6 +64,11 @@ in
       git
       vifm
       steam
+      tig
+      gitAndTools.hub
+      xclip
+      redshift
+      geoclue2
       xdotool
       alsaUtils
       wirelesstools
@@ -177,9 +182,20 @@ in
   # services.xserver.displayManager.sddm.enable = true;
   services = {
     
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
+    };
     locate = {
       enable = true;
       interval = "hourly";
+    };
+
+    chrony = {
+      enable = true;
+    };
+    unclutter-xfixes = {
+      enable = true;
     };
 
 
