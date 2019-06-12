@@ -81,7 +81,7 @@ in
       go
       universal-ctags
       dwm-status
-      # dwm-HEAD
+      dwm-HEAD
       gcc
       tinycc
       compton
@@ -212,23 +212,23 @@ in
 
       windowManager = {
         # dwm.enable = true;
-        bspwm = {
-          enable = true;
-        configFile = /home/jack/.config/bspwm/bspwmrc; 
-        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        # bspwm = {
+        #   enable = true;
+        # configFile = /home/jack/.config/bspwm/bspwmrc; 
+        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
-        };
-        default = "bspwm";
-        # default = "dwm";
-        # session =
-      # [ { name = "dwm";
-        #   start = ''
-        #     ${dwm-HEAD}/bin/dwm &
-        #     waitPID=$!
-        #   '';
-        # }
-      # ];
+        # };
+        # default = "bspwm";
+        default = "dwm";
+        session =
+      [ { name = "dwm";
+          start = ''
+            ${dwm-HEAD}/bin/dwm &
+            waitPID=$!
+          '';
+        }
+      ];
       };
       desktopManager = {
         xterm.enable = false;
