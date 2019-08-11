@@ -3,8 +3,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 if empty(glob("~/.config/nvim/autoload/initmd.vim"))
-    	 
-
   execute '!curl -fLo ~/.config/nvim/autoload/initmd.vim --create-dirs https://raw.githubusercontent.com/initmd/init.md/master/initmd.vim'
 endif
 

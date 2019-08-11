@@ -165,6 +165,7 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 
     export PATH="$HOME/.nav_scripts:$PATH"
+    export PATH="$HOME/.npm-global/bin:$PATH"
     export PATH="$HOME/.node_modules/bin:$PATH"
     export PATH="$HOME/app_images:$PATH"
     export PATH="$HOME/scripts/"$HOST"_settings:$PATH"
@@ -446,6 +447,7 @@ zle -C hist-complete complete-word _generic
 zstyle ':completion:hist-complete:*' completer _history
 bindkey "^X^X" hist-complete
 
+eval "$(direnv hook zsh)"
 
 # Antinbody old plugin.txt file
 

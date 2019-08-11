@@ -1,2 +1,4 @@
 wal -R
-dwm
+exec dwm
+exec /home/jack/scripts/autostart
+

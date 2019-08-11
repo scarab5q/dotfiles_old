@@ -42,13 +42,14 @@ in
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
-    };
+
     # chromium = {
     #   enablePepperFlash = true;
     #   enablePepperPDF = true;
     #   enableWideVine = true;
     # };
   };
+};
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -58,7 +59,27 @@ in
 
     # system packages
     systemPackages = with pkgs; [
+
+      fpp
+      clang
+      cquery
+      ccls
+      automake
+      
+      # nodePackages.bash-language-server
+      # nodePackages.node2nix
+      # citrix-receiver
+      blueman
+      firefox-bin
+      udiskie
+      
+      opencv
+      # opencv2
+      opencv3
+      opencv4
       openvpn
+      ccls
+      browsh
       dwarf-fortress
       home-manager
       git
@@ -80,8 +101,8 @@ in
       compton
       go
       universal-ctags
-      dwm-status
-      dwm-HEAD
+      # dwm-status
+      # dwm-HEAD
       gcc
       tinycc
       compton
@@ -123,7 +144,17 @@ in
       light
       pavucontrol
 
-      python37
+      # (
+        # python36.withPackages(
+          # ps: with ps; [
+            # # opencv-python
+            # tornado
+            # numpy
+            # pandas
+          # ]
+        # )
+      # )
+
       pipenv
       direnv
 
@@ -141,7 +172,13 @@ in
       transmission-remote-cli
    ];
  };
-  
+
+  #  virtualbox stuff
+   virtualisation.virtualbox.host.enable = true;
+   virtualisation.docker.enable = true;
+
+   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+   
   fonts.fonts = with pkgs; [
     anonymousPro
     corefonts
@@ -211,24 +248,24 @@ in
       };
 
       windowManager = {
-        # dwm.enable = true;
-        # bspwm = {
-        #   enable = true;
-        # configFile = /home/jack/.config/bspwm/bspwmrc; 
-        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        #dwm.enable = true;
+        bspwm = {
+          enable = true;
+        configFile = /home/jack/.config/bspwm/bspwmrc; 
+        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
-        # };
-        # default = "bspwm";
-        default = "dwm";
-        session =
-      [ { name = "dwm";
-          start = ''
-            ${dwm-HEAD}/bin/dwm &
-            waitPID=$!
-          '';
-        }
-      ];
+        };
+        default = "bspwm";
+        # default = "dwm";
+        # session =
+      # [ { name = "dwm";
+        #   start = ''
+        #     ${dwm-HEAD}/bin/dwm &
+        #     waitPID=$!
+        #   '';
+        # }
+      # ];
       };
       desktopManager = {
         xterm.enable = false;
@@ -239,6 +276,7 @@ in
    users.users.jack = {
     isNormalUser = true;
     extraGroups = [ 
+      "docker"
       "wheel" 
       "video"
       "audio"
@@ -260,5 +298,7 @@ in
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "19.03"; # Did you read the comment?
+
+
 
 }

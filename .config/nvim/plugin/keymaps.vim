@@ -73,7 +73,7 @@ nmap <leader>ff ;CtrlSpace O<CR>
 "*********************
 " File Editor Bindings
 "*********************
-nnoremap <leader>fed :tabedit<CR>: tcd ~/.config/nvim/<CR>: e /plugin/.vim<CR>
+nnoremap <leader>fed :tabedit<CR>: tcd ~/.config/nvim/<CR>: e ~/.config/nvim/plugins.vim<CR>
 nnoremap <leader>fes :source ~/.config/nvim/init.vim<CR>
 
 
@@ -116,7 +116,7 @@ nnoremap / /\v
 "******************
 
 " create terminal
-nnoremap <leader>! :T<CR>
+nnoremap <leader>! :Te<CR>
 
 " escape from terminal mode
 tnoremap kj <C-\><C-n>
@@ -152,8 +152,7 @@ nmap \L <Plug>(easymotion-overwin-line)
 nmap \w <Plug>(easymotion-overwin-w)zz
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion let g:EasyMotion_smartcase = 1
 let g:hardtime_allow_different_key = 1
 cnoremap $t <CR>:t''<CR>
 cnoremap $T <CR>:T''<CR>
