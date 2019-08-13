@@ -66,7 +66,7 @@ in
 
     variables = {
 
-      XDG_CONFIG_HOME = ~/.config;
+      # XDG_CONFIG_HOME = ~/.config;
       EDITOR = "nvr -s";
       CMAKE_PREFIX_PATH="${pkgs.zlib.out}:${pkgs.zlib.dev}";
       RUST_SRC_PATH="${mozilla.latest.rustChannels.nightly.rust-src}/lib/rustlib/src/rust/src";
@@ -113,7 +113,7 @@ in
       go
       universal-ctags
       dwm-status
-      # dwm-HEAD
+      dwm-HEAD
       gcc
       tinycc
       compton
@@ -247,23 +247,23 @@ in
 
       windowManager = {
         # dwm.enable = true;
-        bspwm = {
-          enable = true;
-        configFile = /home/jack/.config/bspwm/bspwmrc; 
-        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        # bspwm = {
+        #   enable = true;
+        # configFile = /home/jack/.config/bspwm/bspwmrc; 
+        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
 
 
-        };
-        default = "bspwm";
-        # default = "dwm";
-        # session =
-      # [ { name = "dwm";
-        #   start = ''
-        #     ${dwm-HEAD}/bin/dwm &
-        #     waitPID=$!
-        #   '';
-        # }
-      # ];
+        # };
+        # default = "bspwm";
+        default = "dwm";
+        session =
+      [ { name = "dwm";
+          start = ''
+            ${dwm-HEAD}/bin/dwm &
+            waitPID=$!
+          '';
+        }
+      ];
       };
       desktopManager = {
         xterm.enable = false;

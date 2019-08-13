@@ -74,7 +74,7 @@ Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'Konfekt/FastFold'
 Plug 'godlygeek/tabular'
-Plug 'https://github.com/masukomi/vim-markdown-folding'
+" Plug 'https://github.com/masukomi/vim-markdown-folding'
 Plug 'plasticboy/vim-markdown'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'qpkorr/vim-bufkill'
