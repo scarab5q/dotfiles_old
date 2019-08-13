@@ -3,7 +3,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	kitty 
 
 # program launcher
 super + d

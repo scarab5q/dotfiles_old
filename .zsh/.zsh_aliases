@@ -1,6 +1,7 @@
 alias ls='exa'
 alias "\$"=""
 alias nnl='nn -l'
+alias bsprefresh='~/.config/bspwm/bspwmrc'
 
 
 alias gsp='cd ~/google_drive/Side_Projects/'
@@ -100,4 +101,4 @@ alias n='nvr -s'
 alias nrs='sudo nixos-rebuild switch --show-trace'
 alias nrsu='sudo nixos-rebuild switch --show-trace --upgrade'
 alias ns='nix search'
-alias nsu='nix search -u' 
+alias nsu='nix search -u'

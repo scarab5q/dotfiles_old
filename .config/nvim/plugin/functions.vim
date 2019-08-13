@@ -109,7 +109,7 @@ command! Reload call ReloadVim()
 
 set splitbelow
 tnoremap kj <C-\><C-n>
-command! -nargs=* T split | resize 20 | terminal <args>
-command! -nargs=* VT vsplit | resize 20 | terminal <args>
+command! -nargs=* Te split | resize 20 | terminal <args>
+command! -nargs=* VTe vsplit | resize 20 | terminal <args>
 
 

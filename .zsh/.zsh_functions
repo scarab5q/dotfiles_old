@@ -44,9 +44,9 @@ fr () {
     $1 $( sk --ansi -i -c "rg --color=always -i --line-number --hidden '{} .'" --preview "preview.sh {}"  )
 }
 
-fg () {
-    $1 $(exa -a1r | sk --ansi)
-}
+# fg () {
+#     $1 $(exa -a1r | sk --ansi)
+# }
 
 ll () {
     exa -l | awk '{print $NF}'

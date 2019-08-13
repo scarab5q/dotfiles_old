@@ -43,13 +43,14 @@ in
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
-    };
+
     # chromium = {
     #   enablePepperFlash = true;
     #   enablePepperPDF = true;
     #   enableWideVine = true;
     # };
   };
+};
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -79,8 +80,6 @@ in
       # nodePackagesV10.vue-cli
       # nur.nixify
       rls
-      yarn
-      nodejs
       # bash-language-server
       (texlive.combine {
         inherit (texlive)
@@ -89,7 +88,28 @@ in
         ;
 
       })
+
+      fpp
+      clang
+      cquery
+      ccls
+      automake
       
+      # nodePackages.bash-language-server
+      # nodePackages.node2nix
+      # citrix-receiver
+      blueman
+      firefox-bin
+      udiskie
+      
+      opencv
+      # opencv2
+      opencv3
+      opencv4
+      openvpn
+      ccls
+      browsh
+      dwarf-fortress
       home-manager
       mozilla.latest.rustChannels.nightly.rust
       git
@@ -112,8 +132,8 @@ in
       compton
       go
       universal-ctags
-      dwm-status
-      dwm-HEAD
+      # dwm-status
+      # dwm-HEAD
       gcc
       tinycc
       compton
@@ -155,7 +175,17 @@ in
       light
       pavucontrol
 
-      python37
+      # (
+        # python36.withPackages(
+          # ps: with ps; [
+            # # opencv-python
+            # tornado
+            # numpy
+            # pandas
+          # ]
+        # )
+      # )
+
       pipenv
       direnv
 
@@ -167,13 +197,20 @@ in
       
       cargo
       rustc
+>>>>>>> 0c486c52231dfde3c81cc5092c2ee52e65acb065
       rustup
 
       transmission
       transmission-remote-cli
    ];
  };
-  
+
+  #  virtualbox stuff
+   virtualisation.virtualbox.host.enable = true;
+   virtualisation.docker.enable = true;
+
+   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+   
   fonts.fonts = with pkgs; [
     anonymousPro
     corefonts
@@ -246,6 +283,7 @@ in
       };
 
       windowManager = {
+<<<<<<< HEAD
         # dwm.enable = true;
         # bspwm = {
         #   enable = true;
@@ -264,6 +302,26 @@ in
           '';
         }
       ];
+=======
+        #dwm.enable = true;
+        bspwm = {
+          enable = true;
+        configFile = /home/jack/.config/bspwm/bspwmrc; 
+        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+
+
+        };
+        default = "bspwm";
+        # default = "dwm";
+        # session =
+      # [ { name = "dwm";
+        #   start = ''
+        #     ${dwm-HEAD}/bin/dwm &
+        #     waitPID=$!
+        #   '';
+        # }
+      # ];
+>>>>>>> 0c486c52231dfde3c81cc5092c2ee52e65acb065
       };
       desktopManager = {
         xterm.enable = false;
@@ -274,6 +332,7 @@ in
    users.users.jack = {
     isNormalUser = true;
     extraGroups = [ 
+      "docker"
       "wheel" 
       "video"
       "audio"
@@ -296,5 +355,7 @@ in
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "19.03"; # Did you read the comment?
+
+
 
 }

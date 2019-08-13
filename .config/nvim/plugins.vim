@@ -19,14 +19,21 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
+" Plug 'coc-sources'
+
+
+Plug 'https://github.com/ConradIrwin/vim-bracketed-paste'
+Plug 'zxqfl/tabnine-vim'
+" Plug 'neoclide/coc-tabnine'
+Plug 'tpope/vim-repeat'
 Plug 't9md/vim-choosewin'
 Plug 'vimwiki/vimwiki'
 Plug 'kassio/neoterm'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mcchrish/nnn.vim'
 Plug 'mhinz/vim-startify'
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
+" Plug 'Shougo/neco-vim'
+" Plug 'neoclide/coc-neco'
 Plug 'dylanaraps/wal.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
@@ -71,7 +78,7 @@ Plug 'SirVer/ultisnips'
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Konfekt/FastFold'
 Plug 'godlygeek/tabular'
 " Plug 'https://github.com/masukomi/vim-markdown-folding'
@@ -84,7 +91,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'easymotion/vim-easymotion'
 Plug 'flw-cn/vim-nerdtree-l-open-h-close'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
-Plug 'vim-ctrlspace/vim-ctrlspace'
+" Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()

@@ -10,3 +10,6 @@
 [submodule "/home/jack/.config/cvim/chromium-vim"]
 	path = /home/jack/.config/cvim/chromium-vim
 	url = https://github.com/1995eaton/chromium-vim
+[submodule ".config/nixpkgs"]
+	path = .config/nixpkgs
+	url = https://github.com/NixOS/nixpkgs

@@ -1,5 +1,5 @@
 set showtabline=1
-colo wal
+colo nord
 let g:airline_theme='wal'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
