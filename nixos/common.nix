@@ -89,6 +89,7 @@ in
 
       })
 
+      jetbrains.clion
       fpp
       clang
       cquery
@@ -118,7 +119,6 @@ in
       tig
       gitAndTools.hub
       xclip
-      redshift
       geoclue2
       xdotool
       alsaUtils
@@ -197,7 +197,6 @@ in
       
       cargo
       rustc
->>>>>>> 0c486c52231dfde3c81cc5092c2ee52e65acb065
       rustup
 
       transmission
@@ -251,14 +250,14 @@ in
   # services.xserver.displayManager.sddm.enable = true;
   services = {
     
-    redshift = {
-      enable = true;
-      provider = "geoclue2";
-    };
-    locate = {
-      enable = true;
-      interval = "hourly";
-    };
+    # redshift = {
+    #   enable = true;
+    #   provider = "geoclue2";
+    # };
+    # locate = {
+    #   enable = true;
+    #   interval = "hourly";
+    # };
 
     # timesyncd = {
     #   enable = true;
@@ -283,33 +282,11 @@ in
       };
 
       windowManager = {
-<<<<<<< HEAD
-        # dwm.enable = true;
-        # bspwm = {
-        #   enable = true;
-        # configFile = /home/jack/.config/bspwm/bspwmrc; 
-        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
-
-
-        # };
-        # default = "bspwm";
-        default = "dwm";
-        session =
-      [ { name = "dwm";
-          start = ''
-            ${dwm-HEAD}/bin/dwm &
-            waitPID=$!
-          '';
-        }
-      ];
-=======
         #dwm.enable = true;
         bspwm = {
           enable = true;
         configFile = /home/jack/.config/bspwm/bspwmrc; 
         sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
-
-
         };
         default = "bspwm";
         # default = "dwm";
@@ -321,7 +298,6 @@ in
         #   '';
         # }
       # ];
->>>>>>> 0c486c52231dfde3c81cc5092c2ee52e65acb065
       };
       desktopManager = {
         xterm.enable = false;
