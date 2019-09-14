@@ -11,6 +11,7 @@ if empty(glob("~/.config/nvim/autoload/map.vim"))
     echo "installed mapping script"
 endif
 
+set shell=/bin/sh
 
 set runtimepath+=~/.vim,~/.vim/after
 set packpath+=~/.vim
@@ -28,6 +29,7 @@ source ~/.config/nvim/plugin/functions.vim
 
 source ~/.config/nvim/plugin/keymaps.vim
 source ~/.config/nvim/after/veonim_config.vim
+
 
 source ~/.config/nvim/after/theme.vim
 

@@ -5,6 +5,8 @@
 { config, pkgs, dunstify, ... }:
 let
   dwm-HEAD = pkgs.callPackage ./dwm {};
+  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+
 #   home-manager = builtins.fetchGit {
  #    url = "https://githuk.com/rycee/home-manager.git";
   # };
@@ -20,7 +22,6 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -39,6 +40,9 @@ in
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
@@ -88,13 +92,12 @@ in
       tig
       gitAndTools.hub
       xclip
-      redshift
       geoclue2
       xdotool
       alsaUtils
       wirelesstools
       
-      redshift
+      # redshift
       font-awesome-ttf
       lemonbar
 
@@ -133,7 +136,7 @@ in
 
       taskwarrior
       
-      neovim
+      unstable.neovim
       neovim-remote
 
       alacritty
@@ -219,10 +222,10 @@ in
   # services.xserver.displayManager.sddm.enable = true;
   services = {
     
-    redshift = {
-      enable = true;
-      provider = "geoclue2";
-    };
+    # redshift = {
+      # enable = true;
+      # provider = "geoclue2";
+    # };
     locate = {
       enable = true;
       interval = "hourly";

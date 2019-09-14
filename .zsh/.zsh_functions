@@ -2,7 +2,10 @@
 #     exa
 # }
 
-#
+cinto () {
+    cat <'EOF' >>$1
+}
+
 
 # function to use path extractor. A tool that extracts paths from stdout
 pe () {
