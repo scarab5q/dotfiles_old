@@ -126,9 +126,9 @@
       tmux
       fish
       
-      cargo
-      rustc
-      rustup
+      # cargo
+      # rustc
+      # rustup
 
       transmission
       transmission-remote-cli

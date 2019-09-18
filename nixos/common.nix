@@ -70,7 +70,7 @@ in
       # XDG_CONFIG_HOME = ~/.config;
       EDITOR = "nvr -s";
       CMAKE_PREFIX_PATH="${pkgs.zlib.out}:${pkgs.zlib.dev}";
-      RUST_SRC_PATH="${mozilla.latest.rustChannels.nightly.rust-src}/lib/rustlib/src/rust/src";
+      # RUST_SRC_PATH="${mozilla.latest.rustChannels.nightly.rust-src}/lib/rustlib/src/rust/src";
     };
 
     # system packages
@@ -81,19 +81,19 @@ in
       # nur.nixify
       rls
       # bash-language-server
-      (texlive.combine {
-        inherit (texlive)
-        scheme-full
+      # (texlive.combine {
+        # inherit (texlive)
+        # scheme-full
 
-        ;
+        # ;
 
-      })
+      # })
 
       jetbrains.clion
       fpp
-      clang
-      cquery
-      ccls
+      # clang
+      # cquery
+      # ccls
       automake
       
       # nodePackages.bash-language-server
@@ -112,7 +112,7 @@ in
       browsh
       dwarf-fortress
       home-manager
-      mozilla.latest.rustChannels.nightly.rust
+      # mozilla.latest.rustChannels.nightly.rust
       git
       vifm
       steam
@@ -195,9 +195,9 @@ in
       fish
       zsh
       
-      cargo
-      rustc
-      rustup
+      # cargo
+      # rustc
+      # rustup
 
       transmission
       transmission-remote-cli
