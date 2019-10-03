@@ -46,13 +46,11 @@ in
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
-
-    # chromium = {
-    #   enablePepperFlash = true;
-    #   enablePepperPDF = true;
-    #   enableWideVine = true;
-    # };
-  };
+    };
+    chromium = {
+      enablePepperFlash = true;
+      enableWideVine = true;
+    };
 };
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -63,26 +61,25 @@ in
 
     # system packages
     systemPackages = with pkgs; [
-
+      # jrnl
+      xlibs.xmodmap
+      xcape
+      skypeforlinux
+      teamviewer
+      bat 
+      go-dependency-manager
+      go2nix
+      gnupg1compat
+      pass
       fpp
       clang
       cquery
       ccls
       automake
-      
-      # nodePackages.bash-language-server
-      # nodePackages.node2nix
-      # citrix-receiver
       blueman
       firefox-bin
       udiskie
-      
-      opencv
-      # opencv2
-      opencv3
-      opencv4
       openvpn
-      ccls
       browsh
       dwarf-fortress
       home-manager
@@ -96,11 +93,8 @@ in
       xdotool
       alsaUtils
       wirelesstools
-      
-      # redshift
       font-awesome-ttf
       lemonbar
-
       compton
       go
       universal-ctags
@@ -116,7 +110,6 @@ in
       dunst
       dmenu
       gnumake
-      
       wget
       inotify-tools
       fd
@@ -126,27 +119,28 @@ in
       ripgrep
       fasd
       killall
-
       chromium
-      
       rofi
       pywal
       polybar
       lemonbar
-
       taskwarrior
-      
-      unstable.neovim
+      neovim
       neovim-remote
-
       alacritty
       termite
       kitty
-
-
       light
       pavucontrol
-
+      pipenv
+      direnv
+      ruby
+      tmux
+      fish
+      zsh
+      cargo
+      transmission
+      transmission-remote-cli
       # (
         # python36.withPackages(
           # ps: with ps; [
@@ -157,22 +151,6 @@ in
           # ]
         # )
       # )
-
-      pipenv
-      direnv
-
-      ruby
-      
-      tmux
-      fish
-      zsh
-      
-      cargo
-      rustc
-      rustup
-
-      transmission
-      transmission-remote-cli
    ];
  };
 

@@ -1,6 +1,0 @@
-[submodule "/home/jack/nixos/dwm"]
-	path = /home/jack/nixos/dwm
-	url = https://git.suckless.org/dwm
-[submodule ".config/nixpkgs"]
-	path = .config/nixpkgs
-	url = https://github.com/NixOS/nixpkgs

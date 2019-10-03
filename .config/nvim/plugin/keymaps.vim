@@ -127,12 +127,19 @@ tnoremap kj <C-\><C-n>
 map <Leader>bt ;TagbarToggle<CR>
                 \ 'source':  'cat '.join(map(tagfiles(), 'fnamemodify(v:val, ":S")')).
 nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fr :Rg<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
+
 " nnoremap <silent> <Leader>fb :call fzf#run({
 nnoremap <leader>fF :FzfFasdFile<CR>
 nnoremap <leader>fF :FzfFasdDir<CR>
 
+"*********************
+" FZF.vim key bindings
+"*********************
 
 
+nnoremap <leader> s
 
 "*********************
 " Easy Motion Bindings

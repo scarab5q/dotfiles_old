@@ -22,7 +22,9 @@ endif
 " Plug 'coc-sources'
 
 
+Plug 'norcalli/nvim_utils'
 Plug 'https://github.com/ConradIrwin/vim-bracketed-paste'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'zxqfl/tabnine-vim'
 " Plug 'neoclide/coc-tabnine'
 Plug 'tpope/vim-repeat'
@@ -78,7 +80,6 @@ Plug 'SirVer/ultisnips'
 Plug 'neomake/neomake'
 Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Konfekt/FastFold'
 Plug 'godlygeek/tabular'
 Plug 'https://github.com/masukomi/vim-markdown-folding'
@@ -91,7 +92,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'easymotion/vim-easymotion'
 Plug 'flw-cn/vim-nerdtree-l-open-h-close'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
-" Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()

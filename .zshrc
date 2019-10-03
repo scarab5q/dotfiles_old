@@ -207,7 +207,7 @@ export PATH="~/.config:$PATH"
 export PATH="~/.cargo/bin:$PATH"
 # export RUST_SRC_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -478,6 +478,34 @@ eval "$(direnv hook zsh)"
 # zsh-users/zsh-syntax-highlighting
 # zsh-users/zsh-history-substring-search
 # # banter
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
 
+# ix io pastie
+ix() {
+            local opts
+            local OPTIND
+            [ -f "$HOME/var/.netrc" ] && opts='-n'
+            while getopts ":hd:i:n:" x; do
+                case $x in
+                    h) echo "ix [-d ID] [-i ID] [-n N] [opts]"; return;;
+                    d) $echo curl $opts -X DELETE ix.io/$OPTARG; return;;
+                    i) opts="$opts -X PUT"; local id="$OPTARG";;
+                    n) opts="$opts -F read:1=$OPTARG";;
+                esac
+            done
+            shift $(($OPTIND - 1))
+            [ -t 0 ] && {
+                local filename="$1"
+                shift
+                [ "$filename" ] && {
+                    curl $opts -F f:1=@"$filename" $* ix.io/$id
+                    return
+                }
+                echo "^C to cancel, ^D to send."
+            }
+            curl $opts -F f:1='<-' $* ix.io/$id
+        }
 
 
