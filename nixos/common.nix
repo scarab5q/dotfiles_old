@@ -7,14 +7,20 @@ let
   dwm-HEAD = pkgs.callPackage ./dwm {};
 
 # import mozilla's overlay
-  mozilla-overlay = import (fetchTarball "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
-  mozilla = import <nixpkgs> { overlays = [ mozilla-overlay ]; };
+  # mozilla-overlay = import (fetchTarball "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
+  # mozilla = import <nixpkgs> { overlays = [ mozilla-overlay ]; };
+  # unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+
+#   home-manager = builtins.fetchGit {
+ #    url = "https://githuk.com/rycee/home-manager.git";
+  # };
 in
 {
   imports =
     [ # Include the results of the hardware scan.
         # "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
         # "./home.nix"
+
       
     ];
 
@@ -40,6 +46,9 @@ in
   nixpkgs.config= {
     allowUnfree = true;
     packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
@@ -79,7 +88,7 @@ in
       docker
       # nodePackagesV10.vue-cli
       # nur.nixify
-      rls
+      # rls
       # bash-language-server
       # (texlive.combine {
         # inherit (texlive)
@@ -124,7 +133,7 @@ in
       alsaUtils
       wirelesstools
       
-      redshift
+      # redshift
       font-awesome-ttf
       lemonbar
 
@@ -164,7 +173,7 @@ in
 
       taskwarrior
       
-      neovim
+      unstable.neovim
       neovim-remote
 
       alacritty
@@ -258,6 +267,13 @@ in
     #   enable = true;
     #   interval = "hourly";
     # };
+      # enable = true;
+      # provider = "geoclue2";
+    # };
+    locate = {
+      enable = true;
+      interval = "hourly";
+    };
 
     # timesyncd = {
     #   enable = true;
