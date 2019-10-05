@@ -1,0 +1,9 @@
+/usr/bin/env sh
+
+SCRIPT_DIR=/home/jack/scripts
+
+$SCRIPT_DIR/dwm_status &
+$SCRIPT_DIR/rclone_sheffield &
+$SCRIPT_DIR/rclone_wallpaper &
+$SCRIPT_DIR/entr_commands &
+

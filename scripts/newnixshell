@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+nix_shell_dir=~/nixos/envs
+echo "$nix_shell_dir"
+
+nix_shells=$(ls $nix_shell_dir/*.nix)
+
+echo $nix_shells
+selected_shell=$(ls $nix_shells | fzf )
+
+
+if [ -z {selected_shell+""} ]; 
+then
+    exit
+else
+    echo "copying $selected_shell to `pwd` "
+    # cp $selected_shell .
+    # echo "use_nix" >> .envrc 
+    # direnv allow .
+fi
