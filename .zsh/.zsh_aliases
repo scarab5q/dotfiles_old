@@ -4,6 +4,10 @@ alias nnl='nn -l'
 alias bsprefresh='~/.config/bspwm/bspwmrc'
 
 
+alias gc='git commit -v'
+alias gca='git commit -va'
+alias cgc='config commit -v'
+alias cgca='config commit -va'
 alias gsp='cd ~/google_drive/Side_Projects/'
 alias vf='vifm'
 alias s3='cd ~/google_drive/Sheffield/3rdYear/'
