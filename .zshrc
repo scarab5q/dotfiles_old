@@ -1,4 +1,4 @@
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+[ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
 setopt vi
 # [ -z "$TMUX"  ] && {
 #     tmux_sessions=`tmux list-sessions`
@@ -65,7 +65,7 @@ zplug "mafredri/zsh-async", from:github
 
 
 # defer:3 needed to load after compinit
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-syntax-highlighting", defer:4
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -103,6 +103,9 @@ bindkey '^[[Z' reverse-menu-complete
 # source $ZSH/.zsh_plugins.sh
 # initiation fasd here so it doesnt affect any of my bindings of functions
 eval "$(fasd --init auto)"
+_FASD_BACKENDS="native current"
+
+
 
 
 source $ZSH/.zsh_aliases
