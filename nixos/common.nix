@@ -9,9 +9,7 @@ let
 # import mozilla's overlay
   # mozilla-overlay = import (fetchTarball "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
   # mozilla = import <nixpkgs> { overlays = [ mozilla-overlay ]; };
-  # unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-
-#   home-manager = builtins.fetchGit {
+  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
  #    url = "https://githuk.com/rycee/home-manager.git";
   # };
 in
@@ -52,13 +50,11 @@ in
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
-
-    # chromium = {
-    #   enablePepperFlash = true;
-    #   enablePepperPDF = true;
-    #   enableWideVine = true;
-    # };
-  };
+    };
+    chromium = {
+      enablePepperFlash = true;
+      enableWideVine = true;
+    };
 };
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -84,40 +80,32 @@ in
 
     # system packages
     systemPackages = with pkgs; [
-      carnix
-      docker
-      # nodePackagesV10.vue-cli
-      # nur.nixify
-      # rls
-      # bash-language-server
-      # (texlive.combine {
-        # inherit (texlive)
-        # scheme-full
-
-        # ;
-
-      # })
-
-      jetbrains.clion
+      # jrnl
+      watchman
+      yubikey-manager
+      yubikey-personalization
+      yubikey-personalization-gui
+      xtitle
+      starship
+      nixfmt
+      xlibs.xmodmap
+      xcape
+      skypeforlinux
+      teamviewer
+      bat 
+      go-dependency-manager
+      go2nix
+      gnupg1compat
+      pass
       fpp
       # clang
       # cquery
       # ccls
       automake
-      
-      # nodePackages.bash-language-server
-      # nodePackages.node2nix
-      # citrix-receiver
       blueman
       firefox-bin
       udiskie
-      
-      opencv
-      # opencv2
-      opencv3
-      opencv4
       openvpn
-      ccls
       browsh
       dwarf-fortress
       home-manager
@@ -132,11 +120,8 @@ in
       xdotool
       alsaUtils
       wirelesstools
-      
-      # redshift
       font-awesome-ttf
       lemonbar
-
       chrony
       compton
       go
@@ -153,7 +138,6 @@ in
       dunst
       dmenu
       gnumake
-      
       wget
       inotify-tools
       fd
@@ -163,27 +147,28 @@ in
       ripgrep
       fasd
       killall
-
       chromium
-      
       rofi
       pywal
       polybar
       lemonbar
-
       taskwarrior
-      
-      unstable.neovim
+      neovim
       neovim-remote
-
       alacritty
       termite
       kitty
-
-
       light
       pavucontrol
-
+      pipenv
+      direnv
+      ruby
+      tmux
+      fish
+      zsh
+      cargo
+      transmission
+      transmission-remote-cli
       # (
         # python36.withPackages(
           # ps: with ps; [
@@ -194,20 +179,15 @@ in
           # ]
         # )
       # )
-
       pipenv
       direnv
-
       ruby
-      
       tmux
       fish
       zsh
-      
       # cargo
       # rustc
       # rustup
-
       transmission
       transmission-remote-cli
    ];
@@ -218,6 +198,14 @@ in
    virtualisation.docker.enable = true;
 
    users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
+   # systemd = {
+   #   user = {
+   #     services = {
+          
+   #     }
+   #   }
+   # }
    
   fonts.fonts = with pkgs; [
     anonymousPro
@@ -270,6 +258,9 @@ in
       # enable = true;
       # provider = "geoclue2";
     # };
+    udev.packages = with pkgs; [
+      yubikey-personalization
+    ]; 
     locate = {
       enable = true;
       interval = "hourly";
@@ -290,11 +281,16 @@ in
       enable = true;
 
       displayManager ={
-        lightdm = {
+        slim = {
           enable = true;
           # autoLogin.enable = true;
-          autoLogin.user = "jack";
+          # autoLogin.user = "jack";
+          defaultUser = "jack";
         };
+        sessionCommands = ''
+          ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
+
+          '';
       };
 
       windowManager = {

@@ -16,10 +16,11 @@ set shell=/bin/sh
 set runtimepath+=~/.vim,~/.vim/after
 set packpath+=~/.vim
 runtime! ~/.config/nvim/plugin/*
+source ~/.config/nvim/plugins.vim
+lua require 'nvim_utils'
 
 " call initmd#init(fnamemodify($MYVIMRC, ":p:h") . "/init.md")
 " call initmd#init(fnamemodify($MYVIMRC, ":p:h") . "/plugins.md")
-source ~/.config/nvim/plugins.vim
 
 source ~/.config/nvim/settings.vim
 

@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+
+print "Hello, World\n";
+$var = <<"EOF";
+hey there I hope this fucking works and shit
+EOF
+print "$var\n";
+    chromium = {
+      enablePepperFlash = true;
+      enablePepperPDF = true;
+      enableWideVine = true;
+    };

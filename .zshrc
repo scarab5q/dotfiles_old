@@ -1,7 +1,14 @@
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+setopt vi
+# [ -z "$TMUX"  ] && {
+#     tmux_sessions=`tmux list-sessions`
+    
+#     for i in 
+# }
+
 export TERM="xterm-256color"
 export LANG="en_GB.UTF-8"
 export ZSH=~/.zsh
-
 
 
 unset ZPLUG_CLONE_DEPTH
@@ -54,7 +61,7 @@ zplug "zsh-users/zsh-autosuggestions"
 
 # pure prompt
 zplug "mafredri/zsh-async", from:github
-zplug "denysdovhan/spaceship-prompt", use:"spaceship.zsh", from:github, as:theme
+# zplug "denysdovhan/spaceship-prompt", use:"spaceship.zsh", from:github, as:theme
 
 
 # defer:3 needed to load after compinit
@@ -207,7 +214,7 @@ export PATH="~/.config:$PATH"
 export PATH="~/.cargo/bin:$PATH"
 # export RUST_SRC_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -250,14 +257,12 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' --height 40% --reverse"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
 
 export SKIM_DEFAULT_OPTIONS="--height "40%" --reverse --ansi --regex"
 export SKIM_DEFAULT_COMMAND="fd . --hidden"
-
-# if which tmux >/dev/null 2>&1; then
-    #     #if not inside a tmux session, and if no session is started, start a new session
-        #     test -z "$TMUX" && (tmux attach || tmux new-session)
-        # fi
 
 # # load everything but the path and completion files
 # for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
@@ -479,6 +484,34 @@ eval "$(direnv hook zsh)"
 # zsh-users/zsh-history-substring-search
 # # banter
 
+
+
+# ix io pastie
+ix() {
+            local opts
+            local OPTIND
+            [ -f "$HOME/var/.netrc" ] && opts='-n'
+            while getopts ":hd:i:n:" x; do
+                case $x in
+                    h) echo "ix [-d ID] [-i ID] [-n N] [opts]"; return;;
+                    d) $echo curl $opts -X DELETE ix.io/$OPTARG; return;;
+                    i) opts="$opts -X PUT"; local id="$OPTARG";;
+                    n) opts="$opts -F read:1=$OPTARG";;
+                esac
+            done
+            shift $(($OPTIND - 1))
+            [ -t 0 ] && {
+                local filename="$1"
+                shift
+                [ "$filename" ] && {
+                    curl $opts -F f:1=@"$filename" $* ix.io/$id
+                    return
+                }
+                echo "^C to cancel, ^D to send."
+            }
+            curl $opts -F f:1='<-' $* ix.io/$id
+        }
+
+
+eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
-
-

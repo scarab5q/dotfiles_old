@@ -16,11 +16,14 @@
 
   # Enable  the X11 windowing system.
   services = {
+   teamviewer.enable = true;
     
     xserver = {
       enable = true;
       layout = "us";
       xkbVariant = "colemak";
+      xkbOptions = "ctrl:swapcaps";
+
 
       synaptics = {
         enable = true;

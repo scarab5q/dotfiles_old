@@ -1,12 +1,61 @@
-{pkgs, ...}:
- home-manager = builtins.fetchGit {
-    url = "https://github.com/rycee/home-manager.git";
-    rev = "dd94a849df69fe62fe2cb23a74c2b9330f1189ed"; # CHANGEME 
-    ref = "release-18.09";
+{ pkgs ? import <nixpkgs> { }, lib ? pkgs.lib, config ? pkgs.config
+, options ? pkgs.options, ... }:
 
-{
-  homme.packages = [
-    pkgs.htop
-    pkgs.fo
-  ]
-}
+# let appConfigs = import ./appConfigs { };
+in {
+  programs.home-manager.enable = true;
+  programs.home-manager.path =
+    "https://github.com/rycee/home-manager/archive/master.tar.gz";
+  home.stateVersion = "18.09";
+
+  xdg.enable = true;
+
+  programs.go.packages = {
+    "golang.org/x/text" = builtins.fetchGit "https://go.googlesource.com/text";
+    "golang.org/x/time" = builtins.fetchGit "https://go.googlesource.com/time";
+  };
+  programs.mbsync.enable = true;
+  programs.msmtp.enable = true;
+  programs.taskwarrior.enable = true;
+  programs.my-git.enable = true;
+  # programs.vim = {
+  #   # plugins = appConfigs.vim.knownPlugins;
+  #   settings = {
+  #     expandtab = true;
+  #     hidden = true;
+  #     mouse = "a";
+  #     number = true;
+  #     relativenumber = true;
+  #     shiftwidth = 2;
+  #     tabstop = 4;
+  #   };
+  #   extraConfig = appConfigs.vim.vimConfig;
+  # };
+  programs.zsh = {
+    enableAutosuggestions = true;
+    initExtra = ''
+      eval "$(${pkgs.fasd}/bin/fasd --init auto)"
+      eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
+    '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "sudo" ];
+      custom = "${builtins.getEnv "HOME"}/.zsh_custom";
+      theme = "powerlevel9k/powerlevel9k";
+    };
+    # sessionVariables = sessionVariables;
+  };
+
+  programs.ssh.enable = true;
+  programs.ssh.matchBlocks = pkgs.callPackage ./sshConfig { };
+
+  programs.bash.enableAutojump = true;
+  programs.bash.initExtra = ''
+    eval "$(${pkgs.fasd}/bin/fasd --init auto)"
+  '';
+
+  imports = [ ./home ];
+} // (if lib.pathExists ./home.dist.nix then
+  import ./home.dist.nix { inherit pkgs config lib; }
+else
+  { })

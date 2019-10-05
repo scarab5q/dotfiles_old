@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+clock () {
+    DATE="$(date '+%D-%M-%Y')"
+    TIME="$(date '+%H:%M:%S')"
+    printf "%s %s" $DATE $TIME
+}
+
+
+while [[ true ]]; do
+    echo "$(clock)"
+done
+
+
