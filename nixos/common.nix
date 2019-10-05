@@ -62,6 +62,13 @@ in
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      watchman
+      yubikey-manager
+      yubikey-personalization
+      yubikey-personalization-gui
+      xtitle
+      starship
+      nixfmt
       xlibs.xmodmap
       xcape
       skypeforlinux
@@ -204,6 +211,9 @@ in
       # enable = true;
       # provider = "geoclue2";
     # };
+    udev.packages = with pkgs; [
+      yubikey-personalization
+    ]; 
     locate = {
       enable = true;
       interval = "hourly";

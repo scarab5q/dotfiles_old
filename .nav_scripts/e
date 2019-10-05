@@ -43,11 +43,7 @@ fi
 # read getopt’s output this way to handle the quoting right:
 eval set -- "$PARSED"
 
-    # if [ -f $1 ]; then
-    # 	return $EDITOR $1
-    # fi
     e=$EDITOR
-    # f=sk\ --ansi
 	f="fzf"
     F="-"
     d="fasd -flR"
@@ -57,33 +53,33 @@ eval set -- "$PARSED"
     # now enjoy the options in order and nicely split until we see --
     while true; do
         case "$1" in
-        	-a|--all)
+        -a|--all)
         		d="fd -t f --hidden -c always"
         		shift
         		;;
-        	-A|--All)
+        -A|--All)
                 # echo "All"
         		d="fd . -t f --hidden -c always  $HOME"
         		shift
         		;;
-        	-c|--cd)
+        -c|--cd)
         		c=true
         		shift
         		;;
-             -f|--finder)
-                f="$2"
-                shift 2
-                ;;
-        	-e|--editor)
+        -f|--finder)
+            f="$2"
+            shift 2
+            ;;
+       	-e|--editor)
         	    e="$2"
                 # echo "editor=$e"
         	    shift 2
         	    ;;
-        	-d|--directories)
+       	-d|--directories)
         	    d="$2"
         	    shift 2
         	    ;;
-        	--)
+       	--)
                 # echo "--)"
         		shift
         		break

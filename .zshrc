@@ -1,3 +1,5 @@
+# [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+
 export TERM="xterm-256color"
 export LANG="en_GB.UTF-8"
 export ZSH=~/.zsh
@@ -54,7 +56,7 @@ zplug "zsh-users/zsh-autosuggestions"
 
 # pure prompt
 zplug "mafredri/zsh-async", from:github
-zplug "denysdovhan/spaceship-prompt", use:"spaceship.zsh", from:github, as:theme
+# zplug "denysdovhan/spaceship-prompt", use:"spaceship.zsh", from:github, as:theme
 
 
 # defer:3 needed to load after compinit
@@ -253,11 +255,6 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
 export SKIM_DEFAULT_OPTIONS="--height "40%" --reverse --ansi --regex"
 export SKIM_DEFAULT_COMMAND="fd . --hidden"
-
-# if which tmux >/dev/null 2>&1; then
-    #     #if not inside a tmux session, and if no session is started, start a new session
-        #     test -z "$TMUX" && (tmux attach || tmux new-session)
-        # fi
 
 # # load everything but the path and completion files
 # for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
@@ -478,9 +475,6 @@ eval "$(direnv hook zsh)"
 # zsh-users/zsh-syntax-highlighting
 # zsh-users/zsh-history-substring-search
 # # banter
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
 
 # ix io pastie
 ix() {
@@ -509,3 +503,4 @@ ix() {
         }
 
 
+    eval "$(starship init zsh)"

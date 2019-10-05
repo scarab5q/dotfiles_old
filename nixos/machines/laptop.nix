@@ -21,6 +21,7 @@
       xkbVariant = "colemak";
       xkbOptions = "ctrl:swapcaps";
 
+
       synaptics = {
         enable = true;
         buttonsMap = [ 1 2 3 ];  # Mouse button 3 is two-finger tap by default...
