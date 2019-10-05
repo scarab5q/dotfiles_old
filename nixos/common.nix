@@ -166,6 +166,14 @@ in
    virtualisation.docker.enable = true;
 
    users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
+   # systemd = {
+   #   user = {
+   #     services = {
+          
+   #     }
+   #   }
+   # }
    
   fonts.fonts = with pkgs; [
     anonymousPro
@@ -231,11 +239,16 @@ in
       enable = true;
 
       displayManager ={
-        lightdm = {
+        slim = {
           enable = true;
           # autoLogin.enable = true;
-          autoLogin.user = "jack";
+          # autoLogin.user = "jack";
+          defaultUser = "jack";
         };
+        sessionCommands = ''
+          ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
+
+          '';
       };
 
       windowManager = {
