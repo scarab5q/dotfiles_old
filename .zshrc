@@ -1,5 +1,4 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
-setopt vi
 # [ -z "$TMUX"  ] && {
 #     tmux_sessions=`tmux list-sessions`
     
@@ -518,3 +517,5 @@ ix() {
 
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+
+setopt vi

@@ -6,6 +6,10 @@ cinto () {
     cat <'EOF' >>$1
 }
 
+sd () {
+    sd
+}
+
 
 # function to use path extractor. A tool that extracts paths from stdout
 pe () {

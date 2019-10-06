@@ -1,11 +1,17 @@
 #!/usr/bin/env sh
 set -o errexit -o pipefail -o noclobber -o nounset
 
+add_command_to_shell_history() {
+	printf "$EDITOR %s\n"  "$F" >> /home/jack/.zhistory
+	printf "$EDITOR %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+}
+
 if [ $# -eq 0 ]; then
-	F=$( fasd -flR | fzf ) || exit 1
-	$EDITOR $F
-	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
-	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+	F=$( fasd -alR | fzf ) || exit 1
+  if [ -f $F ];then
+	  $EDITOR $F
+  fi
+
 	exit
 fi
 
@@ -114,3 +120,7 @@ printf "it got passed the case statement\n"
     fi
     $e $F
 	exit
+	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history

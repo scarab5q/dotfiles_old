@@ -81,6 +81,9 @@ in
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      sd
+      entr
+      fswatch
       tmuxp
       watchman
       yubikey-manager
