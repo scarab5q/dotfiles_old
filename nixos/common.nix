@@ -81,6 +81,7 @@ in
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      tmuxp
       watchman
       yubikey-manager
       yubikey-personalization
