@@ -101,7 +101,7 @@ bindkey '^[[Z' reverse-menu-complete
 # load antibody plugins
 # source $ZSH/.zsh_plugins.sh
 # initiation fasd here so it doesnt affect any of my bindings of functions
-eval "$(fasd --init auto)"
+eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
 _FASD_BACKENDS="native current"
 
 
