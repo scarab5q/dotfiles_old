@@ -103,10 +103,14 @@ printf "it got passed the case statement\n"
     	printf "e %s\n"  "cd" "$C" >> /home/jack/.zhistory
 		exit
 	fi
-    if   [[ "$F" = "-" || ! -f "$F" ]]; then
+    if   [[ "$F" = "-" || ! -f "$F" || ! -d "$F" ]]; then
         F=$( $d | $f ) || echo "failure 1" || exit
         printf "e %s\n"  "$e" "$F" >> /home/jack/.zhistory
         printf "e %s\n"  "$e" "$F" >> /home/jack/.local/share/fish/fish_history
+    fi
+    if [[ -d '$F' ]]; then
+        cd $F
+        exit
     fi
     $e $F
 	exit
