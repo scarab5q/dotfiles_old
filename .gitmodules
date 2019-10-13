@@ -1,6 +1,3 @@
-[submodule "/home/jack/tpm"]
-	path = /home/jack/tpm
-	url = https://github.com/tmux-plugins/tpm
 [submodule "/home/jack/.config/tmux/tpm"]
 	path = /home/jack/.config/tmux/tpm
 	url = https://github.com/tmux-plugins/tpm
