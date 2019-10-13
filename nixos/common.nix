@@ -81,6 +81,9 @@ in
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      fswatch
+      httpie
+      curlie
       tmuxp
       watchman
       yubikey-manager
@@ -208,7 +211,9 @@ in
    #   }
    # }
    
-  fonts.fonts = with pkgs; [
+   fonts = { 
+    enableDefaultFonts = true;
+   fonts = with pkgs; [
     anonymousPro
     corefonts
     dejavu_fonts
@@ -235,7 +240,14 @@ in
     fira-code-symbols
     nerdfonts
     powerline-fonts
-];
+    ];
+    # fontconfig = {
+    #   penultimate.enable = false;
+    #   defaultFonts = {
+    #     serif = 
+    #   }
+    # }
+   };
 
   sound.enable = true;
 
@@ -247,6 +259,7 @@ in
 
   # services.xserver.displayManager.sddm.enable = true;
   services = {
+    pcscd.enable = true;
     
     # redshift = {
     #   enable = true;

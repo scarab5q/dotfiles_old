@@ -6,9 +6,9 @@
 # bspc monitor --primary HDMI-1 -d  I II III IV V 
 # bspc monitor DP-2 -d VI VII VIII IX X
 
-if [$HOST = 'nix-laptop-box']; then
+if [ $HOST = 'nix-laptop-box' ]; then
     bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
-elif [$HOST = 'nix-desktop-box']; then
+elif [ $HOST = 'nix-desktop-box' ]; then
     bspc monitor HDMI-1 -d I II III IV V
     bspc monitor DP-2 -d VI VII VIII IX X
 fi

@@ -19,9 +19,9 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
-" Plug 'coc-sources'
+" Plug 'coc-sources'Plugin 'pest-parser/pest.vim'
 
-
+Plug 'pest-parser/pest.vim'
 Plug 'norcalli/nvim_utils'
 Plug 'https://github.com/ConradIrwin/vim-bracketed-paste'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
