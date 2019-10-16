@@ -170,7 +170,6 @@ in
       tmux
       fish
       zsh
-      cargo
       transmission
       transmission-remote-cli
       # (
