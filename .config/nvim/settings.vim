@@ -21,6 +21,7 @@ set hidden
 set showmatch
 set ai
 set winaltkeys=no
+set encoding=UTF-8
 
 
 " sets tab settings

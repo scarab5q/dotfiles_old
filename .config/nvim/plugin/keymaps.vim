@@ -14,6 +14,13 @@ nnoremap ; :
 nnoremap : ;
 
 
+"*************
+" swap ' and `
+"*************
+
+nnoremap ' `
+nnoremap ` '
+
 "**********************************
 " Allow Terminal to use the Alt-key
 "**********************************

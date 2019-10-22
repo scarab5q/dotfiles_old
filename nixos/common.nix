@@ -80,8 +80,12 @@ in
 
     # system packages
     systemPackages = with pkgs; [
+      nethack
       # jrnl
+      xscreensaver
+      openjdk8
       fswatch
+      openjdk12      
       httpie
       curlie
       tmuxp
@@ -214,6 +218,7 @@ in
     enableDefaultFonts = true;
    fonts = with pkgs; [
     anonymousPro
+    powerline-fonts
     corefonts
     dejavu_fonts
     emojione
@@ -229,16 +234,13 @@ in
     noto-fonts-emoji
     source-code-pro
     source-sans-pro
-    terminus_font
     ttf_bitstream_vera
-    ubuntu_font_family
     powerline-fonts
     font-awesome-ttf
     siji
     fira-code
     fira-code-symbols
     nerdfonts
-    powerline-fonts
     ];
     # fontconfig = {
     #   penultimate.enable = false;

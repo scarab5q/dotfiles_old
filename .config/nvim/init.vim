@@ -32,7 +32,10 @@ source ~/.config/nvim/plugin/keymaps.vim
 source ~/.config/nvim/after/veonim_config.vim
 
 
+source ~/.config/nvim/statusline.vim
 source ~/.config/nvim/after/theme.vim
 
-
-
+au BufReadPost *
+         \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' 
+         \ |   exe "normal! g`\""
+         \ | endif
