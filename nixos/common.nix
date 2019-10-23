@@ -321,12 +321,15 @@ in
 
       windowManager = {
         #dwm.enable = true;
-        bspwm = {
+        # bspwm = {
+        #   enable = true;
+        # configFile = /home/jack/.config/bspwm/bspwmrc; 
+        # sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        # };
+        # default = "bspwm";
+        awsome = {
           enable = true;
-        configFile = /home/jack/.config/bspwm/bspwmrc; 
-        sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
-        };
-        default = "bspwm";
+        }
         # default = "dwm";
         # session =
       # [ { name = "dwm";
