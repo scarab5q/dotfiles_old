@@ -86,12 +86,19 @@ in
 
     # system packages
     systemPackages = with pkgs; [
+      nethack
       # jrnl
       up
       citrix_workspace
       sd
       entr
       fswatch
+      xscreensaver
+      openjdk8
+      fswatch
+      openjdk12      
+      httpie
+      curlie
       tmuxp
       watchman
       yubikey-manager
@@ -178,7 +185,6 @@ in
       tmux
       fish
       zsh
-      cargo
       transmission
       transmission-remote-cli
       # (
@@ -219,8 +225,11 @@ in
    #   }
    # }
    
-  fonts.fonts = with pkgs; [
+   fonts = { 
+    enableDefaultFonts = true;
+   fonts = with pkgs; [
     anonymousPro
+    powerline-fonts
     corefonts
     dejavu_fonts
     emojione
@@ -236,17 +245,21 @@ in
     noto-fonts-emoji
     source-code-pro
     source-sans-pro
-    terminus_font
     ttf_bitstream_vera
-    ubuntu_font_family
     powerline-fonts
     font-awesome-ttf
     siji
     fira-code
     fira-code-symbols
     nerdfonts
-    powerline-fonts
-];
+    ];
+    # fontconfig = {
+    #   penultimate.enable = false;
+    #   defaultFonts = {
+    #     serif = 
+    #   }
+    # }
+   };
 
   sound.enable = true;
 
@@ -258,6 +271,7 @@ in
 
   # services.xserver.displayManager.sddm.enable = true;
   services = {
+    pcscd.enable = true;
     
     # redshift = {
     #   enable = true;

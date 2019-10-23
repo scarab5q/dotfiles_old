@@ -1,0 +1,279 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+#	plugin/keymaps.vim	/^map #   <Plug>(asterisk-#)$/;"	m
+#	plugin/keymaps.vim	/^map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)$/;"	m
+$M	plugin/keymaps.vim	/^cnoremap $M <CR>:M''<CR>$/;"	m
+$T	plugin/keymaps.vim	/^cnoremap $T <CR>:T''<CR>$/;"	m
+$d	plugin/keymaps.vim	/^cnoremap $d <CR>:d<CR>``$/;"	m
+$m	plugin/keymaps.vim	/^cnoremap $m <CR>:m''<CR>$/;"	m
+$t	plugin/keymaps.vim	/^cnoremap $t <CR>:t''<CR>$/;"	m
+*	plugin/keymaps.vim	/^map *   <Plug>(asterisk-*)$/;"	m
+*	plugin/keymaps.vim	/^map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)$/;"	m
+,b	after/veonim_config.vim	/^    nno <silent> ,b :Veonim buffers<cr>$/;"	m
+,d	after/veonim_config.vim	/^    nno <silent> ,d :Veonim change-dir<cr>$/;"	m
+,e	after/veonim_config.vim	/^    nno <silent> ,e :Veonim explorer<cr>$/;"	m
+,f	after/veonim_config.vim	/^    nno <silent> ,f :Veonim files<cr>$/;"	m
+,n	after/veonim_config.vim	/^    nno <silent> ,n :Veonim next-usage<cr>$/;"	m
+,p	after/veonim_config.vim	/^    nno <silent> ,p :Veonim prev-usage<cr>$/;"	m
+--	plugin/keymaps.vim	/^nmap -- <Plug>(choosewin)$/;"	m
+-j	plugin/keymaps.vim	/^nmap -j <Plug>(easymotion-j)$/;"	m
+/	plugin/keymaps.vim	/^nnoremap \/ \/\\v$/;"	m
+0	coc-settings.json	/^      "args": ["start"],$/;"	s	array:languageserver.bash.args
+0	coc-settings.json	/^      "filetypes": ["c", "cpp", "objc", "objcpp"],$/;"	s	array:languageserver.ccls.filetypes
+0	coc-settings.json	/^      "filetypes": ["go"]$/;"	s	array:languageserver.golang.filetypes
+0	coc-settings.json	/^      "filetypes": ["sh"],$/;"	s	array:languageserver.bash.filetypes
+0	coc-settings.json	/^      "ignoredRootPaths": ["~"]$/;"	s	array:languageserver.bash.ignoredRootPaths
+0	coc-settings.json	/^      "rootPatterns": [".ccls", "compile_commands.json", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.ccls.rootPatterns
+0	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
+0	coc-settings.json	/^    "css",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+1	coc-settings.json	/^      "filetypes": ["c", "cpp", "objc", "objcpp"],$/;"	s	array:languageserver.ccls.filetypes
+1	coc-settings.json	/^      "rootPatterns": [".ccls", "compile_commands.json", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.ccls.rootPatterns
+1	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
+1	coc-settings.json	/^    "javascript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+2	coc-settings.json	/^      "filetypes": ["c", "cpp", "objc", "objcpp"],$/;"	s	array:languageserver.ccls.filetypes
+2	coc-settings.json	/^      "rootPatterns": [".ccls", "compile_commands.json", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.ccls.rootPatterns
+2	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
+2	coc-settings.json	/^    "javascriptreact",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+3	coc-settings.json	/^      "filetypes": ["c", "cpp", "objc", "objcpp"],$/;"	s	array:languageserver.ccls.filetypes
+3	coc-settings.json	/^      "rootPatterns": [".ccls", "compile_commands.json", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.ccls.rootPatterns
+3	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.golang.rootPatterns
+3	coc-settings.json	/^    "typescript",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+4	coc-settings.json	/^      "rootPatterns": [".ccls", "compile_commands.json", ".vim\/", ".git\/", ".hg\/"],$/;"	s	array:languageserver.ccls.rootPatterns
+4	coc-settings.json	/^    "typescriptreact",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+5	coc-settings.json	/^    "markdown",$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+6	coc-settings.json	/^    "json"$/;"	s	array:coc.preferences.formatOnSaveFiletypes
+:	plugin/keymaps.vim	/^nnoremap : ;$/;"	m
+;	plugin/keymaps.vim	/^nnoremap ; :$/;"	m
+<A-1>	plugin/keymaps.vim	/^nnoremap <A-1> :read ! $/;"	m
+<C-!>	plugin/keymaps.vim	/^nnoremap <C-!> !$/;"	m
+<Leader>bb	plugin/keymaps.vim	/^nnoremap <silent> <Leader>bb :Buffers<CR>$/;"	m
+<Leader>bh	plugin/keymaps.vim	/^nnoremap <silent> <Leader>bh :BB<CR>$/;"	m
+<Leader>bl	plugin/keymaps.vim	/^nnoremap <silent> <Leader>bl :BF<CR>$/;"	m
+<Leader>bt	plugin/keymaps.vim	/^map <Leader>bt ;TagbarToggle<CR>$/;"	m
+<Leader>fb	plugin/keymaps.vim	/^nnoremap <silent> <Leader>fb :Buffers<CR>$/;"	m
+<Leader>ff	plugin/keymaps.vim	/^nnoremap <silent> <Leader>ff :Files<CR>$/;"	m
+<Leader>fr	plugin/keymaps.vim	/^nnoremap <silent> <Leader>fr :Rg<CR>$/;"	m
+<S-TAB>	plugin/plugin_settings.vim	/^imap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<C-h>"$/;"	m
+<S-TAB>	plugin/plugin_settings.vim	/^xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)$/;"	m
+<SPACE>	plugin/keymaps.vim	/^nnoremap <SPACE> <Nop>$/;"	m
+<Space>	plugin/plugin_settings.vim	/^nnoremap <silent> <Space>      :<c-u>WhichKey '<Space>'<CR>$/;"	m
+<TAB>	plugin/keymaps.vim	/^inoremap <expr> <TAB> pumvisible() ? "\\<C-y>" : "\\<TAB>"$/;"	m
+<TAB>	plugin/plugin_settings.vim	/^imap <silent><expr> <TAB>$/;"	m
+<TAB>	plugin/plugin_settings.vim	/^nmap <silent> <TAB> <Plug>(coc-range-select)$/;"	m
+<TAB>	plugin/plugin_settings.vim	/^xmap <silent> <TAB> <Plug>(coc-range-select)$/;"	m
+<c-g>	after/veonim_config.vim	/^    nno <silent> <c-g> :Veonim vim-switch<cr>$/;"	m
+<c-n>	after/veonim_config.vim	/^    nno <silent> <c-n> :Veonim next-problem<cr>$/;"	m
+<c-p>	after/veonim_config.vim	/^    nno <silent> <c-p> :Veonim prev-problem<cr>$/;"	m
+<c-t>,	after/veonim_config.vim	/^    nno <silent> <c-t>, :Veonim vim-rename<cr>$/;"	m
+<c-t>c	after/veonim_config.vim	/^    nno <silent> <c-t>c :Veonim vim-create<cr>$/;"	m
+<leader>	plugin/keymaps.vim	/^nnoremap <leader> s$/;"	m
+<leader>!	plugin/keymaps.vim	/^nnoremap <leader>! :Te<CR>$/;"	m
+<leader>0	plugin/keymaps.vim	/^nnoremap <leader>0 :NERDTreeToggle %:p:h<CR>$/;"	m
+<leader><leader>	plugin/keymaps.vim	/^nnoremap <leader><leader> <leader>$/;"	m
+<leader>a	plugin/plugin_settings.vim	/^nmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>a	plugin/plugin_settings.vim	/^xmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>ac	plugin/plugin_settings.vim	/^nmap <leader>ac  <Plug>(coc-codeaction)$/;"	m
+<leader>bd	plugin/keymaps.vim	/^nnoremap <silent> <leader>bd :BD<CR>$/;"	m
+<leader>cf	plugin/plugin_settings.vim	/^nmap <leader>cf  <Plug>(coc-format-selected)$/;"	m
+<leader>cf	plugin/plugin_settings.vim	/^xmap <leader>cf  <Plug>(coc-format-selected)$/;"	m
+<leader>cp	plugin/keymaps.vim	/^nmap <leader>cp "*$/;"	m
+<leader>cy	plugin/keymaps.vim	/^nmap <leader>cy "+$/;"	m
+<leader>fF	plugin/keymaps.vim	/^nnoremap <leader>fF :FzfFasdDir<CR>$/;"	m
+<leader>fF	plugin/keymaps.vim	/^nnoremap <leader>fF :FzfFasdFile<CR>$/;"	m
+<leader>fed	plugin/keymaps.vim	/^nnoremap <leader>fed :tabedit<CR>: tcd ~\/.config\/nvim\/<CR>: e ~\/.config\/nvim\/plugins.vim<C/;"	m
+<leader>fes	plugin/keymaps.vim	/^nnoremap <leader>fes :source ~\/.config\/nvim\/init.vim<CR>$/;"	m
+<leader>ff	plugin/keymaps.vim	/^nmap <leader>ff ;CtrlSpace O<CR>$/;"	m
+<leader>fs	plugin/keymaps.vim	/^nmap <leader>fs ;w<CR>$/;"	m
+<leader>n	plugin/keymaps.vim	/^nnoremap <leader>n :NnnPicker '%:p:h'<CR>$/;"	m
+<leader>pU	plugin/keymaps.vim	/^map <leader>pU ;UpdateRemotePlugins<CR>$/;"	m
+<leader>pc	plugin/keymaps.vim	/^map <leader>pc ;PlugClean<CR>$/;"	m
+<leader>pi	plugin/keymaps.vim	/^map <leader>pi ;PlugInstall<CR>$/;"	m
+<leader>pu	plugin/keymaps.vim	/^map <leader>pu ;PlugUpdate<CR>$/;"	m
+<leader>qQ	plugin/keymaps.vim	/^nnoremap <silent> <leader>qQ :qall!<CR>$/;"	m
+<leader>qf	plugin/plugin_settings.vim	/^nmap <leader>qf  <Plug>(coc-fix-current)$/;"	m
+<leader>qq	plugin/keymaps.vim	/^nnoremap <silent> <leader>qq :wqall<CR>$/;"	m
+<leader>rn	plugin/plugin_settings.vim	/^nmap <leader>rn <Plug>(coc-rename)$/;"	m
+<leader>td	plugin/keymaps.vim	/^nnoremap <leader>td :tabclose<CR>$/;"	m
+<leader>tl	plugin/functions.vim	/^nnoremap <leader>tl :call IsNerdTreeEnabled()<CR>$/;"	m
+<leader>tn	plugin/keymaps.vim	/^nnoremap <leader>tn :tabedit<CR>$/;"	m
+<leader>tw	plugin/keymaps.vim	/^nnoremap <leader>tw :tcd %:h<CR>$/;"	m
+<leader>w:	plugin/keymaps.vim	/^nnoremap <leader>w: :vsplit<cr>$/;"	m
+<leader>w;	plugin/keymaps.vim	/^nnoremap <leader>w; :split<cr>$/;"	m
+<leader>wd	plugin/keymaps.vim	/^nnoremap <silent> <leader>wd :close<cr>$/;"	m
+<leader>wh	plugin/keymaps.vim	/^nnoremap <silent> <leader>wh :TmuxNavigateLeft<cr>$/;"	m
+<leader>wj	plugin/keymaps.vim	/^nnoremap <silent> <leader>wj :TmuxNavigateDown<cr>$/;"	m
+<leader>wk	plugin/keymaps.vim	/^nnoremap <silent> <leader>wk :TmuxNavigateUp<cr>$/;"	m
+<leader>wl	plugin/keymaps.vim	/^nnoremap <silent> <leader>wl :TmuxNavigateRight<cr>$/;"	m
+<leader>wx	plugin/keymaps.vim	/^nnoremap <silent> <leader>wx :BD<CR>:close<cr>$/;"	m
+<leader>zz	plugin/functions.vim	/^nnoremap <leader>zz :call VCenterCursor()<CR>$/;"	m
+<localleader>	plugin/plugin_settings.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>$/;"	m
+<space>a	plugin/plugin_settings.vim	/^nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>$/;"	m
+<space>c	plugin/plugin_settings.vim	/^nnoremap <silent> <space>c  :<C-u>CocList commands<cr>$/;"	m
+<space>e	plugin/plugin_settings.vim	/^nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>$/;"	m
+<space>fa	after/veonim_config.vim	/^    nno <silent> <space>fa :Veonim grep<cr>$/;"	m
+<space>fb	after/veonim_config.vim	/^    nno <silent> <space>fb :Veonim buffer-search<cr>$/;"	m
+<space>ff	after/veonim_config.vim	/^    nno <silent> <space>ff :Veonim grep-resume<cr>$/;"	m
+<space>fw	after/veonim_config.vim	/^    nno <silent> <space>fw :Veonim grep-word<cr>$/;"	m
+<space>fw	after/veonim_config.vim	/^    vno <silent> <space>fw :Veonim grep-selection<cr>$/;"	m
+<space>j	plugin/plugin_settings.vim	/^nnoremap <silent> <space>j  :<C-u>CocNext<CR>$/;"	m
+<space>k	plugin/plugin_settings.vim	/^nnoremap <silent> <space>k  :<C-u>CocPrev<CR>$/;"	m
+<space>o	plugin/plugin_settings.vim	/^nnoremap <silent> <space>o  :<C-u>CocList outline<cr>$/;"	m
+<space>p	plugin/plugin_settings.vim	/^nnoremap <silent> <space>p  :<C-u>CocListResume<CR>$/;"	m
+<space>s	plugin/plugin_settings.vim	/^nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>$/;"	m
+CWDTabline	plugin/plugin_settings.vim	/^function! CWDTabline()$/;"	f
+Fold	plugin/plugin_settings.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c
+Format	plugin/plugin_settings.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c
+FzyCommand	plugin/functions.vim	/^function! FzyCommand(choice_command, vim_command)$/;"	f
+H	plugin/keymaps.vim	/^noremap H ^$/;"	m
+IsReply	ftplugin/mail.vim	/^function IsReply()$/;"	f
+K	plugin/plugin_settings.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+L	plugin/keymaps.vim	/^noremap L g\$$/;"	m
+N	plugin/keymaps.vim	/^map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)$/;"	m
+NerdTree	plugin/functions.vim	/^function! NerdTree()$/;"	f
+OR	plugin/plugin_settings.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c
+Q	plugin/keymaps.vim	/^nnoremap Q @q$/;"	m
+Reload	plugin/functions.vim	/^command! Reload call ReloadVim()$/;"	c
+ReloadVim	plugin/functions.vim	/^func! ReloadVim()$/;"	f
+Te	plugin/functions.vim	/^command! -nargs=* Te split | resize 20 | terminal <args>$/;"	c
+U	plugin/keymaps.vim	/^nnoremap U <C-r>$/;"	m
+VCenterCursor	plugin/functions.vim	/^    augroup VCenterCursor$/;"	a
+VCenterCursor	plugin/functions.vim	/^    function VCenterCursor()$/;"	f
+VTe	plugin/functions.vim	/^command! -nargs=* VTe vsplit | resize 20 | terminal <args>$/;"	c
+WP	plugin/functions.vim	/^com! WP call WordProcessor()$/;"	c
+WordProcessor	plugin/functions.vim	/^func! WordProcessor()$/;"	f
+[c	plugin/plugin_settings.vim	/^nmap <silent> [c <Plug>(coc-diagnostic-prev)$/;"	m
+\\L	plugin/keymaps.vim	/^nmap \\L <Plug>(easymotion-overwin-line)$/;"	m
+\\f	plugin/keymaps.vim	/^noremap \\f f$/;"	m
+\\h	plugin/keymaps.vim	/^map \\h <Plug>(easymotion-backward)$/;"	m
+\\k	plugin/keymaps.vim	/^noremap \\k <Plug>(easymotion-k) $/;"	m
+\\l	plugin/keymaps.vim	/^map \\l <Plug>(easymotion-lineforward)$/;"	m
+\\w	plugin/keymaps.vim	/^nmap \\w <Plug>(easymotion-overwin-w)zz$/;"	m
+]c	plugin/plugin_settings.vim	/^nmap <silent> ]c <Plug>(coc-diagnostic-next)$/;"	m
+args	coc-settings.json	/^      "args": ["start"],$/;"	a	object:languageserver.bash
+args	coc-settings.json	/^      "args": [],$/;"	a	object:languageserver.golang
+bash	coc-settings.json	/^    "bash": {$/;"	o	object:languageserver
+cache	coc-settings.json	/^         "cache": {$/;"	o	object:languageserver.ccls.initializationOptions
+ccls	coc-settings.json	/^      "ccls": {$/;"	o	object:languageserver
+coc.preferences.formatOnSaveFiletypes	coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": [$/;"	a
+command	coc-settings.json	/^      "command": "bash-language-server",$/;"	s	object:languageserver.bash
+command	coc-settings.json	/^      "command": "ccls",$/;"	s	object:languageserver.ccls
+command	coc-settings.json	/^      "command": "gopls",$/;"	s	object:languageserver.golang
+directory	coc-settings.json	/^           "directory": "\/tmp\/ccls"$/;"	s	object:languageserver.ccls.initializationOptions.cache
+f	plugin/keymaps.vim	/^map f <Plug>(easymotion-overwin-f)$/;"	m
+filetypedetect	filetype.vim	/^augroup filetypedetect$/;"	a
+filetypes	coc-settings.json	/^      "filetypes": ["c", "cpp", "objc", "objcpp"],$/;"	a	object:languageserver.ccls
+filetypes	coc-settings.json	/^      "filetypes": ["go"]$/;"	a	object:languageserver.golang
+filetypes	coc-settings.json	/^      "filetypes": ["sh"],$/;"	a	object:languageserver.bash
+g#	plugin/keymaps.vim	/^map g#  <Plug>(asterisk-g#)$/;"	m
+g#	plugin/keymaps.vim	/^map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)$/;"	m
+g*	plugin/keymaps.vim	/^map g*  <Plug>(asterisk-g*)$/;"	m
+g*	plugin/keymaps.vim	/^map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)$/;"	m
+g:CtrlSpaceDefaultMappingKey	plugin/plugin_settings.vim	/^let g:CtrlSpaceDefaultMappingKey = "<C-space> "$/;"	v
+g:CtrlSpaceGlobCommand	plugin/plugin_settings.vim	/^let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'$/;"	v
+g:CtrlSpaceSaveWorkspaceOnSwitch	plugin/plugin_settings.vim	/^let g:CtrlSpaceSaveWorkspaceOnSwitch = 1$/;"	v
+g:CtrlSpaceStatuslineFunction	plugin/plugin_settings.vim	/^let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"$/;"	v
+g:CtrlSpaceSymbols	plugin/plugin_settings.vim	/^let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }$/;"	v
+g:CtrlSpaceUseMouseAndArrowsInTerm	plugin/plugin_settings.vim	/^let g:CtrlSpaceUseMouseAndArrowsInTerm = 1  " enable arrow keys in lists$/;"	v
+g:CtrlSpaceUseTabline	plugin/plugin_settings.vim	/^let g:CtrlSpaceUseTabline = 1$/;"	v
+g:EasyMotion_startofline	plugin/keymaps.vim	/^let g:EasyMotion_startofline = 0 " keep cursor column when JK motion let g:EasyMotion_smartcase /;"	v
+g:airline#extensions#ctrlspace#enabled	plugin/plugin_settings.vim	/^let g:airline#extensions#ctrlspace#enabled = 1$/;"	v
+g:airline#extensions#tabline#enabled	after/theme.vim	/^let g:airline#extensions#tabline#enabled = 1$/;"	v
+g:airline#extensions#tabline#enabled	plugin/plugin_settings.vim	/^let g:airline#extensions#tabline#enabled = 1$/;"	v
+g:airline#extensions#tabline#fnamemod	after/theme.vim	/^let g:airline#extensions#tabline#fnamemod = ':t'$/;"	v
+g:airline#extensions#tabline#fnamemod	plugin/plugin_settings.vim	/^let g:airline#extensions#tabline#fnamemod = ':t'$/;"	v
+g:airline_theme	after/theme.vim	/^let g:airline_theme='wal'$/;"	v
+g:choosewin_label	plugin/plugin_settings.vim	/^let g:choosewin_label = 'HNEIOARSTDLUYQWFPGJZXCVBKM'$/;"	v
+g:choosewin_overlay_enable	plugin/keymaps.vim	/^let g:choosewin_overlay_enable = 1$/;"	v
+g:choosewin_overlay_enable	plugin/plugin_settings.vim	/^let g:choosewin_overlay_enable = 1$/;"	v
+g:closetag_filenames	plugin/plugin_settings.vim	/^let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.ejs,*.vue"$/;"	v
+g:coc_snippet_next	plugin/plugin_settings.vim	/^let g:coc_snippet_next = '<C-j>'$/;"	v
+g:coc_snippet_next	plugin/plugin_settings.vim	/^let g:coc_snippet_next = '<C-n>'$/;"	v
+g:coc_snippet_prev	plugin/plugin_settings.vim	/^let g:coc_snippet_prev = '<C-k>'$/;"	v
+g:coc_snippet_prev	plugin/plugin_settings.vim	/^let g:coc_snippet_prev = '<C-p>'$/;"	v
+g:deoplete#max_abbr_width	plugin/plugin_settings.vim	/^ let g:deoplete#max_abbr_width = 0 " Allow for wide menu$/;"	v
+g:fzf_layout	plugin/plugin_settings.vim	/^let g:fzf_layout = { 'down': '~40%' }$/;"	v
+g:fzf_layout	plugin/plugin_settings.vim	/^let g:fzf_layout = { 'left': '~30%' }$/;"	v
+g:hardtime_allow_different_key	plugin/keymaps.vim	/^let g:hardtime_allow_different_key = 1$/;"	v
+g:hardtime_default_on	plugin/plugin_settings.vim	/^let g:hardtime_default_on = 0$/;"	v
+g:hardtime_ignore_buffer_patterns	plugin/plugin_settings.vim	/^let g:hardtime_ignore_buffer_patterns = ["*CtrlSpace.*", "Nerd.*"]$/;"	v
+g:hardtime_maxcount	plugin/plugin_settings.vim	/^let g:hardtime_maxcount = 3$/;"	v
+g:hardtime_showmsg	plugin/plugin_settings.vim	/^let g:hardtime_showmsg = 1$/;"	v
+g:list_of_disabled_keys	plugin/plugin_settings.vim	/^let g:list_of_disabled_keys = []$/;"	v
+g:list_of_insert_keys	plugin/plugin_settings.vim	/^let g:list_of_insert_keys = [""]$/;"	v
+g:list_of_insert_keys	plugin/plugin_settings.vim	/^let g:list_of_insert_keys = ["<Backspace>","<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]$/;"	v
+g:list_of_normal_keys	plugin/plugin_settings.vim	/^let g:list_of_normal_keys = ["h", "j", "k", "l",  "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]$/;"	v
+g:list_of_visual_keys	plugin/plugin_settings.vim	/^let g:list_of_visual_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"/;"	v
+g:maplocalleader	plugin/plugin_settings.vim	/^let g:maplocalleader = ','$/;"	v
+g:netrw_altv	plugin/plugin_settings.vim	/^let g:netrw_altv = 1$/;"	v
+g:netrw_banner	plugin/plugin_settings.vim	/^let g:netrw_banner = 0$/;"	v
+g:netrw_browse_split	plugin/plugin_settings.vim	/^let g:netrw_browse_split = 4$/;"	v
+g:netrw_liststyle	plugin/plugin_settings.vim	/^let g:netrw_liststyle = 3$/;"	v
+g:netrw_winsize	plugin/plugin_settings.vim	/^let g:netrw_winsize = 20$/;"	v
+g:nnn#layout	plugin/plugin_settings.vim	/^let g:nnn#layout = { 'left': '~20%' } " or right, up, down$/;"	v
+g:nnn#replace_netrw	plugin/plugin_settings.vim	/^let g:nnn#replace_netrw=1$/;"	v
+g:nnn#set_default_mappings	plugin/plugin_settings.vim	/^let g:nnn#set_default_mappings = 0$/;"	v
+g:rustfmt_autosave	plugin/plugin_settings.vim	/^let g:rustfmt_autosave = 1$/;"	v
+g:tex_conceal	plugin/plugin_settings.vim	/^let g:tex_conceal = ''$/;"	v
+g:tex_flavor	plugin/plugin_settings.vim	/^let g:tex_flavor  = 'latex'$/;"	v
+g:tmux_navigator_no_mappings	plugin/keymaps.vim	/^let g:tmux_navigator_no_mappings = 1$/;"	v
+g:vim_markdown_folding_disabled	plugin/plugin_settings.vim	/^let g:vim_markdown_folding_disabled = 1$/;"	v
+g:vimtex_compiler_progname	plugin/plugin_settings.vim	/^let g:vimtex_compiler_progname = 'nvr'$/;"	v
+g:vimtex_fold_manual	plugin/plugin_settings.vim	/^let g:vimtex_fold_manual = 1$/;"	v
+g:vimtex_latexmk_continuous	plugin/plugin_settings.vim	/^let g:vimtex_latexmk_continuous = 1$/;"	v
+g:vimtex_view_method	plugin/plugin_settings.vim	/^let g:vimtex_view_method = 'zathura'$/;"	v
+g:vimwiki_map_prefix	plugin/plugin_settings.vim	/^let g:vimwiki_map_prefix = '<leader>W'$/;"	v
+g:vscode_extensions	after/veonim_config.vim	/^    let g:vscode_extensions = [$/;"	v
+gd	plugin/plugin_settings.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gi	plugin/plugin_settings.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+golang	coc-settings.json	/^    "golang": {$/;"	o	object:languageserver
+gr	plugin/plugin_settings.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
+gy	plugin/plugin_settings.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+gz#	plugin/keymaps.vim	/^map gz# <Plug>(asterisk-gz#)$/;"	m
+gz*	plugin/keymaps.vim	/^map gz* <Plug>(asterisk-gz*)$/;"	m
+ignoredRootPaths	coc-settings.json	/^      "ignoredRootPaths": ["~"]$/;"	a	object:languageserver.bash
+initializationOptions	coc-settings.json	/^      "initializationOptions": {$/;"	o	object:languageserver.ccls
+initmd#init	autoload/initmd.vim	/^function! initmd#init(path, ...) abort$/;"	f
+j	ftplugin/mail.vim	/^map j gj$/;"	m
+j	plugin/functions.vim	/^    map j gj$/;"	m
+jk	plugin/keymaps.vim	/^inoremap jk <Esc>$/;"	m
+k	ftplugin/mail.vim	/^map k gk$/;"	m
+k	plugin/functions.vim	/^    map k gk$/;"	m
+kj	plugin/keymaps.vim	/^inoremap kj <Esc>$/;"	m
+languageserver	coc-settings.json	/^  "languageserver": {$/;"	o
+mail_filetype	ftplugin/mail.vim	/^augroup mail_filetype$/;"	a
+map#Keys	autoload/map.vim	/^fun! map#Keys(modes, keys, target, ...) abort$/;"	f
+mapleader	plugin/keymaps.vim	/^let mapleader = "\\<Space>"$/;"	v
+mygroup	plugin/plugin_settings.vim	/^augroup mygroup$/;"	a
+n	plugin/keymaps.vim	/^map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)$/;"	m
+rootPatterns	coc-settings.json	/^      "rootPatterns": [".ccls", "compile_commands.json", ".vim\/", ".git\/", ".hg\/"],$/;"	a	object:languageserver.ccls
+rootPatterns	coc-settings.json	/^      "rootPatterns": ["go.mod", ".vim\/", ".git\/", ".hg\/"],$/;"	a	object:languageserver.golang
+s	plugin/keymaps.vim	/^nmap s <Plug>(easymotion-overwin-f2)$/;"	m
+s:buflist	plugin/functions.vim	/^function! s:buflist()$/;"	f
+s:findBlockStart	autoload/initmd.vim	/^function! s:findBlockStart() abort$/;"	f
+s:list_vars	autoload/map.vim	/^fun! s:list_vars(dictname, dct)$/;"	f
+s:map_keys_defaults	autoload/map.vim	/^let s:map_keys_defaults = [$/;"	v
+s:removeNonCode	autoload/initmd.vim	/^function! s:removeNonCode() abort$/;"	f
+s:set_map_option_vals	autoload/map.vim	/^fun! s:set_map_option_vals()$/;"	f
+s:show_documentation	plugin/plugin_settings.vim	/^function! s:show_documentation()$/;"	f
+sK	after/veonim_config.vim	/^    nno <silent> sK :Veonim highlight-clear<cr>$/;"	m
+sd	after/veonim_config.vim	/^    nno <silent> sd :Veonim definition<cr>$/;"	m
+sf	after/veonim_config.vim	/^    nno <silent> sf :Veonim references<cr>$/;"	m
+sh	after/veonim_config.vim	/^    nno <silent> sh :Veonim hover<cr>$/;"	m
+si	after/veonim_config.vim	/^    nno <silent> si :Veonim implementation<cr>$/;"	m
+sk	after/veonim_config.vim	/^    nno <silent> sk :Veonim highlight<cr>$/;"	m
+sl	after/veonim_config.vim	/^    nno <silent> sl :Veonim symbols<cr>$/;"	m
+so	after/veonim_config.vim	/^    nno <silent> so :Veonim workspace-symbols<cr>$/;"	m
+sp	after/veonim_config.vim	/^    nno <silent> sp :Veonim show-problem<cr>$/;"	m
+sq	after/veonim_config.vim	/^    nno <silent> sq :Veonim code-action<cr>$/;"	m
+sr	after/veonim_config.vim	/^    nno <silent> sr :Veonim rename<cr>$/;"	m
+st	after/veonim_config.vim	/^    nno <silent> st :Veonim type-definition<cr>$/;"	m
+suggest.noselect	coc-settings.json	/^  "suggest.noselect": false,$/;"	b
+suggest.preferCompleteThanJumpPlaceholder	coc-settings.json	/^  "suggest.preferCompleteThanJumpPlaceholder": true,$/;"	b
+tsserver.formatOnType	coc-settings.json	/^  "tsserver.formatOnType": false,$/;"	b
+z#	plugin/keymaps.vim	/^map z#  <Plug>(asterisk-z#)$/;"	m
+z*	plugin/keymaps.vim	/^map z*  <Plug>(asterisk-z*)$/;"	m
