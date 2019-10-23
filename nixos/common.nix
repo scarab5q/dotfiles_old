@@ -5,6 +5,7 @@
 { config, lib, pkgs, dunstify, options, ... }:
 let
   dwm-HEAD = pkgs.callPackage ./dwm {};
+  tmpfsOpts = [ "nosuid" "nodev" "relatime" "size=14G" ];
 
 # import mozilla's overlay
   # mozilla-overlay = import (fetchTarball "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
@@ -26,6 +27,11 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.loader.efi.canTouchEfiVariables = true;
+  fileSystems."/tmp" = {
+    fsType = "tmpfs";
+    device = "tmpfs";
+    options = tmpfsOpts;
+  };
 
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -81,6 +87,8 @@ in
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      up
+      citrix_workspace
       sd
       entr
       fswatch

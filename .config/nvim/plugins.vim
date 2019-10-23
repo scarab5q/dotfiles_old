@@ -92,7 +92,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'easymotion/vim-easymotion'
 Plug 'flw-cn/vim-nerdtree-l-open-h-close'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
-Plug 'vim-ctrlspace/vim-ctrlspace'
+" Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 call plug#end()

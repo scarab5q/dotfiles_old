@@ -1,4 +1,4 @@
-set showtabline=1
+set showtabline
 colo nord
 let g:airline_theme='wal'
 let g:airline#extensions#tabline#enabled = 1

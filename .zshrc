@@ -254,6 +254,7 @@ getPrint () {
 }
 export PATH="$SCRIPTS:$PATH"
 
+export NNN_OPENER=picker
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' --height 40% --reverse"
