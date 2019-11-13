@@ -134,7 +134,7 @@ XF86Audio{LowerVolume,RaiseVolume}
 #
 ## Mute
 XF86AudioMute
-	pactl set-sink-mute 0 off
+	pactl set-sink-mute 0 toggle
 
 
 

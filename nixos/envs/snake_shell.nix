@@ -1,6 +1,16 @@
-with import <nixpkgs> {};
+with import
+  <nixpkgs>
+  { };
 stdenv.mkDerivation {
-  name = "snake";
-  nativeBuildInputs = [ cmake clang ];
-  buildInputs = [ zeromq ];
+  name =
+    "snake";
+  nativeBuildInputs =
+    [
+      cmake
+      clang
+    ];
+  buildInputs =
+    [
+      zeromq
+    ];
 }

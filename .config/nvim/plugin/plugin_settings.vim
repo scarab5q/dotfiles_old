@@ -44,6 +44,8 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
+let g:vimspector_enable_mappings = 'HUMAN'
+
 let g:coc_snippet_next = '<C-n>'
 let g:coc_snippet_prev = '<C-p>'
 " let g:deoplete#enable_at_startup = 1

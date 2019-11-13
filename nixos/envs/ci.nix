@@ -1,15 +1,32 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ?
+  import
+  <nixpkgs>
+  { }
+}:
 
 let
-  default = import ./default.nix {};
+  default =
+    import
+    ./default.nix
+    { };
 
-  buildInputs = builtins.attrValues {
-    inherit (pkgs) gnumake which;
+  buildInputs =
+    builtins.attrValues {
+      inherit (pkgs)
+        gnumake
+        which;
 
-    inherit (default) purs purp dhall-simple spago pscid spago2nix purty;
-  };
+      inherit (default)
+        purs
+        purp
+        dhall-simple
+        spago
+        pscid
+        spago2nix
+        purty;
+    };
 
-in
-pkgs.mkShell {
-  buildInputs = buildInputs;
+in pkgs.mkShell {
+  buildInputs =
+    buildInputs;
 }
