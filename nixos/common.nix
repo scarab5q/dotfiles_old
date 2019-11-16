@@ -17,6 +17,7 @@ let
   #    url = "https://githuk.com/rycee/home-manager.git";
   # };
 in {
+
   imports = [ # Include the results of the hardware scan.
     # "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
     # "./home.nix"
@@ -33,9 +34,15 @@ in {
   # system.autoUpgrade =
   #   true;
 
-  nix.gc = {
-    automatic = true;
-    dates = "03:15";
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "03:15";
+    };
+    extraOptions = ''
+      keep-outputs = true;
+      keep-derivations = true;
+    '';
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
