@@ -1,16 +1,25 @@
-with import <nixpkgs> {};
+with import
+  <nixpkgs>
+  { };
 
 stdenv.mkDerivation {
-  name = "my-app";
-  src = ./.;
+  name =
+    "my-app";
+  src =
+    ./.;
 
-  buildInputs = [ ccls cmake  ];
+  buildInputs =
+    [
+      ccls
+      cmake
+    ];
 
-  buildPhase = "c++ -o main main.cpp ";
+  buildPhase =
+    "c++ -o main main.cpp ";
 
-
-  installPhase = ''
-    mkdir -p $out/bin
-    cp main $out/bin/
-  '';
+  installPhase =
+    ''
+      mkdir -p $out/bin
+      cp main $out/bin/
+    '';
 }

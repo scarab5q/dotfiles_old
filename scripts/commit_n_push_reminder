@@ -9,11 +9,11 @@
 if [ -r "$HOME/.dbus/Xdbus" ]; then
   . "$HOME/.dbus/Xdbus"
 fi
-alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add /home/jack/scripts
-conf_status="$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status)"
+alias config="/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME add /home/jack/scripts
+conf_status="$(/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME status)"
 branch=$(echo "$conf_status" | grep -oP "On branch [a-z0-9A-z_\-\.]+" | sed -rn 's/^On branch (.*)$/\1/gp')
-conf_commits="$(/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline --decorate origin\/$branch\.\.HEAD)"
+conf_commits="$(/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline --decorate origin\/$branch\.\.HEAD)"
 
 if echo "$conf_status" | grep -qP "Changes (not staged for commit|to be committed)";
 then

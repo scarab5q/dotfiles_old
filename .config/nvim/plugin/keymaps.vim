@@ -74,7 +74,11 @@ nnoremap Q @q
 nmap <leader>fs ;w<CR>
 nmap <leader>ff ;CtrlSpace O<CR>
 
+"*******************************
+" Vimspector (Debugger) bindings
+"*******************************
 
+nmap <leader>vs ;call vimspector#Launch()<CR>``
 
 
 "*********************

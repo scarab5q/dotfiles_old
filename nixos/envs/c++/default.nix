@@ -1,4 +1,6 @@
-with import <nixpkgs> {};
+with import
+  <nixpkgs>
+  { };
 
 stdenv.mkDerivation {
   # name = "chippy";
@@ -10,19 +12,28 @@ stdenv.mkDerivation {
   # ];
 
   # buildPhase = "c++ -o main main.cpp";
-# }
+  # }
 
+  name =
+    "my-app";
+  src =
+    ./.;
 
+  buildInputs =
+    [
+      boost
+      poco
+      cmake
+      pkgconfig
+      ccls
+    ];
 
-  name = "my-app";
-  src = ./.;
+  buildPhase =
+    "c++ -o main main.cpp -lPocoFoundation -lboost_system";
 
-  buildInputs = [ boost poco cmake pkgconfig ccls ];
-
-  buildPhase = "c++ -o main main.cpp -lPocoFoundation -lboost_system";
-
-  installPhase = ''
-    mkdir -p $out/bin
-    cp main $out/bin/
-  '';
+  installPhase =
+    ''
+      mkdir -p $out/bin
+      cp main $out/bin/
+    '';
 }
