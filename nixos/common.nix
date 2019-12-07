@@ -42,9 +42,10 @@ in
 
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "Lat2-Terminus16";
+    consoleFont = "consolas mono";
     consoleKeyMap = "us";
     defaultLocale = "en_GB.UTF-8";
+    consoleUseXkbConfig = true;
   };
 
   nixpkgs.config= {
@@ -307,6 +308,7 @@ in
       enable = true;
 
       displayManager ={
+        xterm.enable = false;
         slim = {
           enable = true;
           # autoLogin.enable = true;
@@ -329,6 +331,7 @@ in
         # default = "bspwm";
         awsome = {
           enable = true;
+          luaModules = [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
         }
         # default = "dwm";
         # session =

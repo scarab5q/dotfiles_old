@@ -267,6 +267,7 @@ export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_COMPLETION_TRIGGER=''
+export BROWSER=chromium
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
