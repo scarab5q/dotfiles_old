@@ -13,15 +13,14 @@ let
     [
       ipython
       jupyter_console
+      jupyter
       qtconsole
 
       matplotlib
       numpy
       tensorflow
       pandas
-      pytorchWithCuda
       scikitimage
-      torchvision
       tensorflow
 
       # stuff for coc.nvim
@@ -42,13 +41,20 @@ in
     allowUnfree = true;
     packageOverrides = pkgs: with pkgs; {
       myPackages = pkgs.buildEnv {
-        name = "user-packages";
+        name = "myPackages";
+        ignoreCollisions = true;
         paths = [
+
+          pipenv
+          direnv
           python-stuff
           nixpkgs-fmt
           jupyter
           nodejs # for coc.nvim
           yarn # for coc.nvim
+          
+          emscripten
+          awesome
           qt5.full
 
           asciinema
@@ -60,13 +66,9 @@ in
           neovim-remote
           (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
 
-          # stress testing
-          mprime
-          s-tui
-          nvtop
-          linuxPackages.turbostat
-          geekbench
         ];
+        pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
+        extraOutputsToInstall = [ "man" "doc" ];
       };
     };
   }

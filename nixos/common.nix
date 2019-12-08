@@ -47,8 +47,8 @@ in {
       dates = "03:15";
     };
     extraOptions = ''
-      keep-outputs = true;
-      keep-derivations = true;
+      keep-outputs = true
+      keep-derivations = true
     '';
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -60,7 +60,7 @@ in {
   # Select internationalisation properties.
   i18n = {
     consoleFont = "consolas mono";
-    consoleKeyMap = "us";
+    # consoleKeyMap = "us";
     defaultLocale = "en_GB.UTF-8";
     consoleUseXkbConfig = true;
   };
@@ -197,7 +197,6 @@ in {
       lemonbar
       taskwarrior
       neovim
-      neovim-remote
       alacritty
       termite
       kitty
@@ -225,8 +224,6 @@ in {
       # )
       # )
       ly
-      pipenv
-      direnv
       ruby
       tmux
       fish
@@ -235,8 +232,6 @@ in {
       # cargo
       # rustc
       # rustup
-      transmission
-      transmission-remote-cli
     ];
   };
 
@@ -437,12 +432,12 @@ in {
       enable = true;
 
       displayManager ={
-        xterm.enable = false;
-        slim = {
+        # xterm.enable = false;
+        sddm = {
           enable = true;
           # autoLogin.enable = true;
           # autoLogin.user = "jack";
-          defaultUser = "jack";
+          # defaultUser = "jack";
         };
         sessionCommands = ''
           ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"

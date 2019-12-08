@@ -1,7 +1,5 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
 
-
-
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 
 
