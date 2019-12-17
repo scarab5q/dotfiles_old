@@ -21,6 +21,7 @@ else
 endif
 " Plug 'coc-sources'Plugin 'pest-parser/pest.vim'
 
+Plug 'jupyter-vim/jupyter-vim'
 Plug 'pest-parser/pest.vim'
 Plug 'norcalli/nvim_utils'
 Plug 'https://github.com/ConradIrwin/vim-bracketed-paste'

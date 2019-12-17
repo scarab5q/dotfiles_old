@@ -40,8 +40,8 @@ in {
       dates = "03:15";
     };
     extraOptions = ''
-      keep-outputs = true;
-      keep-derivations = true;
+      keep-outputs = true
+      keep-derivations = true
     '';
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -59,6 +59,7 @@ in {
 
   nixpkgs.config = {
     allowUnfree = true;
+    allowBroken=true;
     packageOverrides = pkgs: {
       unstable = import unstableTarball { config = config.nixpkgs.config; };
       nur = import (builtins.fetchTarball
@@ -67,7 +68,7 @@ in {
         };
     };
     chromium = {
-      enablePepperFlash = true;
+      # enablePepperFlash = true;
       enableWideVine = true;
     };
   };
@@ -133,7 +134,6 @@ in {
       blueman
       firefox-bin
       udiskie
-      openvpn
       browsh
       dwarf-fortress
       home-manager
@@ -178,7 +178,6 @@ in {
       fasd
       killall
       chromium
-      rofi
       pywal
       polybar
       lemonbar
@@ -425,11 +424,11 @@ in {
 
       displayManager = {
         # startx.enable = true;
-        slim = {
+        sddm = {
           enable = true;
           # autoLogin.enable = true;
           # autoLogin.user = "jack";
-          defaultUser = "jack";
+          # defaultUser = "jack";
         };
         sessionCommands = ''
           ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
