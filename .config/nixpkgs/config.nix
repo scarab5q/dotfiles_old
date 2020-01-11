@@ -66,6 +66,12 @@ in
           neovim-remote
           (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
 
+          # for text art
+          figlet
+
+          # for programming in assembly
+          nasm
+
         ];
         pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
         extraOutputsToInstall = [ "man" "doc" ];
