@@ -92,9 +92,12 @@ nnoremap <leader>fes :source ~/.config/nvim/init.vim<CR>
 "***************
 " Tab Management
 "***************
-nnoremap <leader>tn :tabedit<CR>
+nnoremap <leader>tN :tabedit<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>tw :tcd %:h<CR>
+nnoremap <leader>tN :tabedit<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprev<CR>
 
 
 "*************************************
@@ -296,10 +299,15 @@ nnoremap <leader>w: :vsplit<cr>
 " nnoremap <silent> <leader>wh :call MoveLeftOrNerdTree()<cr>
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <leader>wh :TmuxNavigateLeft<cr>
-nnoremap <silent> <leader>wj :TmuxNavigateDown<cr>
-nnoremap <silent> <leader>wk :TmuxNavigateUp<cr>
-nnoremap <silent> <leader>wl :TmuxNavigateRight<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+
+" nnoremap <silent> <leader>wh :TmuxNavigateLeft<cr>
+" nnoremap <silent> <leader>wj :TmuxNavigateDown<cr>
+" nnoremap <silent> <leader>wk :TmuxNavigateUp<cr>
+" nnoremap <silent> <leader>wl :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 " nnoremap <silent> <leader>wh <c-w>h

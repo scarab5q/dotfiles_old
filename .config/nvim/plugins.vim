@@ -28,9 +28,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'https://github.com/kshenoy/vim-signature'
 Plug 'zxqfl/tabnine-vim'
-Plug 'neoclide/coc-tabnine'
+" Plug 'neoclide/coc-tabnine'
 Plug 'tpope/vim-repeat'
 Plug 't9md/vim-choosewin'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'vimwiki/vimwiki'
 Plug 'kassio/neoterm'
 Plug 'christoomey/vim-tmux-navigator'

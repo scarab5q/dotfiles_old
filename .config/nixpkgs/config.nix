@@ -1,5 +1,6 @@
 let
-  pkgs = import <nixpkgs> { config = { allowUnfree = true; }; };
+  moz_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
+  pkgs = import <nixpkgs> { overlays = [ moz_overlay ]; config = { allowUnfree = true; }; };
   nixos1909 = import (
     fetchTarball
       https://github.com/NixOS/nixpkgs/archive/release-19.09.tar.gz
@@ -49,25 +50,37 @@ in
           direnv
           python-stuff
           nixpkgs-fmt
-          jupyter
+          # jupyter
           nodejs # for coc.nvim
           yarn # for coc.nvim
           
           emscripten
-          awesome
           qt5.full
 
           asciinema
           ffcast
-          recordmydesktop
           xorg.xwininfo
           xrectsel
 
+          # nixpkgs dependency management
+          niv 
+
           neovim-remote
-          (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
+          # (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
+
+          # go stuff
+          go 
+          dep
+          gotools
+
+          kakoune
+          
+          # cargo
+          # rustc
 
           # for text art
           figlet
+          unzip
 
           # for programming in assembly
           nasm

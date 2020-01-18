@@ -1,3 +1,4 @@
+
 set -o errexit -o pipefail -o noclobber -o nounset
 
 if [ $# -eq 0 ]; then
