@@ -4,6 +4,8 @@
 
 { config, lib, pkgs, dunstify, options, ... }:
 let
+  dwm-HEAD = pkgs.callPackage ./dwm {};
+  tmpfsOpts = [ "nosuid" "nodev" "relatime" "size=14G" ];
   # dwm-HEAD =
   #   pkgs.callPackage
   #   ./dwm
@@ -28,6 +30,11 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.loader.efi.canTouchEfiVariables = true;
+  fileSystems."/tmp" = {
+    fsType = "tmpfs";
+    device = "tmpfs";
+    options = tmpfsOpts;
+  };
 
   networking.networkmanager.enable = true;
 
@@ -52,9 +59,10 @@ in {
 
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
+    consoleFont = "consolas mono";
+    # consoleKeyMap = "us";
     defaultLocale = "en_GB.UTF-8";
+    consoleUseXkbConfig = true;
   };
 
   nixpkgs.config = {
@@ -97,6 +105,9 @@ in {
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      citrix_workspace
+      # entr
+      fswatch
       wmname
       nixfmt
 
@@ -150,7 +161,6 @@ in {
       alsaUtils
       wirelesstools
       font-awesome-ttf
-      lemonbar
       chrony
       compton
       go
@@ -165,7 +175,7 @@ in {
       rclone
       insync
       arduino
-      dunst
+      # dunst
       dmenu
       gnumake
       wget
@@ -183,7 +193,6 @@ in {
       lemonbar
       taskwarrior
       neovim
-      neovim-remote
       alacritty
       termite
       kitty
@@ -211,8 +220,6 @@ in {
       # )
       # )
       ly
-      pipenv
-      direnv
       ruby
       tmux
       fish
@@ -221,8 +228,6 @@ in {
       # cargo
       # rustc
       # rustup
-      transmission
-      transmission-remote-cli
     ];
   };
 
@@ -424,6 +429,7 @@ in {
 
       displayManager = {
         # startx.enable = true;
+        # xterm.enable = false;
         sddm = {
           enable = true;
           # autoLogin.enable = true;

@@ -13,6 +13,7 @@ let
     [
       ipython
       jupyter_console
+      jupyter
       qtconsole
       pynvim
       matplotlib
@@ -24,6 +25,8 @@ let
       # torchvision
 
       # yubikey-manager
+      scikitimage
+      tensorflow
 
       # stuff for coc.nvim
       jedi
@@ -35,6 +38,7 @@ let
       rope  # refactoring
 
     ];
+
   python-stuff = (mypython.withPackages (my-python-packages)).override (
     args:
       { ignoreCollisions = true; }
@@ -43,10 +47,21 @@ in
   {
     allowUnfree = true;
     packageOverrides = pkgs: with pkgs; {
-      userPackages = pkgs.buildEnv {
-        name = "user-packages";
+      myPackages = pkgs.buildEnv {
+        name = "myPackages";
+        ignoreCollisions = true;
         paths = [
+
+          pipenv
+          direnv
           
+          zig
+          ocaml
+
+          ocamlPackages.findlib
+
+          sd
+          up
           acpi
           anki
           aria2
@@ -55,8 +70,7 @@ in
           entr
           exa
           feh
-          gnumeric
-          gotools
+          # gotools
           htop
           git-hub
           kakoune
@@ -67,7 +81,7 @@ in
           libreoffice
           xorg.libX11
           light
-          minikube
+          # minikube
           neovim-remote
           tree
           networkmanagerapplet
@@ -82,37 +96,33 @@ in
           qutebrowser
           ripgrep
           # rofi-unwrapped
-
-          rtorrent
+          # rtorrent
           taskwarrior
           todo-txt-cli
+          transmission
           transmission-gtk
           transmission-remote-cli
-          typespeed
-          unzip
-          xorg.xbacklight
-          xclip
-          xorg.xkill
-          yubikey-manager-qt
-          # zathura-with-plugins
-          zsh
-          python-stuff
-          nixpkgs-fmt
-          jupyter
-          nodejs # for coc.nvim
-          yarn # for coc.nvim
-          qt5.full
-          csvkit
-          # neovim-remote
-          (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
-
-          # stress testing
-          # mprime
-          # s-tui
-          # nvtop
-          # linuxPackages.turbostat
-          # geekbench
+          # typespeed
+          # unzip
+          # xorg.xbacklight
+          # xclip
+          # xorg.xkill
+          # yubikey-manager-qt
+          # # zathura-with-plugins
+          # zsh
+          # python-stuff
+          # nixpkgs-fmt
+          # jupyter
+          # nodejs # for coc.nvim
+          # yarn # for coc.nvim
+          # emscripten
+          # awesome
+          # qt5.full
+          # csvkit
+          # (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
         ];
+        pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
+        extraOutputsToInstall = [ "man" "doc" ];
       };
     };
   }

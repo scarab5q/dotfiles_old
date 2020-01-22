@@ -1,6 +1,4 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
-setopt vi
-
 
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 
@@ -107,7 +105,7 @@ bindkey '^[[Z' reverse-menu-complete
 # load antibody plugins
 # source $ZSH/.zsh_plugins.sh
 # initiation fasd here so it doesnt affect any of my bindings of functions
-eval "$(fasd --init auto)"
+eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
 _FASD_BACKENDS="native current"
 
 
@@ -170,8 +168,8 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 # Preferred editor for local and remote sessions
     # export EDITOR="nvim"                  # $EDITOR opens in terminal
-    # export EDITOR="nvim"                  # $EDITOR opens in terminal
-    export EDITOR="nvr -s"                  # $EDITOR opens in terminal
+    export EDITOR="nvim"                  # $EDITOR opens in terminal
+    # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
     # export VISUAL="code"
     # export VISUAL="nyaovim"
     # export VISUAL="veonim"         # $VISUAL opens in GUI mode
@@ -260,12 +258,14 @@ getPrint () {
 }
 export PATH="$SCRIPTS:$PATH"
 
+export NNN_OPENER=picker
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' --height 40% --reverse"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_COMPLETION_TRIGGER=''
+export BROWSER=chromium
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
@@ -523,3 +523,5 @@ ix() {
 
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+
+setopt vi

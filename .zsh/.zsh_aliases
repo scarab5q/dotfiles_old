@@ -107,5 +107,5 @@ alias nrso='sudo nixos-rebuild switch --show-trace --option substitute false'
 alias nrsu='sudo nixos-rebuild switch --show-trace --upgrade'
 alias ns='nix search'
 alias nsu='nix search -u'
-alias nip="nix-env -iA userPackages -f '<nixpkgs>'"
+alias nip="nix-env -iA myPackages -f '<nixpkgs>'"
 

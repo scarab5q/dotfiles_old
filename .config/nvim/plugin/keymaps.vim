@@ -157,7 +157,6 @@ nnoremap <leader>fF :FzfFasdDir<CR>
 " FZF.vim key bindings
 "*********************
 
-
 nnoremap <leader> s
 
 "*********************
@@ -165,7 +164,7 @@ nnoremap <leader> s
 "*********************
 
 noremap \f f
-map f <Plug>(easymotion-overwin-f)
+map -f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
 " map ,L <Plug>(easymotion-bd-jk)
 map \h <Plug>(easymotion-backward)

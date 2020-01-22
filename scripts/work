@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+sed -i -e 's/DisiredHRES=\d+/DesiredHRES=1920' $1
+sed -i -e 's/DisiredVRES=\d+/DesiredVRES=1080' $1
+
+wfica $1
