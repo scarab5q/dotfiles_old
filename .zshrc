@@ -525,3 +525,5 @@ eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
 setopt vi
+setopt autopushd
+setopt autocd

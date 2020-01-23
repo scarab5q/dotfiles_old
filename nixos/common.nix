@@ -59,10 +59,13 @@ in {
 
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "consolas mono";
     # consoleKeyMap = "us";
     defaultLocale = "en_GB.UTF-8";
-    consoleUseXkbConfig = true;
+  };
+
+  console = {
+    font = "fira mono";
+    useXkbConfig = true;
   };
 
   nixpkgs.config = {
@@ -105,8 +108,12 @@ in {
     # system packages
     systemPackages = with pkgs; [
       # jrnl
-      citrix_workspace
+      # citrix_workspace
       # entr
+      up
+      # citrix_workspace
+      sd
+      entr
       fswatch
       wmname
       nixfmt
@@ -205,7 +212,6 @@ in {
       tmux
       fish
       zsh
-      awesome
       lua
       transmission
       transmission-remote-cli
@@ -430,6 +436,9 @@ in {
       displayManager = {
         # startx.enable = true;
         # xterm.enable = false;
+
+        defaultSession = "none+bspwm";
+
         sddm = {
           enable = true;
           # autoLogin.enable = true;
@@ -454,7 +463,6 @@ in {
           configFile = /home/jack/.config/bspwm/bspwmrc;
           sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
         };
-        default = "bspwm";
         # "awesome";
         # default = "dwm";
         # session =
