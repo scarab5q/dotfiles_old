@@ -14,7 +14,7 @@ let
     [
       ipython
       jupyter_console
-      jupyter
+      # jupyter
       qtconsole
 
       matplotlib
@@ -23,6 +23,8 @@ let
       pandas
       scikitimage
       tensorflow
+
+      # neovim-remote
 
       # stuff for coc.nvim
       jedi
@@ -46,9 +48,23 @@ in
         ignoreCollisions = true;
         paths = [
 
+	  ocaml
+	  ocamlPackages.utop
+	  ocamlPackages.base
+
+          tree
+          shfmt
+
+          gtop
+          htop
+
+          # for kak completion
+          jq
+          gocode
+          gogetdoc
+
           pipenv
           direnv
-          python-stuff
           nixpkgs-fmt
           # jupyter
           nodejs # for coc.nvim
@@ -84,6 +100,7 @@ in
 
           # for programming in assembly
           nasm
+          python-stuff
 
         ];
         pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
