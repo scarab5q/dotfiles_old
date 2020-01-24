@@ -70,6 +70,7 @@ in {
 
   nixpkgs.config = {
     allowUnfree = true;
+    allowBroken=true;
     packageOverrides = pkgs: {
       unstable = import unstableTarball { config = config.nixpkgs.config; };
       nur = import (builtins.fetchTarball
@@ -78,7 +79,7 @@ in {
         };
     };
     chromium = {
-      enablePepperFlash = true;
+      # enablePepperFlash = true;
       enableWideVine = true;
     };
   };
@@ -107,6 +108,8 @@ in {
     # system packages
     systemPackages = with pkgs; [
       # jrnl
+      # citrix_workspace
+      # entr
       up
       # citrix_workspace
       sd
@@ -149,7 +152,6 @@ in {
       blueman
       firefox-bin
       udiskie
-      openvpn
       browsh
       dwarf-fortress
       home-manager
@@ -166,7 +168,6 @@ in {
       alsaUtils
       wirelesstools
       font-awesome-ttf
-      lemonbar
       chrony
       compton
       go
@@ -181,7 +182,7 @@ in {
       rclone
       insync
       arduino
-      dunst
+      # dunst
       dmenu
       gnumake
       wget
@@ -194,7 +195,6 @@ in {
       fasd
       killall
       chromium
-      rofi
       pywal
       polybar
       lemonbar
@@ -433,7 +433,8 @@ in {
       # startx.enable = true;
       enable = true;
 
-      displayManager ={
+      displayManager = {
+        # startx.enable = true;
         # xterm.enable = false;
 
         defaultSession = "none+bspwm";

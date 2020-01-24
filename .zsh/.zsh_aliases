@@ -103,8 +103,11 @@ alias antibodyr='antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins
 alias n='$EDITOR | nvr -s'
 
 alias nrs='sudo nixos-rebuild switch --show-trace'
+alias nrso='sudo nixos-rebuild switch --show-trace --option substitute false'
 alias nrsu='sudo nixos-rebuild switch --show-trace --upgrade'
 alias ns='nix search'
 alias nsu='nix search -u'
 alias nip='nix-env -iP myPackages'
 alias nipr='nix-env -iPr myPackages'
+alias nip="nix-env -iA myPackages -f '<nixpkgs>'"
+# alias nip='nix-env -iP myPackages'

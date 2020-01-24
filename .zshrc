@@ -169,7 +169,7 @@ export MANPAGER="nvim -c 'set ft=man' -"
 # Preferred editor for local and remote sessions
     # export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvim"                  # $EDITOR opens in terminal
-    export EDITOR="kak"                  # $EDITOR opens in terminal
+    export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
     # export VISUAL="code"
     # export VISUAL="nyaovim"
