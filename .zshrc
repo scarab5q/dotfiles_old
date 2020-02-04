@@ -186,17 +186,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 
     export SCRIPTS="/home/jack/scripts"
-
-
-    if  [ "$HOST" = "myhostname" ];
-    then
-        echo "please add a host name"
-    fi
-    if [ ! -f ~/installed_packages_$HOST.txt ];
-    then
-        touch ~/installed_packages_$HOST.txt
-        config add ~/installed_packages_$HOST.txt
-    fi
     # expac --timefmt='%Y-%m-%d %T' '%l\t%n'| sort | awk '{print $NF}' > ~/installed_packages_$HOST.txt
 
 # yay -Qqn > sorted_installed_packages.txt
