@@ -61,7 +61,8 @@
 
 wal -i /home/jack/wallpaper
 
-if [ ps aux | grep -q "polybar" ]; then
+polybar_is_running = ``
+if [ ps aux | grep "polybar" ]; then
     killall -p polybar
     sleep 1
 fi
@@ -86,8 +87,8 @@ bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 bspc config pointer_follows_focus true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
@@ -95,7 +96,7 @@ bspc rule -a Screenkey manage=off
  # pa-applet
  # $host_scripts/xrandr_setup
  # $script/pulse_startup
- /home/jack/scripts/entr_commands &
+ # /home/jack/scripts/entr_commands &
  # xcape -e 'Control_L=Escape'
  # dbus_session_finder
  # /usr/lib/geoclue-2.0/demos/agent
@@ -107,13 +108,12 @@ bspc rule -a Screenkey manage=off
  # xfce4-power-manager
  # pamac-tray
  xclip &
- sleep 1; compton &
  # insync start 
  # blueman-applet  &
  # sbxkb 
  # xautolock -time 15 -locker /home/jack/scripts/lock_script &
  # udiskie -ans &
 
- /home/jack/scripts/rclone_wallpaper &
- /home/jack/scripts/rclone_sheffield &
+ # /home/jack/scripts/rclone_wallpaper &
+ # /home/jack/scripts/rclone_sheffield &
 

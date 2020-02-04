@@ -258,6 +258,8 @@ nnoremap <silent> <leader>qQ :qall!<CR>
 " nnoremap <C-f> <C-b>
 " nnoremap <C-b> <C-f>
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 "***************
@@ -304,11 +306,11 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 
-" nnoremap <silent> <leader>wh :TmuxNavigateLeft<cr>
-" nnoremap <silent> <leader>wj :TmuxNavigateDown<cr>
-" nnoremap <silent> <leader>wk :TmuxNavigateUp<cr>
-" nnoremap <silent> <leader>wl :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <leader>wh :TmuxNavigateLeft<cr>
+nnoremap <silent> <leader>wj :TmuxNavigateDown<cr>
+nnoremap <silent> <leader>wk :TmuxNavigateUp<cr>
+nnoremap <silent> <leader>wl :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 " nnoremap <silent> <leader>wh <c-w>h
 " nnoremap <silent> <leader>wl <c-w>l

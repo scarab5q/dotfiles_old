@@ -89,9 +89,9 @@ fr () {
 #     $1 $(exa -a1r | sk --ansi)
 # }
 
-ll () {
-    exa -l | awk '{print $NF}'
-}
+# ll () {
+#     exa -l | awk '{print $NF}'
+# }
 
 gclone () {
     if [ $# -eq 0 ]; then

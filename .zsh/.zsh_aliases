@@ -100,7 +100,7 @@ alias pomodoro=\'i3-gnome-pomodoro\'
 alias dotdrop=\'/home/jack/dotdrop/dotdrop.sh\'
 alias aria=\'aria2c\'
 alias antibodyr='antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins.sh'
-alias n='$EDITOR | nvr -s'
+alias n=$EDITOR
 
 alias nrs='sudo nixos-rebuild switch --show-trace'
 alias nrso='sudo nixos-rebuild switch --show-trace --option substitute false'

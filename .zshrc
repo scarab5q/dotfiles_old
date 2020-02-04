@@ -1,5 +1,4 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
-
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 
 
@@ -167,7 +166,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-    # export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvim"                  # $EDITOR opens in terminal
     export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
@@ -528,3 +526,5 @@ eval "$(direnv hook zsh)"
 setopt vi
 setopt autopushd
 setopt autocd
+
+source /home/jack/.config/broot/launcher/bash/br

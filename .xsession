@@ -1,1 +1,2 @@
-exec dwm
+wal -i ~/google_drive/Wallpaper 
+
