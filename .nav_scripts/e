@@ -120,7 +120,7 @@ printf "it got passed the case statement\n"
     fi
     $e $F
 	exit
-	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
-	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
-	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
-	printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history

@@ -111,3 +111,4 @@ alias nip='nix-env -iP myPackages'
 alias nipr='nix-env -iPr myPackages'
 alias nip="nix-env -iA myPackages -f '<nixpkgs>'"
 # alias nip='nix-env -iP myPackages'
+alias proj='cd ~/google_drive/projects'
