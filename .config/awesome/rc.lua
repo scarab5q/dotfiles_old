@@ -106,7 +106,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 -- }}}
 
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
