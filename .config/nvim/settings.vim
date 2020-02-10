@@ -34,3 +34,4 @@ set mouse=a
 set nocompatible
 set splitbelow
 
+set fdm=marker
