@@ -527,3 +527,6 @@ eval "$(direnv hook zsh)"
 setopt vi
 setopt autopushd
 setopt autocd
+
+export DENO_INSTALL=/home/jack/.local
+export PATH="/home/jack/.local/bin:$PATH"

@@ -53,6 +53,9 @@ in
         ignoreCollisions = true;
         paths = [
 
+          racket
+
+          vscode
           pipenv
           direnv
           
