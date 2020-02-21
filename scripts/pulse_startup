@@ -6,4 +6,4 @@ while  ! pactl list ; do
      pulseaudio --start
 done
 
- i3-msg reload
+ # i3-msg reload

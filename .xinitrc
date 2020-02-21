@@ -1,4 +1,4 @@
-wal -R
-exec dwm
-exec /home/jack/scripts/autostart
+wal -i ~/google_drive/Wallpaper 
+sxhkd &
+exec bspwm
 

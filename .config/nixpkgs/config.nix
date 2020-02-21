@@ -26,7 +26,7 @@ let
     [
       ipython
       jupyter_console
-      jupyter
+      # jupyter
       qtconsole
       pynvim
       matplotlib
@@ -40,6 +40,8 @@ let
       # yubikey-manager
       scikitimage
       tensorflow
+
+      # neovim-remote
 
       # stuff for coc.nvim
       jedi
@@ -68,6 +70,21 @@ in
           racket
 
           vscodeAndExtensions
+          ocaml
+          ocamlPackages.utop
+          ocamlPackages.base
+
+          tree
+          shfmt
+
+          gtop
+          htop
+
+          # for kak completion
+          jq
+          gocode
+          gogetdoc
+
           pipenv
           direnv
           
@@ -172,6 +189,7 @@ in
 
           # for programming in assembly
           nasm
+          python-stuff
 
         ];
         pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];

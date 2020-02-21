@@ -124,17 +124,21 @@ let g:hardtime_maxcount = 3
 " coc.nvim
 "*********
 
-set shell=/bin/sh
+" set shell=/bin/sh
 set hidden
 set nobackup
 set cmdwinheight=2
 set signcolumn=yes
-imap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" imap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" formatSelected
 " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nmap <silent> [c <Plug>(coc-diagnostic-prev)

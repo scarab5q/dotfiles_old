@@ -1,5 +1,4 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
-
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 
 
@@ -187,17 +186,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 
     export SCRIPTS="/home/jack/scripts"
-
-
-    if  [ "$HOST" = "myhostname" ];
-    then
-        echo "please add a host name"
-    fi
-    if [ ! -f ~/installed_packages_$HOST.txt ];
-    then
-        touch ~/installed_packages_$HOST.txt
-        config add ~/installed_packages_$HOST.txt
-    fi
     # expac --timefmt='%Y-%m-%d %T' '%l\t%n'| sort | awk '{print $NF}' > ~/installed_packages_$HOST.txt
 
 # yay -Qqn > sorted_installed_packages.txt
@@ -530,3 +518,4 @@ setopt autocd
 
 export DENO_INSTALL=/home/jack/.local
 export PATH="/home/jack/.local/bin:$PATH"
+source /home/jack/.config/broot/launcher/bash/br

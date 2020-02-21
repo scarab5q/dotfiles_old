@@ -6,7 +6,6 @@
 "                             |___/     
 "
 
-set shell=/bin/sh
 set title titlestring=
 set inccommand=split
 set number              "show current line number
@@ -35,3 +34,4 @@ set mouse=a
 set nocompatible
 set splitbelow
 
+set fdm=marker
