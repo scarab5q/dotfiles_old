@@ -178,7 +178,6 @@ noremap \k <Plug>(easymotion-k)
 nmap -j <Plug>(easymotion-j)
 nmap \L <Plug>(easymotion-overwin-line)
 nmap \w <Plug>(easymotion-overwin-w)zz
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion let g:EasyMotion_smartcase = 1
 let g:hardtime_allow_different_key = 1
@@ -257,9 +256,6 @@ nnoremap <silent> <leader>qq :wqall<CR>
 nnoremap <silent> <leader>qQ :qall!<CR>
 " nnoremap <C-f> <C-b>
 " nnoremap <C-b> <C-f>
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 "***************

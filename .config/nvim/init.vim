@@ -19,7 +19,6 @@ lua require 'nvim_utils'
 
 " call initmd#init(fnamemodify($MYVIMRC, ":p:h") . "/init.md")
 " call initmd#init(fnamemodify($MYVIMRC, ":p:h") . "/plugins.md")
-
 source ~/.config/nvim/settings.vim
 
 source ~/.config/nvim/autocommands.vim

@@ -71,7 +71,6 @@ endfunction
 
 
 " WordProcessor
-
 func! WordProcessor()
 
     " movement changes

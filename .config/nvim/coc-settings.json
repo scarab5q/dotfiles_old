@@ -6,11 +6,14 @@
     "typescript",
     "typescriptreact",
     "markdown",
-    "json"
+    "json",
+    "elm"
   ],
   "suggest.noselect": false,
-  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "suggest.preferCompleteThanJumpPlaceholder": false,
   "tsserver.formatOnType": false,
+  "codeLens.enable": true,
+  "yank.priority": 90,
   "languageserver": {
       "ccls": {
       "command": "ccls",
@@ -21,6 +24,14 @@
            "directory": "/tmp/ccls"
          }
        }
+    },
+    "elmLS": {
+        "command": "elm-language-server",
+        "filetypes": ["elm"],
+        "rootPatterns": ["elm.json"],
+        "initializationOptions": {
+            "elmAnalyseTrigger": "change"
+        }
     },
     "bash": {
       "command": "bash-language-server",
