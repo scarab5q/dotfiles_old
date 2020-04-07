@@ -81,7 +81,14 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
+" clojure
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
+Plug 'bhurlow/vim-parinfer'
+" Plug 'Olical/conjure'
+
 Plug 'vim-syntastic/syntastic'
+
 call plug#end()
 
 " Define Coc Extensions Here

@@ -501,3 +501,6 @@ source ~/github/git-subrepo/.rc
 
 eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
 _FASD_BACKENDS="native current"
+
+# opam configuration
+test -r /home/jack/.opam/opam-init/init.zsh && . /home/jack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

@@ -25,6 +25,15 @@
          }
        }
     },
+     "ocaml-lsp": {
+        "command": "opam",
+        "args": ["config", "exec", "--", "ocamllsp"],
+        "filetypes": ["ocaml", "reason"]
+    },
+    "lua": {
+        "command": "lua-lsp",
+        "filetypes": ["lua"]
+    },
     "elmLS": {
         "command": "elm-language-server",
         "filetypes": ["elm"],
@@ -38,6 +47,16 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+    "clojure-lsp": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+      }
     },
     "golang": {
       "command": "gopls",
