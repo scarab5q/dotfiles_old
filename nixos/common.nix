@@ -87,13 +87,6 @@ in {
   time.timeZone = "Europe/London";
 
   # System Environment 
-  # virtualization = {
-  #   docker ={
-  #     enable = true;
-  #     enableOnBoot = true;
-
-  #   };
-  # };
 
   environment = {
 
@@ -488,7 +481,6 @@ in {
       "disk"
       "networkmanager"
       "suid"
-      "docker"
     ];
     shell = pkgs.zsh;
   };

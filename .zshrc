@@ -496,6 +496,8 @@ setopt vi
 setopt autopushd
 setopt autocd
 
+export DENO_INSTALL=/home/jack/.local
+export PATH="/home/jack/.local/bin:$PATH"
 source /home/jack/.config/broot/launcher/bash/br
 source ~/github/git-subrepo/.rc
 
