@@ -14,12 +14,24 @@
   (load bootstrap-file nil 'nomessage))
 
 
-;;  ____            _        ____       _   _   _                 
-;; | __ )  __ _ ___(_) ___  / ___|  ___| |_| |_(_)_ __   __ _ ___ 
+;;           _           _
+;; __      _(_)_ __   __| | _____      __
+;; \ \ /\ / / | '_ \ / _` |/ _ \ \ /\ / /
+;;  \ V  V /| | | | | (_| | (_) \ V  V /
+;;   \_/\_/ |_|_| |_|\__,_|\___/ \_/\_/
+;;                                                              _
+;;  _ __ ___   __ _ _ __   __ _  __ _  ___ _ __ ___   ___ _ __ | |_
+;; | '_ ` _ \ / _` | '_ \ / _` |/ _` |/ _ \ '_ ` _ \ / _ \ '_ \| __|
+;; | | | | | | (_| | | | | (_| | (_| |  __/ | | | | |  __/ | | | |_
+;; |_| |_| |_|\__,_|_| |_|\__,_|\__, |\___|_| |_| |_|\___|_| |_|\__|
+;;                              |___/
+
+;;  ____            _        ____       _   _   _
+;; | __ )  __ _ ___(_) ___  / ___|  ___| |_| |_(_)_ __   __ _ ___
 ;; |  _ \ / _` / __| |/ __| \___ \ / _ \ __| __| | '_ \ / _` / __|
 ;; | |_) | (_| \__ \ | (__   ___) |  __/ |_| |_| | | | | (_| \__ \
 ;; |____/ \__,_|___/_|\___| |____/ \___|\__|\__|_|_| |_|\__, |___/
-;;                                                      |___/     
+;;                                                      |___/
 
 ;; turns off the bars at the top
 (menu-bar-mode -1)
@@ -27,7 +39,7 @@
 (tool-bar-mode -1)
 
 ; use version control
-(setq version-control t )		
+(setq version-control t )
 
 
 ;; white space
@@ -38,12 +50,12 @@
       scroll-conservatively 10000)
 
 
-;;                  _                         
-;; _ __   __ _  ___| | ____ _  __ _  ___  ___ 
+;;                  _
+;; _ __   __ _  ___| | ____ _  __ _  ___  ___
 ;;| '_ \ / _` |/ __| |/ / _` |/ _` |/ _ \/ __|
 ;;| |_) | (_| | (__|   < (_| | (_| |  __/\__ \
 ;;| .__/ \__,_|\___|_|\_\__,_|\__, |\___||___/
-;;|_|                         |___/           
+;;|_|                         |___/
 
 
 ;
@@ -81,7 +93,7 @@
 		select-window-5)))
 
 (golden-ratio-mode 1)
-; centered cursor 
+; centered cursor
 (straight-use-package 'centered-cursor-mode)
 (centered-cursor-mode)
 (global-centered-cursor-mode +1)
@@ -131,13 +143,60 @@
 ; buffer / window management
 (straight-use-package 'avy)
 (straight-use-package 'ace-window)
+(straight-use-package 'hydra)
+(setq aw-minibuffer-flag t)
+(set-face-attribute
+  'aw-leading-char-face nil
+  :foreground "deep sky blue"
+  :weight 'bold
+  :height 3.0)
+(set-face-attribute
+  'aw-mode-line-face nil
+  :inherit 'mode-line-buffer-id
+  :foreground "lawn green")
+(setq aw-keys '(?a ?s ?d ?f ?j ?k ?l)
+      aw-dispatch-always t
+      aw-dispatch-alist
+      '((?x aw-delete-window "Ace - Delete Window")
+	(?c aw-swap-window "Ace - Swap Window")
+	(?n aw-flip-window)
+	(?v aw-split-window-vert "Ace - Split Vert Window")
+	(?h aw-split-window-horz "Ace - Split Horz Window")
+	(?m delete-other-windows "Ace - Maximize Window")
+	(?g delete-other-windows)
+	(?b balance-windows)
+	(?u (lambda ()
+	      (progn
+		(winner-undo)
+		(setq this-command 'winner-undo))))
+	(?r winner-redo))
+      )
 
-; Linting 
+  (when (package-installed-p 'hydra)
+    (defhydra hydra-window-size (:color red)
+      "Windows size"
+      ("h" shrink-window-horizontally "shrink horizontal")
+      ("j" shrink-window "shrink vertical")
+      ("k" enlarge-window "enlarge vertical")
+      ("l" enlarge-window-horizontally "enlarge horizontal"))
+    (defhydra hydra-window-frame (:color red)
+      "Frame"
+      ("f" make-frame "new frame")
+      ("x" delete-frame "delete frame"))
+    (defhydra hydra-window-scroll (:color red)
+      "Scroll other window"
+      ("n" joe-scroll-other-window "scroll")
+      ("p" joe-scroll-other-window-down "scroll down"))
+    (add-to-list 'aw-dispatch-alist '(?w hydra-window-size/body) t)
+    (add-to-list 'aw-dispatch-alist '(?o hydra-window-scroll/body) t)
+    (add-to-list 'aw-dispatch-alist '(?\; hydra-window-frame/body) t))
+  (ace-window-display-mode t)
+; Linting
 (straight-use-package 'flycheck)
 (global-flycheck-mode 1)
 
 
-; ivy 
+; ivy
 
 (ivy-mode)
 (setq ivy-display-style 'fancy)
