@@ -162,9 +162,11 @@ export MANPAGER="nvim -c 'set ft=man' -"
 
 # Preferred editor for local and remote sessions
     # export EDITOR="nvim"                  # $EDITOR opens in terminal
-    export EDITOR="nvim"                  # $EDITOR opens in terminal
+    export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+    export ALTERNATIVE_EDITOR=""
+    # export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
-    # export VISUAL="code"
+    export VISUAL="emacsclient -c"
     # export VISUAL="nyaovim"
     # export VISUAL="veonim"         # $VISUAL opens in GUI mode
     # export VISUAL="oni"
