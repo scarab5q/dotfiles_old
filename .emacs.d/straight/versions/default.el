@@ -1,5 +1,6 @@
 (("a.el" . "18966975db7110d0aac726be95b593e2fc3d44ed")
  ("ace-window" . "7003c88cd9cad58dc35c7cd13ebc61c355fb5be7")
+ ("auto-yasnippet" . "db9e0dd4335b2202cd5dac95bbbc87a1032d9bbe")
  ("avy" . "3bf83140fad4c28f2dc4c7107b9d8fef84d17cb9")
  ("bug-hunter" . "c3183708bfd50991b656f5cf534807c66d206db6")
  ("centered-cursor-mode.el" . "90e6d68a74d134f67c32d0621d64db90703c46eb")

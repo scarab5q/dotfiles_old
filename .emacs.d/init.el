@@ -1,5 +1,4 @@
 
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -14,40 +13,6 @@
   (load bootstrap-file nil 'nomessage))
 
 
-;;           _           _
-;; __      _(_)_ __   __| | _____      __
-;; \ \ /\ / / | '_ \ / _` |/ _ \ \ /\ / /
-;;  \ V  V /| | | | | (_| | (_) \ V  V /
-;;   \_/\_/ |_|_| |_|\__,_|\___/ \_/\_/
-;;                                                              _
-;;  _ __ ___   __ _ _ __   __ _  __ _  ___ _ __ ___   ___ _ __ | |_
-;; | '_ ` _ \ / _` | '_ \ / _` |/ _` |/ _ \ '_ ` _ \ / _ \ '_ \| __|
-;; | | | | | | (_| | | | | (_| | (_| |  __/ | | | | |  __/ | | | |_
-;; |_| |_| |_|\__,_|_| |_|\__,_|\__, |\___|_| |_| |_|\___|_| |_|\__|
-;;                              |___/
-
-;;  ____            _        ____       _   _   _
-;; | __ )  __ _ ___(_) ___  / ___|  ___| |_| |_(_)_ __   __ _ ___
-;; |  _ \ / _` / __| |/ __| \___ \ / _ \ __| __| | '_ \ / _` / __|
-;; | |_) | (_| \__ \ | (__   ___) |  __/ |_| |_| | | | | (_| \__ \
-;; |____/ \__,_|___/_|\___| |____/ \___|\__|\__|_|_| |_|\__, |___/
-;;                                                      |___/
-
-;; turns off the bars at the top
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-
-; use version control
-(setq version-control t )
-
-
-;; white space
-(setq show-trailing-whitespace t)
-
-;; scrolling settings
-(setq scroll-step           1
-      scroll-conservatively 10000)
 
 
 ;;                  _
@@ -75,42 +40,20 @@
 (straight-use-package 'evil-commentary)
 (straight-use-package 'evil-surround)
 
+; finding bugs
+(straight-use-package 'bug-hunter)
 
-; golden-ration
+; golden-ratio
 (straight-use-package 'golden-ratio)
-(setq golden-ratio-auto-scale t)
-(setq golden-ratio-extra-commands
-      (append golden-ratio-extra-commands
-	      '(ace-window
-		evil-window-left
-		evil-window-right
-		evil-window-up
-		evil-window-down
-		select-window-1
-		select-window-2
-		select-window-3
-		select-window-4
-		select-window-5)))
 
-(golden-ratio-mode 1)
 ; centered cursor
 (straight-use-package 'centered-cursor-mode)
-(centered-cursor-mode)
-(global-centered-cursor-mode +1)
-(setq delete-old-versions -1 )		; delete excess backup versions silently
-(setq version-control t )		; use version control
-(setq vc-make-backup-files t )		; make backups file even when in version controlled dir
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
-(setq vc-follow-symlinks t )				                                ; don't ask for confirmation when opening symlinked file
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) )      ;transform backups file name
-(setq inhibit-startup-screen t )	                  ; inhibit useless and old-school startup screen
-(setq ring-bell-function 'ignore )	                  ; silent bell when you make a mistake
 
-
+; linting
+(straight-use-package 'flycheck)
 
 ; keybindings
 (straight-use-package 'general)
-(general-evil-setup t)
 
 (straight-use-package 'magit)
 (straight-use-package 'company)
@@ -121,6 +64,13 @@
 
 ;; its like helm but less excessive
 (straight-use-package 'ivy)
+(straight-use-package 'counsel)
+(straight-use-package 'swiper)
+
+; Snippets
+(straight-use-package 'yasnippet-snippets)
+(straight-use-package 'auto-yasnippet)
+(straight-use-package 'yasnippet)
 
 ;; lisp / scheme / clojure development
 (straight-use-package 'clojure-mode)
@@ -137,6 +87,7 @@
 (straight-use-package 'highlight-indent-guides)
 
 (straight-use-package 'org-projectile)
+(straight-use-package 'projectile)
 
 (straight-use-package 'swiper)
 
@@ -144,16 +95,46 @@
 (straight-use-package 'avy)
 (straight-use-package 'ace-window)
 (straight-use-package 'hydra)
+
+
+
+
+;;  ____            _        ____       _   _   _
+;; | __ )  __ _ ___(_) ___  / ___|  ___| |_| |_(_)_ __   __ _ ___
+;; |  _ \ / _` / __| |/ __| \___ \ / _ \ __| __| | '_ \ / _` / __|
+;; | |_) | (_| \__ \ | (__   ___) |  __/ |_| |_| | | | | (_| \__ \
+;; |____/ \__,_|___/_|\___| |____/ \___|\__|\__|_|_| |_|\__, |___/
+;;                                                      |___/
+
+;; turns off the bars at the top
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+; use version control
+(setq version-control t )
+
+
+;; white space
+(setq show-trailing-whitespace t)
+
+;; scrolling settings
+(setq scroll-step           1
+      scroll-conservatively 10000)
+
+
+
+
 (setq aw-minibuffer-flag t)
-(set-face-attribute
-  'aw-leading-char-face nil
-  :foreground "deep sky blue"
-  :weight 'bold
-  :height 3.0)
-(set-face-attribute
-  'aw-mode-line-face nil
-  :inherit 'mode-line-buffer-id
-  :foreground "lawn green")
+;; (set-face-attribute
+;;   'aw-leading-char-face nil
+;;   :foreground "deep sky blue"
+;;   :weight 'bold
+;;   :height 3.0)
+;; (set-face-attribute
+;;   'aw-mode-line-face nil
+;;   :inherit 'mode-line-buffer-id
+;;   :foreground "lawn green")
 (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l)
       aw-dispatch-always t
       aw-dispatch-alist
@@ -172,33 +153,45 @@
 	(?r winner-redo))
       )
 
-  (when (package-installed-p 'hydra)
-    (defhydra hydra-window-size (:color red)
-      "Windows size"
-      ("h" shrink-window-horizontally "shrink horizontal")
-      ("j" shrink-window "shrink vertical")
-      ("k" enlarge-window "enlarge vertical")
-      ("l" enlarge-window-horizontally "enlarge horizontal"))
-    (defhydra hydra-window-frame (:color red)
-      "Frame"
-      ("f" make-frame "new frame")
-      ("x" delete-frame "delete frame"))
-    (defhydra hydra-window-scroll (:color red)
-      "Scroll other window"
-      ("n" joe-scroll-other-window "scroll")
-      ("p" joe-scroll-other-window-down "scroll down"))
-    (add-to-list 'aw-dispatch-alist '(?w hydra-window-size/body) t)
-    (add-to-list 'aw-dispatch-alist '(?o hydra-window-scroll/body) t)
-    (add-to-list 'aw-dispatch-alist '(?\; hydra-window-frame/body) t))
+  ;; (when (package-installed-p 'hydra)
+    ;; (defhydra hydra-window-size (:color red)
+    ;;   "Windows size"
+    ;;   ("h" shrink-window-horizontally "shrink horizontal")
+    ;;   ("j" shrink-window "shrink vertical")
+    ;;   ("k" enlarge-window "enlarge vertical")
+    ;;   ("l" enlarge-window-horizontally "enlarge horizontal"))
+    ;; (defhydra hydra-window-frame (:color red)
+    ;;   "Frame"
+    ;;   ("f" make-frame "new frame")
+    ;;   ("x" delete-frame "delete frame"))
+    ;; (defhydra hydra-window-scroll (:color red)
+    ;;   "Scroll other window"
+    ;;   ("n" joe-scroll-other-window "scroll")
+    ;;   ("p" joe-scroll-other-window-down "scroll down"))
+    ;; (add-to-list 'aw-dispatch-alist '(?w hydra-window-size/body) t)
+    ;; (add-to-list 'aw-dispatch-alist '(?o hydra-window-scroll/body) t)
+    ;; (add-to-list 'aw-dispatch-alist '(?\; hydra-window-frame/body) t))
   (ace-window-display-mode t)
+
 ; Linting
-(straight-use-package 'flycheck)
 (global-flycheck-mode 1)
+
+; centered cursor mode
+(global-centered-cursor-mode +1)
+(setq delete-old-versions -1 )		; delete excess backup versions silently
+(setq version-control t )		; use version control
+(setq vc-make-backup-files t )		; make backups file even when in version controlled dir
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
+(setq vc-follow-symlinks t )				                                ; don't ask for confirmation when opening symlinked file
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) )      ;transform backups file name
+(setq inhibit-startup-screen t )	                  ; inhibit useless and old-school startup screen
+(setq ring-bell-function 'ignore )	                  ; silent bell when you make a mistake
 
 
 ; ivy
 
-(ivy-mode)
+(ivy-mode 1)
+(counsel-mode)
 (setq ivy-display-style 'fancy)
 (setq ivy-use-selectable-prompt t)
 (setq ivy-use-virtual-buffers t)
@@ -207,42 +200,61 @@
 (setq ivy-re-builders-alist
       '((t . ivy--regex-fuzzy)))
 
-; Snippets
-(straight-use-package 'yasnippet-snippets)
 
 (setq
    yas-verbosity 1                      ; No need to be so verbose
    yas-wrap-around-region t)
 
-; Evil 
+; Evil
 (evil-mode)
 (evil-commentary-mode)
-  (setq evil-search-module 'evil-search)
-  (setq evil-ex-complete-emacs-commands nil)
-  (setq evil-vsplit-window-right t)
-  (setq evil-split-window-below t)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-integreation t)
-  (setq evil-search-wrap t)
+(setq evil-search-module 'evil-search)
+(setq evil-ex-complete-emacs-commands nil)
+(setq evil-vsplit-window-right t)
+(setq evil-split-window-below t)
+(setq evil-want-C-u-scroll t)
+(setq evil-want-integreation t)
+(setq evil-search-wrap t)
 
-; finding bugs
-(straight-use-package 'bug-hunter)
+; centered-cursor
+(centered-cursor-mode)
 
+; golden ratio
+(golden-ratio-mode 1)
+(setq golden-ratio-auto-scale t)
+(setq golden-ratio-extra-commands
+      (append golden-ratio-extra-commands
+	      '(ace-window
+		evil-window-left
+		evil-window-right
+		evil-window-up
+		evil-window-down
+		select-window-1
+		select-window-2
+		select-window-3
+		select-window-4
+		select-window-5)))
 
-;
+; semantic-mode
+; TODO find out what this actually does
+
 (semantic-mode)
 
-;;  _              _     _           _ _                 
-;; | | _____ _   _| |__ (_)_ __   __| (_)_ __   __ _ ___ 
+;;  _              _     _           _ _
+;; | | _____ _   _| |__ (_)_ __   __| (_)_ __   __ _ ___
 ;; | |/ / _ \ | | | '_ \| | '_ \ / _` | | '_ \ / _` / __|
 ;; |   <  __/ |_| | |_) | | | | | (_| | | | | | (_| \__ \
 ;; |_|\_\___|\__, |_.__/|_|_| |_|\__,_|_|_| |_|\__, |___/
-;;           |___/                             |___/     
+;;           |___/                             |___/
 
 
 ;; Basic Keys
+
+; TODO - what does general-evil-setup
+(general-evil-setup t)
+
 (general-define-key
- 
+
  :states '(normal emacs motion )
  :keymaps 'override
  :prefix "SPC"
@@ -256,8 +268,8 @@
 
  "a" '(:ignore t :which-key "applications")
 
- "ar" 'ranger
- "aw" 'ace-window
+ ;; "ar" 'ranger
+ ;; "aw" 'ace-window
 
  "ao" '(:ignore t :which-key "org")
  "aoc" 'org-capture
@@ -320,6 +332,8 @@
  "sc" 'evil-ex-nohighlight
  "ss" 'swiper
 
+;; --- ivy / 
+
  ;; --- Windows
  "w" '(:ignore t :which-key "windows")
  "wa" 'ace-window
@@ -334,7 +348,6 @@
  "wl" 'evil-window-right
  "wv" 'evil-split-buffer
  "w;" 'evil-window-vsplit
-
  )
 
 
