@@ -161,12 +161,12 @@ export MANPAGER="nvim -c 'set ft=man' -"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-    # export EDITOR="nvim"                  # $EDITOR opens in terminal
-    export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
-    export ALTERNATIVE_EDITOR=""
+    export EDITOR="nvim"                  # $EDITOR opens in terminal
+    # export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+    # export ALTERNATIVE_EDITOR=""
     # export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
-    export VISUAL="emacsclient -c"
+    # export VISUAL="emacsclient -c"
     # export VISUAL="nyaovim"
     # export VISUAL="veonim"         # $VISUAL opens in GUI mode
     # export VISUAL="oni"
@@ -499,12 +499,12 @@ setopt autopushd
 setopt autocd
 
 export DENO_INSTALL=/home/jack/.local
-export PATH="/home/jack/.local/bin:$PATH"
+# export PATH="/home/jack/.local/bin:$PATH"
 source /home/jack/.config/broot/launcher/bash/br
 source ~/github/git-subrepo/.rc
 
 eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
-_FASD_BACKENDS="native current"
+# _FASD_BACKENDS="native current"
 
 # opam configuration
 test -r /home/jack/.opam/opam-init/init.zsh && . /home/jack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

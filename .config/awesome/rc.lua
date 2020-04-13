@@ -537,13 +537,28 @@ globalkeys = my_table.join(
     --]]
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
+
+    ----[ rofi
+    --awful.key({ modkey }, "d", function ()
+    --        os.execute(string.format("rofi -show %s -theme %s",
+    --        'run', 'dmenu'))
+    --    end,
+    --    {description = "show rofi", group = "launcher"}),
+    ----]
+
     --[ rofi
     awful.key({ modkey }, "d", function ()
-            os.execute(string.format("rofi -show %s -theme %s",
-            'run', 'dmenu'))
+            os.execute([[rofi -combi-modi window,drun \
+                -show combi -modi combi \
+                -color-window '#000000, #000000,#000000' \
+                -color-normal '#000000, #aaaaaa, #000000, #145f9d, #aaaaaa' \
+                -color-active '#000000, #aaaaaa, #000000, #145f9d, #eeeeee' \
+                -color-urgent '#000000, #aaaaaa, #000000, #145f9d, #aaaaaa' \
+                -hide-scrollbar -location 2 -m -4 -show-icons]])
         end,
         {description = "show rofi", group = "launcher"}),
     --]
+
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),

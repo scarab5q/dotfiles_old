@@ -85,6 +85,9 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-salve'
 Plug 'bhurlow/vim-parinfer'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 " Plug 'Olical/conjure'
 
 Plug 'vim-syntastic/syntastic'

@@ -227,6 +227,7 @@ nnoremap <A-1> :read !
 nnoremap <C-!> !
 
 
+
 "******************************
 " Rebinds of $ and ^ to L and H
 "******************************

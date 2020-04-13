@@ -2,17 +2,18 @@
 set -o errexit -o pipefail -o noclobber -o nounset
 
 add_command_to_shell_history() {
-	printf "$EDITOR %s\n"  "$F" >> /home/jack/.zhistory
-	printf "$EDITOR %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+    printf "$EDITOR %s\n"  "$F" >> /home/jack/.zhistory
+    printf "$EDITOR %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
 }
 
-if [ $# -eq 0 ]; then
-	F=$( fasd -alR | fzf ) || exit 1
-  if [ -f $F ];then
-	  $EDITOR $F
-  fi
 
-	exit
+if [ $# -eq 0 ]; then
+    F=$( fasd -lRf | fzf ) || exit 1
+    if [ -f $F ];then
+        $EDITOR $F
+    fi
+    echo "nothing happened"
+    exit
 fi
 
 # if [ $# -eq 1 && echo "$1" grep -vq "^\-" ]; then
@@ -49,78 +50,78 @@ fi
 # read getopt’s output this way to handle the quoting right:
 eval set -- "$PARSED"
 
-    e=$EDITOR
-	f="fzf"
-    F="-"
-    d="fasd -flR"
-	c=false
-	printf "%s\n" "it got passed the variable assignments"
+e=$EDITOR
+f="fzf"
+F="-"
+d="fasd -flR"
+c=false
+printf "%s\n" "it got passed the variable assignments"
 
-    # now enjoy the options in order and nicely split until we see --
-    while true; do
-        case "$1" in
+# now enjoy the options in order and nicely split until we see --
+while true; do
+    case "$1" in
         -a|--all)
-        		d="fd -t f --hidden -c always"
-        		shift
-        		;;
+            d="fd -t f --hidden -c always"
+            shift
+            ;;
         -A|--All)
-                # echo "All"
-        		d="fd . -t f --hidden -c always  $HOME"
-        		shift
-        		;;
+            # echo "All"
+            d="fd . -t f --hidden -c always  $HOME"
+            shift
+            ;;
         -c|--cd)
-        		c=true
-        		shift
-        		;;
+            c=true
+            shift
+            ;;
         -f|--finder)
             f="$2"
             shift 2
             ;;
-       	-e|--editor)
-        	    e="$2"
-                # echo "editor=$e"
-        	    shift 2
-        	    ;;
-       	-d|--directories)
-        	    d="$2"
-        	    shift 2
-        	    ;;
-       	--)
-                # echo "--)"
-        		shift
-        		break
-        		;;
-        	*)
-    			printf "%s\n" "$1"
-        		shift
-        		;;
-        esac
-    done
+        -e|--editor)
+            e="$2"
+            # echo "editor=$e"
+            shift 2
+            ;;
+        -d|--directories)
+            d="$2"
+            shift 2
+            ;;
+        --)
+            # echo "--)"
+            shift
+            break
+            ;;
+        *)
+            printf "%s\n" "$1"
+            shift
+            ;;
+    esac
+done
 printf "it got passed the case statement\n"
 
-    # handle non-option arguments
-    # if [[ $# -ne 1 ]]; then
-    #     echo "$0: A single input file is required."
-    #     exit 4
-    # fi
+# handle non-option arguments
+# if [[ $# -ne 1 ]]; then
+#     echo "$0: A single input file is required."
+#     exit 4
+# fi
 
-	if $c; then
-		C=$(echo $F | sed 's/\(.*?\)\/$')
-    	printf "e %s\n"  "cd" "$C" >> /home/jack/.zhistory
-		exit
-	fi
-    if   [[ "$F" = "-" || ! -f "$F" || ! -d "$F" ]]; then
-        F=$( $d | $f ) || echo "failure 1" || exit
-        printf "e %s\n"  "$e" "$F" >> /home/jack/.zhistory
-        printf "e %s\n"  "$e" "$F" >> /home/jack/.local/share/fish/fish_history
-    fi
-    if [[ -d '$F' ]]; then
-        cd $F
-        exit
-    fi
-    $e $F
-	exit
-	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
-	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
-	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
-	# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+if $c; then
+    C=$(echo $F | sed 's/\(.*?\)\/$')
+    printf "e %s\n"  "cd" "$C" >> /home/jack/.zhistory
+    exit
+fi
+if   [[ "$F" = "-" || ! -f "$F" || ! -d "$F" ]]; then
+    F=$( $d | $f ) || echo "failure 1" || exit
+    printf "e %s\n"  "$e" "$F" >> /home/jack/.zhistory
+    printf "e %s\n"  "$e" "$F" >> /home/jack/.local/share/fish/fish_history
+fi
+if [[ -d '$F' ]]; then
+    cd $F
+    exit
+fi
+$e $F
+exit
+# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.zhistory
+# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
+# printf "'$EDITOR' %s\n"  "$F" >> /home/jack/.local/share/fish/fish_history
