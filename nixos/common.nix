@@ -112,9 +112,9 @@ in {
       nixfmt
 
       xscreensaver
-      openjdk8
+      # openjdk8
       fswatch
-      openjdk12
+      # openjdk12
       httpie
       curlie
       tmuxp
