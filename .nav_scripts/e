@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -o errexit -o pipefail -o noclobber -o nounset
 
 add_command_to_shell_history() {

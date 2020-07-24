@@ -1,5 +1,7 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
 
 
 # [ -z "$TMUX"  ] && {
@@ -109,6 +111,7 @@ source $ZSH/.zsh_aliases
 source $ZSH/.zsh_functions
 source $ZSH/.zsh_bindings
 source $ZSH/.zsh_styles
+source $ZSH/zsh_path
 # source $ZSH/completion.zsh
 source $ZSH/.zsh_nnn
 
@@ -500,6 +503,7 @@ setopt autocd
 
 export DENO_INSTALL=/home/jack/.local
 # export PATH="/home/jack/.local/bin:$PATH"
+export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
 source /home/jack/.config/broot/launcher/bash/br
 source ~/github/git-subrepo/.rc
 
@@ -508,3 +512,5 @@ eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
 
 # opam configuration
 test -r /home/jack/.opam/opam-init/init.zsh && . /home/jack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export PATH=$PATH:$HOME/.npm/bin export 
+export NODE_PATH=$NODE_PATH:$HOME/.npm/lib/node_modules
