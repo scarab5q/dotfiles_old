@@ -101,11 +101,6 @@ zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 zstyle ':zplug:tag' depth 1
 bindkey '^[[Z' reverse-menu-complete
 
-# load antibody plugins
-# source $ZSH/.zsh_plugins.sh
-# initiation fasd here so it doesnt affect any of my bindings of functions
-eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp zsh-wcomp-install zsh-wcomp)"
-_FASD_BACKENDS="native current"
 
 
 
@@ -166,21 +161,18 @@ export MANPAGER="nvim -c 'set ft=man' -"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-    # export EDITOR="nvim"                  # $EDITOR opens in terminal
     export EDITOR="nvim"                  # $EDITOR opens in terminal
+    # export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+    # export ALTERNATIVE_EDITOR=""
+    # export EDITOR="nvim"                  # $EDITOR opens in terminal
     # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
-    # export VISUAL="code"
+    # export VISUAL="emacsclient -c"
     # export VISUAL="nyaovim"
     # export VISUAL="veonim"         # $VISUAL opens in GUI mode
     # export VISUAL="oni"
 
 
 
-    export PATH="$HOME/.nav_scripts:$PATH"
-    export PATH="$HOME/.npm-global/bin:$PATH"
-    export PATH="$HOME/.node_modules/bin:$PATH"
-    export PATH="$HOME/app_images:$PATH"
-    export PATH="$HOME/scripts/"$HOST"_settings:$PATH"
             
     export npm_config_prefix=~/.node_modules
 
@@ -200,27 +192,19 @@ export ARCHFLAGS="-arch x86_64"
 
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 
-export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
-export PATH="~/chromeDriver/phantomjs-2.1.1-linux-x86_64/:$PATH"
 
-export PATH="~/orgConversion:$PATH"
-export PATH="~/.config:$PATH"
-export PATH="~/.cargo/bin:$PATH"
 # export RUST_SRC_PATH="${HOME}/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 # export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 
 # export GOPATH="$GOPATH:$HOME/google_drive/Side_Projects/go"
 
-export PATH="~/.config/.scripts:$PATH"
 
 # if which ruby >/dev/null && which gem >/dev/null; then
     #     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     # fi
     # Add RVM to PATH for scripting. Make sure this is the last PATH variable change
-        export PATH="$HOME/.rvm/bin:$PATH"
         [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -244,7 +228,6 @@ export TASKDDATA=/var/lib/taskd
 getPrint () {
     ag -r "print\(\w+\)" $1
 }
-export PATH="$SCRIPTS:$PATH"
 
 export NNN_OPENER=picker
 
@@ -294,7 +277,6 @@ export VCSH_REPO_D=~/.config/vcsh/repo.d/
     [[ -f /home/jack/xi-electron/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jack/xi-electron/node_modules/tabtab/.completions/electron-forge.zsh
     [[ -s "/home/jack/.gvm/scripts/gvm" ]] && source "/home/jack/.gvm/scripts/gvm"
 
-    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # required for marker
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
@@ -518,4 +500,8 @@ setopt autocd
 
 export DENO_INSTALL=/home/jack/.local
 export PATH="/home/jack/.local/bin:$PATH"
-# source /home/jack/.config/broot/launcher/bash/br
+# export PATH="/home/jack/.local/bin:$PATH"
+source /home/jack/.config/broot/launcher/bash/br
+source ~/github/git-subrepo/.rc
+
+eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"

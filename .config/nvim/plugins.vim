@@ -81,7 +81,17 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
+" clojure
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
+Plug 'bhurlow/vim-parinfer'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
+" Plug 'Olical/conjure'
+
 Plug 'vim-syntastic/syntastic'
+
 call plug#end()
 
 " Define Coc Extensions Here
@@ -89,11 +99,15 @@ let g:coc_global_extensions = ['coc-tsserver',
                               \'coc-json',
                               \'coc-css' ,
                               \'coc-python',
+                              \'coc-pyright',
                               \'coc-yaml',
+                              \'coc-vimlsp',
                               \'coc-highlight',
                               \'coc-emmet',
                               \'coc-rls',
+                              \'coc-rust-analyzer',
                               \'coc-lists',
+                              \'coc-texlab',
                               \'coc-git',
                               \'coc-yank',
                               \'coc-markdownlint',

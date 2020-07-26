@@ -178,7 +178,6 @@ noremap \k <Plug>(easymotion-k)
 nmap -j <Plug>(easymotion-j)
 nmap \L <Plug>(easymotion-overwin-line)
 nmap \w <Plug>(easymotion-overwin-w)zz
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion let g:EasyMotion_smartcase = 1
 let g:hardtime_allow_different_key = 1
@@ -226,6 +225,7 @@ nnoremap <leader>0 :NERDTreeToggle %:p:h<CR>
 "********************************
 nnoremap <A-1> :read ! 
 nnoremap <C-!> !
+
 
 
 "******************************

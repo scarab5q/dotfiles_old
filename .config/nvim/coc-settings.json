@@ -6,11 +6,14 @@
     "typescript",
     "typescriptreact",
     "markdown",
-    "json"
+    "json",
+    "elm"
   ],
   "suggest.noselect": false,
-  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "suggest.preferCompleteThanJumpPlaceholder": false,
   "tsserver.formatOnType": false,
+  "codeLens.enable": true,
+  "yank.priority": 90,
   "languageserver": {
       "ccls": {
       "command": "ccls",
@@ -22,11 +25,38 @@
          }
        }
     },
+     "ocaml-lsp": {
+        "command": "opam",
+        "args": ["config", "exec", "--", "ocamllsp"],
+        "filetypes": ["ocaml", "reason"]
+    },
+    "lua": {
+        "command": "lua-lsp",
+        "filetypes": ["lua"]
+    },
+    "elmLS": {
+        "command": "elm-language-server",
+        "filetypes": ["elm"],
+        "rootPatterns": ["elm.json"],
+        "initializationOptions": {
+            "elmAnalyseTrigger": "change"
+        }
+    },
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+    "clojure-lsp": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+      }
     },
     "golang": {
       "command": "gopls",

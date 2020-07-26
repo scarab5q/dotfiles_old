@@ -2,8 +2,6 @@ alias ls='exa'
 alias "\$"=""
 alias nnl='nn -l'
 alias bsprefresh='~/.config/bspwm/bspwmrc'
-
-
 alias gc='git commit -v'
 alias gca='git commit -va'
 alias cgc='config commit -v'
@@ -112,3 +110,8 @@ alias nipr='nix-env -iPr myPackages'
 alias nip="nix-env -iA myPackages -f '<nixpkgs>'"
 # alias nip='nix-env -iP myPackages'
 alias proj='cd ~/google_drive/projects'
+alias wfica="/opt/Citrix/ICAClient/wfica"
+alias notes="cd /home/jack/google_drive/notes"
+
+
+alias books="cd /home/jack/google_drive/Books"
