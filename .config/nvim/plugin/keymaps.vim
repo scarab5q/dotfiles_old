@@ -258,9 +258,6 @@ nnoremap <silent> <leader>qQ :qall!<CR>
 " nnoremap <C-f> <C-b>
 " nnoremap <C-b> <C-f>
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 
 "***************
 " Escape with jk
