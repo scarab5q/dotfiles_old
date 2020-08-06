@@ -1,6 +1,7 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 
+source ~/.zprofile
 
 # [ -z "$TMUX"  ] && {
 #     tmux_sessions=`tmux list-sessions`
@@ -501,7 +502,5 @@ setopt autocd
 export DENO_INSTALL=/home/jack/.local
 export PATH="/home/jack/.local/bin:$PATH"
 # export PATH="/home/jack/.local/bin:$PATH"
-source /home/jack/.config/broot/launcher/bash/br
-source ~/github/git-subrepo/.rc
 
 eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"

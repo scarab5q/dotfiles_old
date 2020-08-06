@@ -103,6 +103,7 @@ in {
       # jrnl
       # citrix_workspace
       # entr
+      deno
       up
       # citrix_workspace
       sd

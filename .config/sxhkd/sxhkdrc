@@ -64,9 +64,10 @@ super + {_,shift + }{1-9}
 
 super + 0 
   echo -e "reboot\npoweroff" | dmenu | sh
-#super + {_,shift,alt,ctrl} + {h,j,k,l}
-    #{focus,move,resize,presel}.sh {west,south,north,east}
-#
+
+super + {_,shift,alt,ctrl} + {h,j,k,l}
+   {focus,move,resize,presel}.sh {west,south,north,east}
+
 # preselect
 #
 
