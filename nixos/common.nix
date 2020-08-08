@@ -103,6 +103,7 @@ in {
       # jrnl
       # citrix_workspace
       # entr
+      deno
       up
       # citrix_workspace
       sd
@@ -112,9 +113,9 @@ in {
       nixfmt
 
       xscreensaver
-      openjdk8
+      # openjdk8
       fswatch
-      openjdk12
+      # openjdk12
       httpie
       curlie
       tmuxp

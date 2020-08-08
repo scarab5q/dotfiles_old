@@ -151,6 +151,9 @@ function! s:AutoToggleLocList()
         let loclength = g:syntastic_loc_list_height
       endif
       exe 'lopen '.loclength
+
+    
+
       if lastwinnr != winnr() | exe lastwinnr.' wincmd w' | endif
     endif
   else

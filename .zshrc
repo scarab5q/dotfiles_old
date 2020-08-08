@@ -4,6 +4,7 @@ export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
+source ~/.zprofile
 
 # [ -z "$TMUX"  ] && {
 #     tmux_sessions=`tmux list-sessions`
@@ -505,13 +506,9 @@ setopt autopushd
 setopt autocd
 
 export DENO_INSTALL=/home/jack/.local
+export PATH="/home/jack/.local/bin:$PATH"
 # export PATH="/home/jack/.local/bin:$PATH"
 export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
 
-eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
-# _FASD_BACKENDS="native current"
 
-# opam configuration
-test -r /home/jack/.opam/opam-init/init.zsh && . /home/jack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-export PATH=$PATH:$HOME/.npm/bin export 
-export NODE_PATH=$NODE_PATH:$HOME/.npm/lib/node_modules
+eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"

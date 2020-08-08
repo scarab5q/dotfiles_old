@@ -1,29 +1,28 @@
 let
-  moz_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
-  pkgs = import <nixpkgs> { overlays = [ moz_overlay ]; config = { allowUnfree = true; }; };
-  nixos1909 = import (
-    fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/release-19.09.tar.gz
-  ) { config = { allowUnfree = true; }; };
-in
-let
+  moz_overlay = import (builtins.fetchTarball
+    "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
+  pkgs = import <nixpkgs> {
+    overlays = [ moz_overlay ];
+    config = { allowUnfree = true; };
+  };
+  nixos1909 = import (fetchTarball
+    "https://github.com/NixOS/nixpkgs/archive/release-19.09.tar.gz") {
+      config = { allowUnfree = true; };
+    };
+
+in let
   mypython = pkgs.python3;
   ppkgs = mypython.pkgs;
-  vscodeAndExtensions = vscode-with-extensions; [
-    
-  ] ++ vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "code-runner";
-          publisher = "formulahendry";
-          version = "0.6.33";
-          sha256 = "166ia73vrcl5c9hm4q1a73qdn56m0jc7flfsk5p5q41na9f10lb0";
-        }
-      ];
-    }
+  # vscodeAndExtensions = (pkgs.vscode-with-extensions [ ]
+  #   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+  #     name = "code-runner";
+  #     publisher = "formulahendry";
+  #     version = "0.6.33";
+  #     sha256 = "166ia73vrcl5c9hm4q1a73qdn56m0jc7flfsk5p5q41na9f10lb0";
+  #   }]);
 
-
-  my-python-packages = pp: with pp;
-    [
+  my-python-packages = pp:
+    with pp; [
       ipython
       jupyter_console
       # jupyter
@@ -31,7 +30,7 @@ let
       pynvim
       matplotlib
       numpy
-      tensorflow
+      # tensorflow
       pandas
       # pytorchWithoutCuda
       # scikitimage
@@ -39,29 +38,27 @@ let
 
       # yubikey-manager
       scikitimage
-      tensorflow
+      # tensorflow
 
       # neovim-remote
 
       # stuff for coc.nvim
       jedi
       setuptools
-      mypy  # syntax
-      pylama  # syntax
-      black  # formatting
-      isort  # sorting imports
-      rope  # refactoring
+      mypy # syntax
+      pylama # syntax
+      black # formatting
+      isort # sorting imports
+      rope # refactoring
 
     ];
 
-  python-stuff = (mypython.withPackages (my-python-packages)).override (
-    args:
-      { ignoreCollisions = true; }
-  );
-in
-  {
-    allowUnfree = true;
-    packageOverrides = pkgs: with pkgs; {
+  python-stuff = (mypython.withPackages (my-python-packages)).override
+    (args: { ignoreCollisions = true; });
+in {
+  allowUnfree = true;
+  packageOverrides = pkgs:
+    with pkgs; {
       myPackages = pkgs.buildEnv {
         name = "myPackages";
         ignoreCollisions = true;
@@ -69,7 +66,7 @@ in
 
           racket
 
-          vscodeAndExtensions
+          # vscodeAndExtensions
           ocaml
           ocamlPackages.utop
           ocamlPackages.base
@@ -87,7 +84,7 @@ in
 
           pipenv
           direnv
-          
+
           zig
           ocaml
 
@@ -120,9 +117,10 @@ in
           networkmanagerapplet
           # nixify
           nnn
-          nodejs
+          nodejs-12_x
           nodePackages.create-react-app
           nodePackages.joplin
+          # nodePackages.gatsby-cli
           ntfs3g
           # openvpn
           pavucontrol
@@ -158,7 +156,7 @@ in
           # jupyter
           nodejs # for coc.nvim
           yarn # for coc.nvim
-          
+
           emscripten
           qt5.full
 
@@ -168,18 +166,18 @@ in
           xrectsel
 
           # nixpkgs dependency management
-          niv 
+          niv
 
           neovim-remote
           # (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
 
           # go stuff
-          go 
+          go
           dep
           gotools
 
           kakoune
-          
+
           # cargo
           # rustc
 
@@ -196,4 +194,4 @@ in
         extraOutputsToInstall = [ "man" "doc" ];
       };
     };
-  }
+}
