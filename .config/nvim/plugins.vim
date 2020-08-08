@@ -35,7 +35,25 @@ Plug 'puremourning/vimspector'
 " Plug 'Shougo/neco-vim'
 " Plug 'neoclide/coc-neco'
 Plug 'dylanaraps/wal.vim'
+Plug 'MattesGroeger/vim-bookmarks'
 " Plug 'rust-lang/rust.vim'
+
+" JavaScript {{{
+    Plug 'jparise/vim-graphql'
+" }}}
+
+" TypeScript {{{
+    Plug 'gko/yats.vim', { 'for': 'typescript' }
+" }}}
+
+" JSX {{{
+    Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'typescript', 'typescriptreact'] }
+" }}}
+
+" Markdown
+Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+
 Plug 'norcalli/nvim_utils'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'

@@ -1,6 +1,19 @@
 # ls () {
 #     exa
 # }
+#
+
+e() {
+  if [ $# -eq 0 ]; then
+      F=$( fasd -lRf | fzf ) || exit 1
+      if [ -f $F ];then
+          $EDITOR $F
+      fi
+      echo "nothing happened"
+      exit
+  fi
+}
+
 nixify() {
   if [ ! -e ./.envrc ]; then
     echo "use nix" > .envrc

@@ -1,4 +1,5 @@
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
+export TERMINFO=/usr/lib/terminfo
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
 export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
@@ -22,6 +23,8 @@ unset ZPLUG_CACHE_FILE
 source ~/.zplug/init.zsh || \
     curl -sL --proto-redir -all, \
     https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+
 
 zplug "zdharma/history-search-multi-word"
 zplug "junegunn/fzf-bin"
@@ -504,8 +507,6 @@ setopt autocd
 export DENO_INSTALL=/home/jack/.local
 # export PATH="/home/jack/.local/bin:$PATH"
 export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
-source /home/jack/.config/broot/launcher/bash/br
-source ~/github/git-subrepo/.rc
 
 eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
 # _FASD_BACKENDS="native current"
