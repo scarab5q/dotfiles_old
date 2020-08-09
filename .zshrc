@@ -63,7 +63,7 @@ zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-completions", as:plugin, use:"src"
 zplug "rupa/z", use:z.sh
 
-zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-autosuggestions", defer:3
     export ZSH_AUTOSUGGEST_USE_ASYNC=true
     bindkey '^ ' autosuggest-accept
 
@@ -73,7 +73,9 @@ zplug "mafredri/zsh-async", from:github
 
 
 # defer:3 needed to load after compinit
-zplug "zsh-users/zsh-syntax-highlighting", defer:4
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+
+zplug "Aloxaf/fzf-tab", defer:2
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
