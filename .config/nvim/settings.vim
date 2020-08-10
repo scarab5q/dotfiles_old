@@ -24,7 +24,7 @@ set encoding=UTF-8
 
 
 " sets tab settings
-set tabstop=2 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 set wildmenu
 set wildmode=list:longest,full

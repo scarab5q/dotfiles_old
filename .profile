@@ -1,6 +1,7 @@
 export PATH=~/.npm-global:$PATH
 export PATH=~/scripts:$PATH
 export PATH=~/.nav_scripts:$PATH
+export PATH=~/.npm_modules/bin:$PATH
 
 NPM_CONFIG_PREFIX=~/.npm-global
 NPM_CONFIG_PREFIX=~/.npm-global

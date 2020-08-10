@@ -53,6 +53,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 " Markdown
 Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'norcalli/nvim_utils'
 Plug 'ryanoasis/vim-devicons'
