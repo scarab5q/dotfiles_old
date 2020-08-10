@@ -499,7 +499,6 @@ ix() {
             curl $opts -F f:1='<-' $* ix.io/$id
         }
 
-
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
@@ -514,3 +513,4 @@ export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
 
 
 eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
+FASD_
