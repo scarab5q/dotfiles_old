@@ -115,3 +115,6 @@ alias notes="cd /home/jack/google_drive/notes"
 
 
 alias books="cd /home/jack/google_drive/Books"
+
+# XBPS
+alias xisu="sudo xbps-install -Su"

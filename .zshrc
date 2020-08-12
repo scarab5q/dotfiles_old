@@ -513,4 +513,3 @@ export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
 
 
 eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
-FASD_
