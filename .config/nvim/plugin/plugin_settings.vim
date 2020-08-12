@@ -223,6 +223,16 @@ let g:vimwiki_map_prefix = '<leader>W'
 " autocmd BufEnter NERD_tree_* nmap  d<CR> <CR> :NERDTreeToggle <CR>
 " autocmd BufLeave NERD_tree_* unmap d<CR>
 
+" set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.node_modules,public[[dir]]
+" let g:NERDTreeIgnore = ['^build$']
+" let g:NERDTreeIgnore = ['^node_modules$']
+
+ 
+"*************
+" ALE Settings
+"*************
+let g:ale_open_list = 1
+
 
 "*******************
 " winchoose settings

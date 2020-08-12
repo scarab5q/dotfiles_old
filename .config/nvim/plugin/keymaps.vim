@@ -240,7 +240,7 @@ noremap L g$
 "************************
 " Center Cursor on screen
 "************************
-"
+
 
 " nnoremap j jzz
 " nnoremap k kzz

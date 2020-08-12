@@ -55,6 +55,7 @@ Plug 'jkramer/vim-checkbox', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'dense-analysis/ale'
 Plug 'norcalli/nvim_utils'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'

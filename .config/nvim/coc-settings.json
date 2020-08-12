@@ -11,36 +11,43 @@
   ],
   "suggest.noselect": false,
   "suggest.preferCompleteThanJumpPlaceholder": false,
+  "diagnostic.displayByAle": true,
   "tsserver.formatOnType": false,
   "codeLens.enable": true,
   "yank.priority": 90,
   "languageserver": {
-      "ccls": {
+    "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
       "initializationOptions": {
-         "cache": {
-           "directory": "/tmp/ccls"
-         }
-       }
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
     },
-     "ocaml-lsp": {
-        "command": "opam",
-        "args": ["config", "exec", "--", "ocamllsp"],
-        "filetypes": ["ocaml", "reason"]
+    "ocaml-lsp": {
+      "command": "opam",
+      "args": ["config", "exec", "--", "ocamllsp"],
+      "filetypes": ["ocaml", "reason"]
     },
     "lua": {
-        "command": "lua-lsp",
-        "filetypes": ["lua"]
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
     },
     "elmLS": {
-        "command": "elm-language-server",
-        "filetypes": ["elm"],
-        "rootPatterns": ["elm.json"],
-        "initializationOptions": {
-            "elmAnalyseTrigger": "change"
-        }
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "change"
+      }
     },
     "bash": {
       "command": "bash-language-server",
@@ -55,8 +62,7 @@
       "rootPatterns": ["project.clj"],
       "additionalSchemes": ["jar", "zipfile"],
       "trace.server": "verbose",
-      "initializationOptions": {
-      }
+      "initializationOptions": {}
     },
     "golang": {
       "command": "gopls",
