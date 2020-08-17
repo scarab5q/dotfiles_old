@@ -11,7 +11,7 @@
   ],
   "suggest.noselect": false,
   "suggest.preferCompleteThanJumpPlaceholder": false,
-  "diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": false,
   "tsserver.formatOnType": false,
   "codeLens.enable": true,
   "yank.priority": 90,
