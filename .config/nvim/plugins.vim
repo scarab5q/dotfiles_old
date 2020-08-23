@@ -27,7 +27,7 @@ Plug 'https://github.com/kshenoy/vim-signature'
 Plug 'tpope/vim-repeat'
 Plug 't9md/vim-choosewin'
 " Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mcchrish/nnn.vim'
 " Plug 'mhinz/vim-startify'
@@ -115,6 +115,7 @@ call plug#end()
 
 " Define Coc Extensions Here
 let g:coc_global_extensions = ['coc-tsserver',
+                              \'coc-diagnostic',
                               \'coc-json',
                               \'coc-css' ,
                               \'coc-python',
