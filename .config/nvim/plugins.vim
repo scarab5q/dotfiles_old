@@ -99,6 +99,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'junegunn/goyo.vim'
 
 " clojure
 Plug 'tpope/vim-fireplace'

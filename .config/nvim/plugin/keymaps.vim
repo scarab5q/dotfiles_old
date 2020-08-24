@@ -334,3 +334,8 @@ nnoremap <silent> <Leader>bl :BF<CR>
 
 nnoremap <leader>n :NnnPicker '%:p:h'<CR>
 
+"*****************
+" Modeline Mapping
+"*****************
+
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
