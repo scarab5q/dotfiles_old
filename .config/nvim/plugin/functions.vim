@@ -150,4 +150,4 @@ function! WC()
     echo result . " words"
 endfunction
 
-commandd WC call WC()
+command! WC call WC()

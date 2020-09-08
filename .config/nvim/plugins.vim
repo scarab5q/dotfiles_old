@@ -96,6 +96,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'roxma/nvim-yarp'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'reedes/vim-pencil'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }

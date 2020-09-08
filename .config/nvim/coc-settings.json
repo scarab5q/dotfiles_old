@@ -15,6 +15,10 @@
   "tsserver.formatOnType": false,
   "codeLens.enable": true,
   "yank.priority": 90,
+  "diagnostic-languageserver.filetypes": {
+    "email": "languagetool",
+    "latex": "languagetool"
+  },
   "languageserver": {
     "ccls": {
       "command": "ccls",

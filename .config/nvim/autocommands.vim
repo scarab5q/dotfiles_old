@@ -17,3 +17,11 @@ augroup fasd
   autocmd BufWinEnter,BufFilePost * call s:fasd_update()
 augroup END
 
+set nocompatible
+filetype plugin on       " may already be in your .vimrc
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,latex,tex call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
