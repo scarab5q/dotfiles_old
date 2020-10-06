@@ -78,10 +78,11 @@ func! WordProcessor()
     map k gk
 
     " formatting text
-    setlocal formatoptions=1
+    " setlocal formatoptions=1
     setlocal noexpandtab
-    setlocal wrap
-    setlocal linebreak
+    " setlocal wrap
+    " setlocal linebreak
+    setlocal textwidth=80
 
     " spelling and thesaurus
     setlocal spell spelllang=en_gb

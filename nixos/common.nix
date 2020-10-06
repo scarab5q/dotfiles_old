@@ -209,6 +209,8 @@ in {
       lua
       transmission
       transmission-remote-cli
+      brave
+      rofi
       # (
       # python36.withPackages(
       # ps: with ps; [

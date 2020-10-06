@@ -25,9 +25,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/kshenoy/vim-signature'
 "Plug 'zxqfl/tabnine-vim'
 Plug 'tpope/vim-repeat'
-Plug 't9md/vim-choosewin'
+Plug 't9md/vim-choosewin' 
+Plug 'reedes/vim-pencil' " Super-powered writing things
+Plug 'tpope/vim-abolish' " Fancy abbreviation replacements
+Plug 'junegunn/limelight.vim' " Highlights only active paragraph
+Plug 'junegunn/goyo.vim' " Full screen writing mode
+Plug 'reedes/vim-lexical' " Better spellcheck mappings
+Plug 'reedes/vim-litecorrect' " Better autocorrections
+Plug 'reedes/vim-textobj-sentence' " Treat sentences as text objects
+Plug 'reedes/vim-wordy' " Weasel words and passive voice
+
+
 " Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mcchrish/nnn.vim'
 " Plug 'mhinz/vim-startify'

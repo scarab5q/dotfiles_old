@@ -26,7 +26,7 @@ in let
       ipython
       jupyter_console
       # jupyter
-      qtconsole
+      # qtconsole
       pynvim
       matplotlib
       numpy
@@ -100,6 +100,8 @@ in {
           entr
           exa
           feh
+          rustup
+          godot
           # gotools
           htop
           git-hub
@@ -119,14 +121,15 @@ in {
           nnn
           nodejs-12_x
           nodePackages.create-react-app
-          nodePackages.joplin
+          # nodePackages.joplin
           # nodePackages.gatsby-cli
           ntfs3g
           # openvpn
           pavucontrol
           qutebrowser
           ripgrep
-          # rofi-unwrapped
+          rofi-unwrapped
+          rofi
           # rtorrent
           taskwarrior
           todo-txt-cli
@@ -139,7 +142,7 @@ in {
           # xclip
           # xorg.xkill
           # yubikey-manager-qt
-          # # zathura-with-plugins
+          zathura
           # zsh
           # python-stuff
           # nixpkgs-fmt
@@ -158,7 +161,7 @@ in {
           yarn # for coc.nvim
 
           emscripten
-          qt5.full
+          # qt5.full
 
           asciinema
           ffcast

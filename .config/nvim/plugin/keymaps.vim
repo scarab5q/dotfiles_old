@@ -249,9 +249,9 @@ noremap L g$
 " Buffer Bingings
 "****************
 
-nnoremap <silent> <leader>bd :BD<CR>
+nnoremap <silent> <leader>bd :bd<CR>
 nnoremap <silent> <Leader>bb :Buffers<CR>
-nnoremap <silent> <Leader>bh :BB<CR>
+nnoremap <silent> <Leader>bh :Bn<CR>
 nnoremap <silent> <Leader>bl :BF<CR>
 nnoremap <silent> <leader>qq :wqall<CR>
 nnoremap <silent> <leader>qQ :qall!<CR>
@@ -323,10 +323,10 @@ nnoremap <silent> <leader>wx :BD<CR>:close<cr>
 "****************
 
 map <Leader>bt ;TagbarToggle<CR>
-nnoremap <silent> <leader>bd :BD<CR>
+nnoremap <silent> <leader>bd :bd<CR>
 nnoremap <silent> <Leader>bb :Buffers<CR>
-nnoremap <silent> <Leader>bh :BB<CR>
-nnoremap <silent> <Leader>bl :BF<CR>
+nnoremap <silent> <Leader>bh :bn<CR>
+nnoremap <silent> <Leader>bl :bp<CR>
 
 "*************
 " nnn mappings
