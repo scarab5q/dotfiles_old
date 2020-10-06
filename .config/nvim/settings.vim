@@ -21,6 +21,7 @@ set showmatch
 set ai
 set winaltkeys=no
 set encoding=UTF-8
+set modeline "modeline"
 
 
 " sets tab settings

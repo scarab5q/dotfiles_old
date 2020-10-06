@@ -45,3 +45,11 @@ augroup fasd
  " }}}
 augroup ENDau BufRead,BufNewFile *.md setlocal textwidth=80
 
+set nocompatible
+filetype plugin on       " may already be in your .vimrc
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,latex,tex call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END

@@ -106,9 +106,11 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'roxma/nvim-yarp'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'reedes/vim-pencil'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-endwise', {'for': ['sh', 'bash', 'zsh', 'vim', 'markdown']}
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'junegunn/goyo.vim'
 
 " clojure
 Plug 'tpope/vim-fireplace'
@@ -125,6 +127,7 @@ call plug#end()
 
 " Define Coc Extensions Here
 let g:coc_global_extensions = ['coc-tsserver',
+                              \'coc-diagnostic',
                               \'coc-json',
                               \'coc-css' ,
                               \'coc-python',

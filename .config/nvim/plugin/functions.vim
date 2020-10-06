@@ -19,6 +19,16 @@ function! FzyCommand(choice_command, vim_command)
     endif
 endfunction
 
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+        \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 " the following was taken from :
 " https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen
@@ -133,3 +143,12 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
+
+function! WC()
+    let filename = expand("%")
+    let cmd = "detex " . filename . " | wc -w "
+    let result = system(cmd)
+    echo result . " words"
+endfunction
+
+command! WC call WC()
