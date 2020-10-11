@@ -1,3 +1,103 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/jack/.zsh"
+export ZSH_MISC="/home/jack/.zsh_misc"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="starship"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git fzf-tag )
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -z "$TMUX"  ] && $(tmux ls | grep -v attached && tmux attach || tmux)
 export TERMINFO=/usr/lib/terminfo
 export KEYID=C16F5B76FF29CD285E6290BC7CEFC28B55057214
@@ -17,18 +117,19 @@ export LANG="en_GB.UTF-8"
 export ZSH=~/.zsh
 
 
-unset ZPLUG_CLONE_DEPTH
-unset ZPLUG_CACHE_FILE
+# unset ZPLUG_CLONE_DEPTH
+# unset ZPLUG_CACHE_FILE
 
 
-source ~/.zplug/init.zsh || \
-    curl -sL --proto-redir -all, \
-    https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# source ~/.zplug/init.zsh || \
+#     curl -sL --proto-redir -all, \
+    # https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
 
 
-zplug "zdharma/history-search-multi-word"
-zplug "junegunn/fzf-bin"
+ # zplug "Aloxaf/fzf-tab"
+# zplug "zdharma/history-search-multi-word"
+# zplug "junegunn/fzf-bin"
  # zsh-users/zsh-autosuggestions
 # robbyrussell/oh-my-zsh path:plugins/vi-mode
 
@@ -37,7 +138,7 @@ zplug "junegunn/fzf-bin"
 # caarlos0/zsh-git-fetch-merge kind:path
 # caarlos0/zsh-git-sync kind:path
 # mafredri/zsh-async
-zplug "changyuheng/zsh-interactive-cd"
+# zplug "changyuheng/zsh-interactive-cd"
 # rupa/z
 # Tarrasch/zsh-bd
 # # wbinglee/zsh-wakatime
@@ -54,38 +155,38 @@ zplug "changyuheng/zsh-interactive-cd"
 # zsh-users/zsh-history-substring-search
 # # banter
 # Let zplug manage itself
-zplug "zplug/zplug"
+# zplug "zplug/zplug"
 
-zplug "zsh-users/zsh-history-substring-search"
+# zplug "zsh-users/zsh-history-substring-search"
 
 
-zplug "MichaelAquilina/zsh-you-should-use"
-zplug "zsh-users/zsh-completions", as:plugin, use:"src"
-zplug "rupa/z", use:z.sh
+# zplug "MichaelAquilina/zsh-you-should-use"
+# zplug "zsh-users/zsh-completions", as:plugin, use:"src"
+# zplug "rupa/z", use:z.sh
 
-zplug "zsh-users/zsh-autosuggestions", defer:3
-    export ZSH_AUTOSUGGEST_USE_ASYNC=true
-    bindkey '^ ' autosuggest-accept
+# zplug "zsh-users/zsh-autosuggestions", defer:3
+    # export ZSH_AUTOSUGGEST_USE_ASYNC=true
+    # bindkey '^ ' autosuggest-accept
 
 # pure prompt
-zplug "mafredri/zsh-async", from:github
+# zplug "mafredri/zsh-async", from:github
 # zplug "denysdovhan/spaceship-prompt", use:"spaceship.zsh", from:github, as:theme
 
 
 # defer:3 needed to load after compinit
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
+# zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
-zplug "Aloxaf/fzf-tab", defer:2
+# zplug "Aloxaf/fzf-tab", defer:2
 
 # Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if ! zplug check --verbose; then
+    # printf "Install? [y/N]: "
+    # if read -q; then
+        # echo; zplug install
+    # fi
+# fi
 
-zplug load
+# zplug load
 
 setopt correctall
 setopt autocd
@@ -106,20 +207,20 @@ setopt hist_verify
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-zstyle ':zplug:tag' depth 1
+# zstyle ':zplug:tag' depth 1
 bindkey '^[[Z' reverse-menu-complete
 
 
 
 
 
-source $ZSH/.zsh_aliases
-source $ZSH/.zsh_functions
-source $ZSH/.zsh_bindings
-source $ZSH/.zsh_styles
-source $ZSH/zsh_path
+source $ZSH_MISC/zsh_aliases
+source $ZSH_MISC/zsh_functions
+source $ZSH_MISC/zsh_bindings
+source $ZSH_MISC/zsh_styles
+source $ZSH_MISC/zsh_path
 # source $ZSH/completion.zsh
-source $ZSH/.zsh_nnn
+source $ZSH_MISC/zsh_nnn
 
 
 # for file in $(fd . -H -t f $ZSH); do source $file; done
@@ -512,4 +613,11 @@ export PATH="/home/jack/.local/bin:$PATH"
 export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
 
 
-eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
+fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
+if [[ "$commands[fasd]" -nt "$fasd_cache" || ! -s "$fasd_cache" ]]; then
+  fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install \
+    zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+# eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
