@@ -2,14 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/jack/.zsh"
-export ZSH_MISC="/home/jack/.zsh_misc"
+export ZSH="/home/jack/.oh-my-zsh"
+export ZSH_MISC="/home/jack/.zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="starship"
+# ZSH_THEME="starship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -69,7 +69,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf-tag )
+plugins=(git python npm fasd fzf zsh-completions dotbare)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -606,6 +606,9 @@ eval "$(direnv hook zsh)"
 setopt vi
 setopt autopushd
 setopt autocd
+
+export DOTBARE_DIR="$HOME/.cfg"
+export DOTBARE_TREE="$HOME"
 
 export DENO_INSTALL=/home/jack/.local
 export PATH="/home/jack/.local/bin:$PATH"

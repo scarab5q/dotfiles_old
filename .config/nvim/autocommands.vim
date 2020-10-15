@@ -25,3 +25,8 @@ augroup pencil
   autocmd FileType markdown,mkd,latex,tex call pencil#init()
   autocmd FileType text         call pencil#init()
 augroup END
+
+" Universal auto location list popup
+" Cursor considered held depending on updatetime
+autocmd CursorHold * call s:AutoToggleLocList()
+autocmd QuitPre * if empty(&bt) | lclose | endif

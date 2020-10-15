@@ -20,6 +20,7 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 " Plug 'coc-sources'Plugin 'pest-parser/pest.vim'
+Plug 'vlime/vlime', {'rtp': 'vim/'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/kshenoy/vim-signature'
@@ -167,7 +168,3 @@ function! s:AutoToggleLocList()
   endif
 endfunction
 
-" Universal auto location list popup
-" Cursor considered held depending on updatetime
-autocmd CursorHold * call s:AutoToggleLocList()
-autocmd QuitPre * if empty(&bt) | lclose | endif

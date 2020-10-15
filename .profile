@@ -7,6 +7,7 @@ export PATH=~/.tmux/scripts:$PATH
 NPM_CONFIG_PREFIX=~/.npm-global
 NPM_CONFIG_PREFIX=~/.npm-global
 export NODE_PATH=`npm root -g`
+export BROWSER="brave"
 
 if [ -f ~/scripts/fasd/fasd ]; then
     source ~/scripts/fasd/fasd
