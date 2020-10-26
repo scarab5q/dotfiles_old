@@ -16,3 +16,5 @@ else
     git clone https://github.com/clvv/fasd ~/scripts/fasd
     source ~/scripts/fasd/fasd
 fi 
+
+export PATH="$HOME/.cargo/bin:$PATH"
