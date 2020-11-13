@@ -4,9 +4,10 @@
 "  ___) |  __/ |_| |_| | | | | (_| \__ \
 " |____/ \___|\__|\__|_|_| |_|\__, |___/
 "                             |___/     
-"
-
-set title titlestring=
+" 
+filetype indent on
+set smartindent
+ set title titlestring=
 set inccommand=split
 set number              "show current line number
 set relativenumber          "show relative line numbers

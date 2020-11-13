@@ -28,5 +28,7 @@ augroup END
 
 " Universal auto location list popup
 " Cursor considered held depending on updatetime
-autocmd CursorHold * call s:AutoToggleLocList()
-autocmd QuitPre * if empty(&bt) | lclose | endif
+" autocmd CursorHold * call s:AutoToggleLocList()
+" autocmd QuitPre * if empty(&bt) | lclose | endif
+
+autocmd BufRead,BufWritePre *sh normal gg=G

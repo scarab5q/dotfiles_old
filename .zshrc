@@ -6,6 +6,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="/home/jack/.oh-my-zsh"
 export ZSH_MISC="/home/jack/.zsh"
+export FZF_BASE=/usr/bin/fzf
+
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,7 +74,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python npm fasd fzf zsh-completions dotbare)
+plugins=(git z python npm fasd fzf zsh-completions dotbare)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,7 +113,7 @@ source ~/.zprofile
 
 # [ -z "$TMUX"  ] && {
 #     tmux_sessions=`tmux list-sessions`
-    
+
 #     for i in 
 # }
 
@@ -125,15 +128,15 @@ export ZSH=~/.zsh
 
 # source ~/.zplug/init.zsh || \
 #     curl -sL --proto-redir -all, \
-    # https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
 
 
  # zplug "Aloxaf/fzf-tab"
-# zplug "zdharma/history-search-multi-word"
-# zplug "junegunn/fzf-bin"
+ # zplug "zdharma/history-search-multi-word"
+ # zplug "junegunn/fzf-bin"
  # zsh-users/zsh-autosuggestions
-# robbyrussell/oh-my-zsh path:plugins/vi-mode
+ # robbyrussell/oh-my-zsh path:plugins/vi-mode
 
 # zdharma/fast-syntax-highlighting
 # caarlos0/git-add-remote kind:path
@@ -167,8 +170,8 @@ export ZSH=~/.zsh
 # zplug "rupa/z", use:z.sh
 
 # zplug "zsh-users/zsh-autosuggestions", defer:3
-    # export ZSH_AUTOSUGGEST_USE_ASYNC=true
-    # bindkey '^ ' autosuggest-accept
+# export ZSH_AUTOSUGGEST_USE_ASYNC=true
+# bindkey '^ ' autosuggest-accept
 
 # pure prompt
 # zplug "mafredri/zsh-async", from:github
@@ -182,10 +185,10 @@ export ZSH=~/.zsh
 
 # Install plugins if there are plugins that have not been installed
 # if ! zplug check --verbose; then
-    # printf "Install? [y/N]: "
-    # if read -q; then
-        # echo; zplug install
-    # fi
+# printf "Install? [y/N]: "
+# if read -q; then
+# echo; zplug install
+# fi
 # fi
 
 # zplug load
@@ -263,34 +266,34 @@ export MANPAGER="nvim -c 'set ft=man' -"
 # source ~/.cache/wal/colors.sh
 
 # Alternative (blocks terminal for 0-3ms)
-    # cat ~/.cache/wal/sequences
+# cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
-    # source ~/.cache/wal/colors-tty.sh
-    # export MANPATH="/usr/local/man:$MANPATH"
+# source ~/.cache/wal/colors-tty.sh
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-    export EDITOR="nvim"                  # $EDITOR opens in terminal
-    # export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
-    # export ALTERNATIVE_EDITOR=""
-    # export EDITOR="nvim"                  # $EDITOR opens in terminal
-    # export EDITOR="nvr -s"                  # $EDITOR opens in terminal
-    # export VISUAL="emacsclient -c"
-    # export VISUAL="nyaovim"
-    # export VISUAL="veonim"         # $VISUAL opens in GUI mode
-    # export VISUAL="oni"
+export EDITOR="nvim"                  # $EDITOR opens in terminal
+# export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+# export ALTERNATIVE_EDITOR=""
+# export EDITOR="nvim"                  # $EDITOR opens in terminal
+# export EDITOR="nvr -s"                  # $EDITOR opens in terminal
+# export VISUAL="emacsclient -c"
+# export VISUAL="nyaovim"
+# export VISUAL="veonim"         # $VISUAL opens in GUI mode
+# export VISUAL="oni"
 
 
 
-            
-    export npm_config_prefix=~/.node_modules
+
+export npm_config_prefix=~/.node_modules
 
 
-    export SCRIPTS="/home/jack/scripts"
-    # expac --timefmt='%Y-%m-%d %T' '%l\t%n'| sort | awk '{print $NF}' > ~/installed_packages_$HOST.txt
+export SCRIPTS="/home/jack/scripts"
+# expac --timefmt='%Y-%m-%d %T' '%l\t%n'| sort | awk '{print $NF}' > ~/installed_packages_$HOST.txt
 
 # yay -Qqn > sorted_installed_packages.txt
 
@@ -314,16 +317,16 @@ export GOPATH=$HOME/go
 
 
 # if which ruby >/dev/null && which gem >/dev/null; then
-    #     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-    # fi
-    # Add RVM to PATH for scripting. Make sure this is the last PATH variable change
-        [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+#     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+# fi
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-        # source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
-        export TERMINFO=/usr/lib/terminfo
-        # source $HOME/.cargo/env
+export TERMINFO=/usr/lib/terminfo
+# source $HOME/.cargo/env
 
 
 
@@ -338,7 +341,7 @@ export TASKDDATA=/var/lib/taskd
 
 
 getPrint () {
-    ag -r "print\(\w+\)" $1
+  ag -r "print\(\w+\)" $1
 }
 
 export NNN_OPENER=picker
@@ -357,17 +360,17 @@ export SKIM_DEFAULT_COMMAND="fd . --hidden"
 
 # # load everything but the path and completion files
 # for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
-    #   source "$file"
-    # done
-    autoload -Uz compinit
-    if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-        compinit;
-    else
-        compinit -C;
-    fi;
-    # autoload -U promptinit; promptinit
-    # prompt pure
-    alias todo=todo.sh
+#   source "$file"
+# done
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit;
+else
+  compinit -C;
+fi;
+# autoload -U promptinit; promptinit
+# prompt pure
+alias todo=todo.sh
 
 # export NPM_CONFIG_PREFIX=~/.npm-global
 
@@ -385,9 +388,9 @@ export VCSH_REPO_D=~/.config/vcsh/repo.d/
 # source /home/jack/todoist/todoist_functions.sh
 
 # tabtab source for electron-forge package
-    # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-    [[ -f /home/jack/xi-electron/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jack/xi-electron/node_modules/tabtab/.completions/electron-forge.zsh
-    [[ -s "/home/jack/.gvm/scripts/gvm" ]] && source "/home/jack/.gvm/scripts/gvm"
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/jack/xi-electron/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jack/xi-electron/node_modules/tabtab/.completions/electron-forge.zsh
+[[ -s "/home/jack/.gvm/scripts/gvm" ]] && source "/home/jack/.gvm/scripts/gvm"
 
 
 # required for marker
@@ -398,11 +401,11 @@ export VCSH_REPO_D=~/.config/vcsh/repo.d/
 #
 
 repo() {
-    # Validate that this folder is a git folder
-    if ! command git branch 2>/dev/null 1>&2 ; then
-        echo "Not a git repo!"
-        exit $?
-    fi
+  # Validate that this folder is a git folder
+  if ! command git branch 2>/dev/null 1>&2 ; then
+    echo "Not a git repo!"
+    exit $?
+  fi
 
     # Figure out github repo base URL
     local base_url
@@ -428,9 +431,9 @@ repo() {
     relative_path=${full_path#$git_base_path} # remove leading git_base_path from working directory
 
     # If filename argument is present, append it
-        if [ "$1" ]; then
-            relative_path="$relative_path/$1"
-        fi
+    if [ "$1" ]; then
+      relative_path="$relative_path/$1"
+    fi
 
     # Figure out current git branch
     # git_where=$(command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
@@ -445,17 +448,17 @@ repo() {
 
     echo "Calling $(type open) for $url"
 
-        open "$url" &> /dev/null || (echo "Using $(type open) to open URL failed." && exit 1);
-    }
+    open "$url" &> /dev/null || (echo "Using $(type open) to open URL failed." && exit 1);
+  }
 
 # Interactive process killing with FZF:
 fkill() {
-    pid=$(ps -ux | sed 1d | fzf -m | awk '{print $2}')
+  pid=$(ps -ux | sed 1d | fzf -m | awk '{print $2}')
 
-    if [ "x$pid" != "x" ]
-    then
-        kill -${1:-9} $pid
-    fi
+  if [ "x$pid" != "x" ]
+  then
+    kill -${1:-9} $pid
+  fi
 }
 
 # widget-helper() {
@@ -574,55 +577,83 @@ eval "$(direnv hook zsh)"
 # zsh-users/zsh-history-substring-search
 # # banter
 
+nn ()
+{
+    # Block nesting of nnn in subshells
+    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, remove the "export" as in:
+    #     NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    # NOTE: NNN_TMPFILE is fixed, should not be modified
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+    # stty lnext undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
 
 
 # ix io pastie
 ix() {
-            local opts
-            local OPTIND
-            [ -f "$HOME/var/.netrc" ] && opts='-n'
-            while getopts ":hd:i:n:" x; do
-                case $x in
-                    h) echo "ix [-d ID] [-i ID] [-n N] [opts]"; return;;
-                    d) $echo curl $opts -X DELETE ix.io/$OPTARG; return;;
-                    i) opts="$opts -X PUT"; local id="$OPTARG";;
-                    n) opts="$opts -F read:1=$OPTARG";;
-                esac
-            done
-            shift $(($OPTIND - 1))
-            [ -t 0 ] && {
-                local filename="$1"
-                shift
-                [ "$filename" ] && {
-                    curl $opts -F f:1=@"$filename" $* ix.io/$id
-                    return
-                }
-                echo "^C to cancel, ^D to send."
+  local opts
+  local OPTIND
+  [ -f "$HOME/var/.netrc" ] && opts='-n'
+  while getopts ":hd:i:n:" x; do
+    case $x in
+      h) echo "ix [-d ID] [-i ID] [-n N] [opts]"; return;;
+      d) $echo curl $opts -X DELETE ix.io/$OPTARG; return;;
+      i) opts="$opts -X PUT"; local id="$OPTARG";;
+      n) opts="$opts -F read:1=$OPTARG";;
+    esac
+  done
+  shift $(($OPTIND - 1))
+  [ -t 0 ] && {
+    local filename="$1"
+      shift
+      [ "$filename" ] && {
+        curl $opts -F f:1=@"$filename" $* ix.io/$id
+              return
             }
-            curl $opts -F f:1='<-' $* ix.io/$id
+          echo "^C to cancel, ^D to send."
         }
+      curl $opts -F f:1='<-' $* ix.io/$id
+    }
 
-eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
+  eval "$(starship init zsh)"
+  eval "$(direnv hook zsh)"
 
-setopt vi
-setopt autopushd
-setopt autocd
+  setopt vi
+  setopt autopushd
+  setopt autocd
 
-export DOTBARE_DIR="$HOME/.cfg"
-export DOTBARE_TREE="$HOME"
+  export DOTBARE_DIR="$HOME/.cfg"
+  export DOTBARE_TREE="$HOME"
 
-export DENO_INSTALL=/home/jack/.local
-export PATH="/home/jack/.local/bin:$PATH"
-# export PATH="/home/jack/.local/bin:$PATH"
-export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
+  export DENO_INSTALL=/home/jack/.local
+  export PATH="/home/jack/.local/bin:$PATH"
+  # export PATH="/home/jack/.local/bin:$PATH"
+  export PATH=$PATH:~/.npm-global:~/.npm_modules/bin
 
 
-fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
-if [[ "$commands[fasd]" -nt "$fasd_cache" || ! -s "$fasd_cache" ]]; then
-  fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install \
-    zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
-# eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
+  fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
+  if [[ "$commands[fasd]" -nt "$fasd_cache" || ! -s "$fasd_cache" ]]; then
+    fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install \
+      zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
+  fi
+  source "$fasd_cache"
+  unset fasd_cache
+  # eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"

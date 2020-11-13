@@ -215,7 +215,8 @@ cnoremap $d <CR>:d<CR>``
 "******************
 
 " map <leader>0 :NnnPicker '%:p:h'<CR> 
-nnoremap <leader>0 :NERDTreeToggle %:p:h<CR>
+" nnoremap <leader>0 :NERDTreeToggle %:p:h<CR>
+nnoremap <leader>y :NERDTreeToggle %:p:h<CR>
 
 
 
