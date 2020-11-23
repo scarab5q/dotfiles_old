@@ -7,7 +7,8 @@
     "typescriptreact",
     "markdown",
     "json",
-    "elm"
+    "elm",
+    "python"
   ],
   "suggest.noselect": false,
   "suggest.preferCompleteThanJumpPlaceholder": false,
@@ -15,6 +16,7 @@
   "tsserver.formatOnType": true,
   "codeLens.enable": true,
   "yank.priority": 90,
+  "python.formatting.provider": "black",
   "diagnostic-languageserver.filetypes": {
     "email": "languagetool",
     "latex": "languagetool"
@@ -116,5 +118,6 @@
         "go"
       ]
     }
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

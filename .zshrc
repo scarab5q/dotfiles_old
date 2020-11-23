@@ -6,7 +6,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="/home/jack/.oh-my-zsh"
 export ZSH_MISC="/home/jack/.zsh"
-export FZF_BASE=/usr/bin/fzf
+export FZF_BASE=/usr/bin/fzf 
 
 
 
@@ -657,3 +657,6 @@ ix() {
   source "$fasd_cache"
   unset fasd_cache
   # eval "$(fasd --init zsh-hook zsh-ccomp-install zsh-ccomp )"
+
+# opam configuration
+test -r /home/jack/.opam/opam-init/init.zsh && . /home/jack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
