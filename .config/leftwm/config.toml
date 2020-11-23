@@ -55,12 +55,12 @@ key = "w"
 [[keybind]]
 command = "MoveWindowUp"
 modifier = ["modkey", "Shift"]
-key = "Up"
+key = "k"
 
 [[keybind]]
 command = "MoveWindowDown"
 modifier = ["modkey", "Shift"]
-key = "Down"
+key = "j"
 
 [[keybind]]
 command = "MoveWindowTop"
@@ -70,32 +70,32 @@ key = "Return"
 [[keybind]]
 command = "FocusWindowUp"
 modifier = ["modkey"]
-key = "Up"
+key = "k"
 
 [[keybind]]
 command = "FocusWindowDown"
 modifier = ["modkey"]
-key = "Down"
+key = "j"
 
 [[keybind]]
 command = "NextLayout"
 modifier = ["modkey", "Control"]
-key = "Up"
+key = "k"
 
 [[keybind]]
 command = "PreviousLayout"
 modifier = ["modkey", "Control"]
-key = "Down"
+key = "j"
 
 [[keybind]]
 command = "FocusWorkspaceNext"
 modifier = ["modkey"]
-key = "Right"
+key = "l"
 
 [[keybind]]
 command = "FocusWorkspacePrevious"
 modifier = ["modkey"]
-key = "Left"
+key = "h"
 
 [[keybind]]
 command = "GotoTag"
