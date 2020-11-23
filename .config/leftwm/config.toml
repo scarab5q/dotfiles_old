@@ -10,12 +10,6 @@ key = "p"
 
 [[keybind]]
 command = "Execute"
-value = "firefox"
-modifier = ["modkey"]
-key = "g"
-
-[[keybind]]
-command = "Execute"
 value = "kitty"
 modifier = ["modkey"]
 key = "Return"
