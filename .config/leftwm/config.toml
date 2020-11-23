@@ -10,13 +10,13 @@ key = "p"
 
 [[keybind]]
 command = "Execute"
-value = "kitty"
-modifier = ["modkey"]
+value = "alacritty"
+modifier = ["modkey", "Shift"]
 key = "Return"
 
 [[keybind]]
 command = "CloseWindow"
-modifier = ["modkey"]
+modifier = ["modkey", "Shift"]
 key = "q"
 
 [[keybind]]
@@ -58,7 +58,7 @@ key = "j"
 
 [[keybind]]
 command = "MoveWindowTop"
-modifier = ["modkey, Shift"]
+modifier = ["modkey"]
 key = "Return"
 
 [[keybind]]
