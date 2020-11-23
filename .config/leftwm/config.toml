@@ -17,7 +17,7 @@ key = "g"
 [[keybind]]
 command = "Execute"
 value = "kitty"
-modifier = ["modkey", "Shift"]
+modifier = ["modkey"]
 key = "Return"
 
 [[keybind]]
@@ -64,7 +64,7 @@ key = "j"
 
 [[keybind]]
 command = "MoveWindowTop"
-modifier = ["modkey"]
+modifier = ["modkey, Shift"]
 key = "Return"
 
 [[keybind]]

@@ -1,3 +1,3 @@
-wal -i ~/google_drive/Wallpaper 
+exec dunst
 ~/scripts/screen_setup.sh
 
