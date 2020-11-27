@@ -8,7 +8,7 @@ export ZSH="/home/jack/.oh-my-zsh"
 export ZSH_MISC="/home/jack/.zsh"
 export FZF_BASE=/usr/bin/fzf 
 
-
+export TERMINAL=kitty
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
