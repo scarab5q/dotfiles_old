@@ -10,4 +10,4 @@ shada() {
         }'
 }
 
-_FASD_BACKENDS="current shada viminfo"
+_FASD_BACKENDS="current shada viminfo native"

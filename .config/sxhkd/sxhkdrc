@@ -19,6 +19,8 @@ super + p
 super + g
     $BROWSER
 
+super 
+
 # i3lock
 super + y
 	  i3lock -c 000000 -f 
