@@ -45,43 +45,6 @@ let g:vimtex_view_method = 'zathura'
 
 let g:vim_markdown_folding_disabled = 1
 
-let g:CtrlSpaceDefaultMappingKey = "<C-space> "
-let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-
-hi link CtrlSpaceSearch IncSearch
-let g:maplocalleader = ','
-nnoremap <silent> <Space>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-" nnoremap <silent> <C-space> :<c-u>WhichKey  '<C-Space>'<CR>
-
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-
-" \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-if executable("ag")
-let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
-let g:CtrlSpaceUseMouseAndArrowsInTerm = 1  " enable arrow keys in lists
-call map#Keys('n', 'cwn', ':CtrlSpaceNewWorkspace<CR>') " keymap for new workspace with name (don't kill all buffers/tabs!)
-call map#Keys('n', 'cws', ':CtrlSpaceSaveWorkspace<CR>') " keymap for saving workspace
-let g:airline#extensions#ctrlspace#enabled = 1
-let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
-
-
-
-let g:CtrlSpaceUseTabline = 1
-function! CWDTabline()
-let tabline=''
-let tabline.='%#TabLineFill#'
-let tabline.='%=|'      "left/right separator
-let tabline.='%#identifier#'
-let tabline.='%.30(%{fnamemodify(getcwd(), ":~")}%)'
-let tabline.='%*'
-return tabline
-endfunction
-
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.ejs,*.vue"
 
@@ -207,6 +170,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "******************
 
 let g:vimwiki_map_prefix = '<leader>W'
+let g:vimwiki_list = [{'path': '~/my_notes/notes/',
+                      \ 'path_html': '~/my_notes/html',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 
 "******************
