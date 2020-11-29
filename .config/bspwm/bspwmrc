@@ -71,9 +71,7 @@ fi
 
 nm-applet &
 
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --reload top &
-done
+
 
 # pkill sxhkd
 sxhkd &
@@ -93,28 +91,3 @@ bspc config pointer_follows_focus true
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
- volumeicon &
- # pa-applet
- # $host_scripts/xrandr_setup
- # $script/pulse_startup
- # /home/jack/scripts/entr_commands &
- # xcape -e 'Control_L=Escape'
- # dbus_session_finder
- # /usr/lib/geoclue-2.0/demos/agent
- # redshift
- # mopidy
- # i3-msg 'exec /usr/bin/pulseaudio --start'
- # exec_always $scripts/changing_wallpaper.sh
- dunst -config ~/.config/dunst/dunstrc &
- # xfce4-power-manager
- # pamac-tray
- xclip &
- # insync start 
- # blueman-applet  &
- # sbxkb 
- # xautolock -time 15 -locker /home/jack/scripts/lock_script &
- # udiskie -ans &
-
- # /home/jack/scripts/rclone_wallpaper &
- # /home/jack/scripts/rclone_sheffield &
-
