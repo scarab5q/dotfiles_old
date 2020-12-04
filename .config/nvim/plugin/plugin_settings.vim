@@ -45,6 +45,7 @@ let g:vimtex_view_method = 'zathura'
 
 let g:vim_markdown_folding_disabled = 1
 
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js,*.ejs,*.vue"
 

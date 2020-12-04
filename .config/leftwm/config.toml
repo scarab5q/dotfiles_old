@@ -42,6 +42,12 @@ modifier = ["modkey", "Shift"]
 key = "w"
 
 [[keybind]]
+command = "Execute"
+value = "wmctrl -ir `xdotool getwindowfocus` -b toggle,fullscreen"
+modifier = ["modkey"]
+key = "m"
+
+[[keybind]]
 command = "SwapTags"
 modifier = ["modkey"]
 key = "w"
