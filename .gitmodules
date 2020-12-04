@@ -4,6 +4,7 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = git://github.com/tmux-plugins/tpm/
-[submodule "/home/jack/.config/leftwm/themes/leftwm-soothe"]
-	path = /home/jack/.config/leftwm/themes/leftwm-soothe
-	url = https://github.com/b4skyx/leftwm-soothe
+[submodule ".config/leftwm/themes/leftwm-soothe"]
+	path = .config/leftwm/themes/leftwm-soothe
+	url = https://github.com/b4skyx/leftwm-soothe.git
+
