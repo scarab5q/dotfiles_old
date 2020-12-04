@@ -10,13 +10,19 @@ key = "d"
 
 [[keybind]]
 command = "Execute"
+value = "$BROWSER"
+modifier = ["modkey"]
+key = "g"
+
+[[keybind]]
+command = "Execute"
 value = "kitty"
 modifier = ["modkey"]
 key = "Return"
 
 [[keybind]]
 command = "CloseWindow"
-modifier = ["modkey", "Shift"]
+modifier = ["modkey" ]
 key = "q"
 
 [[keybind]]

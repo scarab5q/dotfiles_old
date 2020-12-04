@@ -68,6 +68,9 @@ super + 0
 super + {_,shift,alt,ctrl} + {h,j,k,l}
    {focus,move,resize,presel}.sh {west,south,north,east}
 
+super + shift + ctrl + x	
+	  bspc quit;
+
 # preselect
 #
 
