@@ -59,10 +59,11 @@
 # bspc monitor --primary HDMI-1 -d  I II III IV V 
 # bspc monitor DP-2 -d VI VII VIII IX X
 
-wal -i /home/jack/wallpaper
+#wal -i /home/jack/wallpaper
 
-polybar_is_running = ``
-if [ ps aux | grep "polybar" ]; then
+# polybar_is_running=``
+if pgrep -x "polybar" > /dev/null
+then
     killall -p polybar
     sleep 1
 fi

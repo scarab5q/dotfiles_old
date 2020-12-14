@@ -20,6 +20,7 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 " Plug 'coc-sources'Plugin 'pest-parser/pest.vim'
+Plug 'vlime/vlime', {'rtp': 'vim/'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/kshenoy/vim-signature'
@@ -156,28 +157,24 @@ let g:coc_global_extensions = ['coc-tsserver',
 
 " Auto loclist toggler
 " re-uses existign syntastic vars to avoid var duplication
-function! s:AutoToggleLocList()
-  let lastwinnr = winnr()
-  if len(getloclist(winnr()))
-    if g:syntastic_auto_loc_list == 5
-      let loclength = len(getloclist(winnr()))
-      if loclength > g:syntastic_loc_list_height
-        let loclength = g:syntastic_loc_list_height
-      endif
-      exe 'lopen '.loclength
+" function! s:AutoToggleLocList()
+"   let lastwinnr = winnr()
+"   if len(getloclist(winnr()))
+"     if g:syntastic_auto_loc_list == 5
+"       let loclength = len(getloclist(winnr()))
+"       if loclength > g:syntastic_loc_list_height
+"         let loclength = g:syntastic_loc_list_height
+"       endif
+"       exe 'lopen '.loclength
 
     
 
-      if lastwinnr != winnr() | exe lastwinnr.' wincmd w' | endif
-    endif
-  else
-    if g:syntastic_auto_loc_list > 0
-      lclose
-    endif
-  endif
-endfunction
+"       if lastwinnr != winnr() | exe lastwinnr.' wincmd w' | endif
+"     endif
+"   else
+"     if g:syntastic_auto_loc_list > 0
+"       lclose
+"     endif
+"   endif
+" endfunction
 
-" Universal auto location list popup
-" Cursor considered held depending on updatetime
-autocmd CursorHold * call s:AutoToggleLocList()
-autocmd QuitPre * if empty(&bt) | lclose | endif

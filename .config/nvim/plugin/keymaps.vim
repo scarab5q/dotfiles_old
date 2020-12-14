@@ -169,7 +169,7 @@ nnoremap <leader> s
 noremap \f f
 map -f <Plug>(easymotion-overwin-f)
 nmap s <Plug>(easymotion-overwin-f2)
-" map ,L <Plug>(easymotion-bd-jk)
+" map ,L <Plug>(easymotion-d-jk)
 map \h <Plug>(easymotion-backward)
 map \l <Plug>(easymotion-lineforward)
 noremap \k <Plug>(easymotion-k) 
@@ -215,7 +215,8 @@ cnoremap $d <CR>:d<CR>``
 "******************
 
 " map <leader>0 :NnnPicker '%:p:h'<CR> 
-nnoremap <leader>0 :NERDTreeToggle %:p:h<CR>
+" nnoremap <leader>0 :NERDTreeToggle %:p:h<CR>
+nnoremap <leader>y :NERDTreeToggle %:p:h<CR>
 
 
 
@@ -249,9 +250,10 @@ noremap L g$
 " Buffer Bingings
 "****************
 
-nnoremap <silent> <leader>bd :bd<CR>
 nnoremap <silent> <Leader>bb :Buffers<CR>
 nnoremap <silent> <Leader>bh :Bn<CR>
+nnoremap <silent> <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
+" nnoremap <silent> <Leader>bh BB<CR>
 nnoremap <silent> <Leader>bl :BF<CR>
 nnoremap <silent> <leader>qq :wqall<CR>
 nnoremap <silent> <leader>qQ :qall!<CR>
@@ -314,7 +316,7 @@ nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 " nnoremap <silent> <leader>wj <c-w>j
 " nnoremap <silent> <leader>wk <c-w>k
 nnoremap <silent> <leader>wd :close<cr>
-nnoremap <silent> <leader>wx :BD<CR>:close<cr>
+" nnoremap <silent> <leader>wx :BD<CR>:close<cr>
 
 
 
@@ -327,6 +329,9 @@ nnoremap <silent> <leader>bd :bd<CR>
 nnoremap <silent> <Leader>bb :Buffers<CR>
 nnoremap <silent> <Leader>bh :bn<CR>
 nnoremap <silent> <Leader>bl :bp<CR>
+" nnoremap <silent> <leader>bd :BD<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+" nnoremap <silent> <Leader>bh :BB<CR>
 
 "*************
 " nnn mappings

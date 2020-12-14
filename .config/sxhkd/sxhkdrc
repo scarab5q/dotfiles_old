@@ -17,7 +17,7 @@ super + p
 
 # Chromium
 super + g
-    chromium
+    brave
 
 # i3lock
 super + y
