@@ -142,6 +142,7 @@ in {
       # clang
       # cquery
       # ccls
+      qbittorrent
       automake
       blueman
       firefox-bin
@@ -206,9 +207,10 @@ in {
       tmux
       fish
       zsh
+
       lua
       transmission
-      transmission-remote-cli
+      tremc
       brave
       rofi
       # (

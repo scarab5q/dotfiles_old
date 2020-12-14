@@ -33,9 +33,10 @@ augroup fasd
        \ | setl spell spl=en_us fdl=4 noru nonu nornu
        \ | setl fdo+=search
   augroup END
+
  " Pencil / Writing Controls {{{
-   let g:pencil#wrapModeDefault = 'soft'
-   let g:pencil#textwidth = 74
+   let g:pencil#wrapModeDefault = 'hard'
+   let g:pencil#textwidth = 80
    let g:pencil#joinspaces = 0
    let g:pencil#cursorwrap = 1
    let g:pencil#conceallevel = 3

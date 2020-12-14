@@ -1,6 +1,6 @@
 [submodule ".config/nixpkgs"]
 	path = .config/nixpkgs
 	url = https://github.com/NixOS/nixpkgs
-[submodule "/home/jack/.tmux/plugins/tpm"]
-	path = /home/jack/.tmux/plugins/tpm
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm

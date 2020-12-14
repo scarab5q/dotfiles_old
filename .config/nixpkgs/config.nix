@@ -135,7 +135,10 @@ in {
           todo-txt-cli
           transmission
           transmission-gtk
-          transmission-remote-cli
+          # tremc
+          texlive
+          qbittorrent
+
           # typespeed
           # unzip
           # xorg.xbacklight
@@ -191,7 +194,6 @@ in {
           # for programming in assembly
           nasm
           python-stuff
-
         ];
         pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
         extraOutputsToInstall = [ "man" "doc" ];
