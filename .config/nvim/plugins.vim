@@ -38,7 +38,7 @@ Plug 'reedes/vim-wordy' " Weasel words and passive voice
 
 
 " Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-" Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mcchrish/nnn.vim'
 " Plug 'mhinz/vim-startify'

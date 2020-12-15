@@ -16,7 +16,7 @@ augroup fasd
   autocmd!
   autocmd BufWinEnter,BufFilePost * call s:fasd_update()
 
-   Plug 'reedes/vim-pencil' " Super-powered writing things
+  Plug 'reedes/vim-pencil' " Super-powered writing things
   Plug 'tpope/vim-abolish' " Fancy abbreviation replacements
   Plug 'junegunn/limelight.vim' " Highlights only active paragraph
   Plug 'junegunn/goyo.vim' " Full screen writing mode
@@ -51,8 +51,7 @@ filetype plugin on       " may already be in your .vimrc
 
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd,latex,tex call pencil#init()
-  autocmd FileType text         call pencil#init()
+  autocmd FileType vimwiki,markdown,mkd,latex,tex,text call pencil#init({ 'wrap': 'soft' })
 augroup END
 
 " Universal auto location list popup

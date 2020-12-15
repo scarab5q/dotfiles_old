@@ -9,7 +9,6 @@ export ZSH_MISC="/home/jack/.zsh"
 export FZF_BASE=/usr/bin/fzf 
 
 
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

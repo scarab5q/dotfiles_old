@@ -8,6 +8,8 @@ NPM_CONFIG_PREFIX=~/.npm-global
 NPM_CONFIG_PREFIX=~/.npm-global
 export NODE_PATH=`npm root -g`
 export BROWSER="firefox"
+
+export TERMINAL="kitty"
 export XDG_CONFIG_HOME="/home/jack/.config"
 
 # if [ -d ~/scripts/fasd ]; then
