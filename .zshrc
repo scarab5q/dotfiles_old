@@ -74,7 +74,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z python npm fasd fzf zsh-completions dotbare)
+# compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -210,8 +210,15 @@ setopt auto_list
 # confirm execution of command from history
 setopt hist_verify
 
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+# zstyle ':completion:*' menu select
+# zstyle ':completion:*' matcher-list	'' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ":completion:*:git-checkout:*" sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # zstyle ':zplug:tag' depth 1
 bindkey '^[[Z' reverse-menu-complete
 
@@ -351,7 +358,6 @@ export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_COMPLETION_TRIGGER=''
-export BROWSER=chromium
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 
@@ -362,7 +368,11 @@ export SKIM_DEFAULT_COMMAND="fd . --hidden"
 # for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
 #   source "$file"
 # done
-autoload -Uz compinit
+autoload -Uz compinit promptinit
+
+promptinit 
+
+compinit
 if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
   compinit;
 else
@@ -541,7 +551,7 @@ bindkey '^E^P' project-switcher-widget
 
 # Complete word from history with menu
 # https://github.com/mika/zsh-pony
-zle -C hist-complete complete-word _generic
+# zle -C hist-complete complete-word _generic
 zstyle ':completion:hist-complete:*' completer _history
 bindkey "^X^X" hist-complete
 
@@ -660,3 +670,4 @@ ix() {
 
 # opam configuration
 test -r /home/jack/.opam/opam-init/init.zsh && . /home/jack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+

@@ -7,7 +7,8 @@ export PATH=~/.tmux/scripts:$PATH
 NPM_CONFIG_PREFIX=~/.npm-global
 NPM_CONFIG_PREFIX=~/.npm-global
 export NODE_PATH=`npm root -g`
-export BROWSER="brave"
+export BROWSER="firefox"
+export XDG_CONFIG_HOME="/home/jack/.config"
 
 # if [ -d ~/scripts/fasd ]; then
 #     source ~/scripts/fasd/fasd

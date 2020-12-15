@@ -24,7 +24,8 @@ in let
   my-python-packages = pp:
     with pp; [
       ipython
-      jupyter_console
+      # jupyter_console
+      # jrnl
       # jupyter
       # qtconsole
       pynvim
@@ -63,33 +64,24 @@ in {
         name = "myPackages";
         ignoreCollisions = true;
         paths = [
-
           racket
-
           # vscodeAndExtensions
           ocaml
           ocamlPackages.utop
           ocamlPackages.base
-
           tree
           shfmt
-
           gtop
           htop
-
           # for kak completion
           jq
           gocode
           gogetdoc
-
           pipenv
           direnv
-
           zig
           ocaml
-
           ocamlPackages.findlib
-
           sd
           up
           acpi
@@ -102,7 +94,6 @@ in {
           feh
           rustup
           godot
-          # gotools
           htop
           git-hub
           kakoune
@@ -113,86 +104,48 @@ in {
           libreoffice
           xorg.libX11
           light
-          # minikube
+          jrnl
           neovim-remote
           tree
           networkmanagerapplet
-          # nixify
           nnn
           nodejs-12_x
           nodePackages.create-react-app
-          # nodePackages.joplin
-          # nodePackages.gatsby-cli
           ntfs3g
-          # openvpn
           pavucontrol
-          qutebrowser
+          # qutebrowser
           ripgrep
           rofi-unwrapped
           rofi
-          # rtorrent
+          rtorrent
           taskwarrior
           todo-txt-cli
           transmission
           transmission-gtk
-          # tremc
-          texlive
+          tectonic
           qbittorrent
-
-          # typespeed
-          # unzip
-          # xorg.xbacklight
-          # xclip
-          # xorg.xkill
-          # yubikey-manager-qt
           zathura
-          # zsh
-          # python-stuff
-          # nixpkgs-fmt
-          # jupyter
-          # nodejs # for coc.nvim
-          # yarn # for coc.nvim
-          # emscripten
-          # awesome
-          # qt5.full
-          # csvkit
-          # (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
-          python-stuff
           nixpkgs-fmt
-          # jupyter
+          jupyter
           nodejs # for coc.nvim
           yarn # for coc.nvim
-
           emscripten
           # qt5.full
-
           asciinema
           ffcast
-          xorg.xwininfo
-          xrectsel
-
+          # xorg.xwininfo
+          # xrectsel
           # nixpkgs dependency management
           niv
-
-          neovim-remote
-          # (neovim.override { extraPython3Packages = pp: [ pp.jupyter ]; })
-
-          # go stuff
+          # neovim-remote
           go
           dep
           gotools
-
           kakoune
-
           # cargo
           # rustc
-
-          # for text art
           figlet
           unzip
-
-          # for programming in assembly
-          nasm
           python-stuff
         ];
         pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];

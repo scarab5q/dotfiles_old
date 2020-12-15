@@ -120,7 +120,7 @@ in {
       curlie
       tmuxp
       watchman
-      next
+      # next
       yubikey-manager
       yubikey-personalization
       yubikey-personalization-gui
@@ -443,10 +443,10 @@ in {
           # autoLogin.user = "jack";
           # defaultUser = "jack";
         };
-        sessionCommands = ''
-          ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
+        # sessionCommands = ''
+          # ${pkgs.xcape}/bin/xcape -e "Control_L=Escape"
 
-        '';
+        # '';
       };
 
       windowManager = {
