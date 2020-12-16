@@ -103,6 +103,7 @@ in {
       # jrnl
       # citrix_workspace
       # entr
+      leftwm
       deno
       up
       # citrix_workspace
@@ -301,7 +302,6 @@ in {
 
   # Enable  the X11 windowing system.
 
-  # services.xserver.displayManager.sddm.enable = true;
   services = {
     pcscd.enable = true;
     blueman.enable = true;
@@ -456,11 +456,12 @@ in {
         #     enable = true;
         #     luaModules = [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
         #   };
-        bspwm = {
-          enable = true;
-          configFile = /home/jack/.config/bspwm/bspwmrc;
-          sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
-        };
+        leftwm.enable = true; 
+        # bspwm = {
+        #   enable = true;
+        #   configFile = /home/jack/.config/bspwm/bspwmrc;
+        #   sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        # };
         # "awesome";
         # default = "dwm";
         # session =
