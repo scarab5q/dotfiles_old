@@ -12,6 +12,21 @@ export BROWSER="firefox"
 export TERMINAL="kitty"
 export XDG_CONFIG_HOME="/home/jack/.config"
 
+export NNN_OPENER=picker
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500' --height 40% --reverse"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+
+export SKIM_DEFAULT_OPTIONS="--height "40%" --reverse --ansi --regex"
+export SKIM_DEFAULT_COMMAND="fd . --hidden"
+
+alias todo=todo.sh
+
 # if [ -d ~/scripts/fasd ]; then
 #     source ~/scripts/fasd/fasd
 # else
@@ -24,28 +39,35 @@ export XDG_CONFIG_HOME="/home/jack/.config"
 # setup ssh-agent
 #
 
+# taken from:
+  # https://stackoverflow.com/questions/18880024/start-ssh-agent-on-login
+  # http://mah.everybody.org/docs/ssh
 
 # set environment variables if user's agent already exists
-[ -z "$SSH_AUTH_SOCK" ] && SSH_AUTH_SOCK=$(ls -l /tmp/ssh-*/agent.* 2> /dev/null | grep $(whoami) | awk '{print $9}')
-[ -z "$SSH_AGENT_PID" -a -z `echo $SSH_AUTH_SOCK | cut -d. -f2` ] && SSH_AGENT_PID=$((`echo $SSH_AUTH_SOCK | cut -d. -f2` + 1))
-[ -n "$SSH_AUTH_SOCK" ] && export SSH_AUTH_SOCK
-[ -n "$SSH_AGENT_PID" ] && export SSH_AGENT_PID
 
-# start agent if necessary
-if [ -z $SSH_AGENT_PID ] && [ -z $SSH_TTY ]; then  # if no agent & not in ssh
-  eval `ssh-agent -s` > /dev/null
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+     echo "Initialising new SSH agent..."
+     /usr/bin/env ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/env ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
+else
+     start_agent;
 fi
 
-# setup addition of keys when needed
-if [ -z "$SSH_TTY" ] ; then                     # if not using ssh
-  ssh-add -l > /dev/null                        # check for keys
-  if [ $? -ne 0 ] ; then
-    alias ssh='ssh-add -l > /dev/null || ssh-add && unalias ssh ; ssh'
-    if [ -f "/usr/lib/ssh/x11-ssh-askpass" ] ; then
-      SSH_ASKPASS="/usr/lib/ssh/x11-ssh-askpass" ; export SSH_ASKPASS
-    fi
-  fi
-fi
 
 if [ -f ~/scripts/fasd/fasd ]; then
     if ! type fasd > /dev/null; then

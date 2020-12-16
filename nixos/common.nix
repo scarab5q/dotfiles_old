@@ -92,15 +92,15 @@ in {
 
     variables = {
 
-      # XDG_CONFIG_HOME = ~/.config;
-      EDITOR = "nvr -s";
+      XDG_CONFIG_HOME = "~/.config";
+      EDITOR = "nvim";
       CMAKE_PREFIX_PATH = "${pkgs.zlib.out}:${pkgs.zlib.dev}";
       # RUST_SRC_PATH="${mozilla.latest.rustChannels.nightly.rust-src}/lib/rustlib/src/rust/src";
     };
 
     # system packages
     systemPackages = with pkgs; [
-      # jrnl
+      jrnl
       # citrix_workspace
       # entr
       leftwm
@@ -456,12 +456,12 @@ in {
         #     enable = true;
         #     luaModules = [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
         #   };
-        leftwm.enable = true; 
-        # bspwm = {
-        #   enable = true;
-        #   configFile = /home/jack/.config/bspwm/bspwmrc;
-        #   sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
-        # };
+        # leftwm.enable = true; 
+        bspwm = {
+          enable = true;
+          configFile = /home/jack/.config/bspwm/bspwmrc;
+          sxhkd.configFile = /home/jack/.config/sxhkd/sxhkdrc;
+        };
         # "awesome";
         # default = "dwm";
         # session =
