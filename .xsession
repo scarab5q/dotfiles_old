@@ -1,10 +1,15 @@
+picom
+
 ~/scripts/screen_setup.sh
+
 volumeicon &
+
+nm-applet &
 
 dunst -config ~/.config/dunst/dunstrc &
 
 xclip &
 
-# ~/.config/bspwm/panel & 
-
 wal -i ~/google_drive/Wallpaper/
+
+insync start  &

@@ -19,8 +19,6 @@ export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} || cat {}) 2> /dev/
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion
-bindkey '^I' $fzf_default_completion
 
 export SKIM_DEFAULT_OPTIONS="--height "40%" --reverse --ansi --regex"
 export SKIM_DEFAULT_COMMAND="fd . --hidden"
@@ -47,26 +45,26 @@ alias todo=todo.sh
 
 SSH_ENV="$HOME/.ssh/environment"
 
-function start_agent {
-     echo "Initialising new SSH agent..."
-     /usr/bin/env ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-     echo succeeded
-     chmod 600 "${SSH_ENV}"
-     . "${SSH_ENV}" > /dev/null
-     /usr/bin/env ssh-add;
-}
+#function start_agent {
+#     echo "Initialising new SSH agent..."
+#     /usr/bin/env ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+#     echo succeeded
+#     chmod 600 "${SSH_ENV}"
+#     . "${SSH_ENV}" > /dev/null
+#     /usr/bin/env ssh-add;
+#}
 
-# Source SSH settings, if applicable
+## Source SSH settings, if applicable
 
-if [ -f "${SSH_ENV}" ]; then
-     . "${SSH_ENV}" > /dev/null
-     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-         start_agent;
-     }
-else
-     start_agent;
-fi
+#if [ -f "${SSH_ENV}" ]; then
+#     . "${SSH_ENV}" > /dev/null
+#     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#         start_agent;
+#     }
+#else
+#     start_agent;
+#fi
 
 
 if [ -f ~/scripts/fasd/fasd ]; then
@@ -78,5 +76,6 @@ else
     git clone https://github.com/clvv/fasd ~/scripts/fasd
     source ~/scripts/fasd/fasd
 fi 
+
 
 export PATH="$HOME/.cargo/bin:$PATH"

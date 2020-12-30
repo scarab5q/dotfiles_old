@@ -117,6 +117,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # zstyle ':zplug:tag' depth 1
 bindkey '^[[Z' reverse-menu-complete
 
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
 
 
 

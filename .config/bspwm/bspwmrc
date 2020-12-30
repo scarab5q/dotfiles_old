@@ -68,13 +68,14 @@ then
     sleep 1
 fi
 
-
-nm-applet &
-
-
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$m polybar --reload top &
+done
 
 # pkill sxhkd
 sxhkd &
+
+wal -i $HOME/google_drive/Wallpaper
 
 bspc config border_width         2
 bspc config window_gap          12

@@ -21,8 +21,6 @@ e() {
       if [ -f $F ];then
           $EDITOR $F
       fi
-      echo "nothing happened"
-      exit
   fi
 }
 

@@ -5,7 +5,8 @@
 # source /home/jack/.zshrc
 Wallpaper=~/google_drive/Wallpaper/
 
-wal -i $Wallpaper
+
+wal -i $Wallpaper  
 
 /home/jack/scripts/go/invert_wal
 

@@ -107,6 +107,10 @@ in {
       deno
       up
       # citrix_workspace
+
+
+      wmctrl
+      xdotool
       sd
       entr
       fswatch
@@ -303,8 +307,10 @@ in {
   # Enable  the X11 windowing system.
 
   services = {
+    sshd.enable = true;
     pcscd.enable = true;
     blueman.enable = true;
+    picom.enable = true;
 
     # emacs = {
     #   enable = true;
@@ -435,6 +441,9 @@ in {
         # startx.enable = true;
         # xterm.enable = false;
 
+        job = {
+          logToFile = true;
+        };
         defaultSession = "none+bspwm";
 
         sddm = {
@@ -451,12 +460,12 @@ in {
 
       windowManager = {
         #dwm.enable = true;
-        # awesome =
-        #   {
-        #     enable = true;
-        #     luaModules = [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
-        #   };
-        # leftwm.enable = true; 
+        awesome =
+          {
+            enable = true;
+            luaModules = [ pkgs.luaPackages.luafilesystem pkgs.luaPackages.cjson ];
+          };
+        leftwm.enable = true; 
         bspwm = {
           enable = true;
           configFile = /home/jack/.config/bspwm/bspwmrc;
@@ -477,21 +486,34 @@ in {
     };
   };
 
-  users.users.jack = {
-    isNormalUser = true;
-    extraGroups = [
-      "docker"
-      "wheel"
-      "video"
-      "audio"
-      "disk"
-      "networkmanager"
-      "suid"
-    ];
-    shell = pkgs.zsh;
+  users={
+    users.jack = {
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQaDUi4MGdqRLZWFyX1mWaWFdUNTTHKohYshRat+3yE jackmdenny@gmail.com"
+      ];
+      isNormalUser = true;
+      extraGroups = [
+        "docker"
+        "wheel"
+        "video"
+        "audio"
+        "disk"
+        "networkmanager"
+        "suid"
+      ];
+      shell = pkgs.zsh;
+
+    };
+    # mutableUsers=false;
   };
 
-  programs = { light = { enable = true; }; };
+
+
+  programs = { 
+    light = { enable = true; };
+    nm-applet = { enable = true; };
+
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
