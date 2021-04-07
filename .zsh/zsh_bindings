@@ -1,0 +1,14 @@
+bindkey -v
+export KEYTIMEOUT=1
+bindkey -M vicmd v edit-command-line
+
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+# bindkey '^S' fzy-cd-widget
+# bindkey '^T'  fzy-file-widget
+# bindkey '^R'  fzy-history-widget
+# bindkey '^P'  fzy-proc-widget
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down

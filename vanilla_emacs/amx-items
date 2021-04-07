@@ -1,0 +1,29 @@
+
+;; ----- amx-history -----
+(
+ chezmoi-load-init
+ isearch-tmm-menubar
+ imenu-add-to-menubar
+ imenu
+ paredit-mode
+ eshell
+ kill-current-buffer
+)
+
+;; ----- amx-data -----
+(
+ (package-install . 2)
+ (flycheck-mode . 1)
+ (global-flycheck-mode . 1)
+ (global-display-line-numbers-mode . 1)
+ (emacs-lisp-mode . 2)
+ (org-babel-load-file . 2)
+ (kill-current-buffer . 2)
+ (ibuffer-mode . 2)
+ (eshell . 1)
+ (paredit-mode . 2)
+ (imenu . 1)
+ (imenu-add-to-menubar . 1)
+ (isearch-tmm-menubar . 1)
+ (chezmoi-load-init . 1)
+)

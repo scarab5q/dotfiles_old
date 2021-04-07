@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# Because Git submodule commands cannot operate without a work tree, they must
+# be run from within $HOME (assuming this is the root of your dotfiles)
+
+cd "$HOME"
+
+echo "Init submodules"
+
+yadm submodule update --recursive --init
+
+if [[ -z $XDG_DATA_HOME ]]; then
+	export XDG_DATA_HOME=~/.local/share
+fi
+
+
+PACKER_INSTALL_DIR=$XDG_DATA_HOME/nvim/site/packer/start/
+
+if [ "$(ls -A $PACKER_INSTALL_DIR)" ]; then
+	echo "packer install dir insn't empty, not cloning packer"
+else
+	echo "cloning packer"
+	git clone https://github.com/wbthomason/packer.nvim\
+	 $PACKER_INSTALL_DIR/packer.nvim
+fi
+
+
+if [ "$(ls -A ~/doom-emacs)" ]; then
+	echo "doom emacs dir is not empty, not cloning doom-emacs"
+else
+	echo "cloning and installing doom emacs"
+	git clone https://github.com/hlissner/doom-emacs ~/doom-emacs
+	~/doom-emacs/bin/doom install
+fi
+
+
