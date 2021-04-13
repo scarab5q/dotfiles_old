@@ -100,6 +100,7 @@ SETUVAR _fish_abbr_xisu:sudo\x20xbps\x2dinstall\x20\x2dSu
 SETUVAR _fish_abbr_xss:cat\x20\x7e/\x2exsession\x20\x7c\x20sh
 SETUVAR _fish_abbr_yi:yay\x20\x2dSy
 SETUVAR _fish_abbr_yin:yay\x20\x2dSy\x20\x2d\x2dnoconfirm
+SETUVAR _fish_abbr_ylg:lazygit\x20\x2d\x2dgit\x2ddir\x20/home/jack/\x2econfig/yadm/repo\x2egit/\x20\x2d\x2dwork\x2dtree\x20/home/jack
 SETUVAR _fish_abbr_yr:yay\x20\x2dR
 SETUVAR _fish_abbr_yrns:yay\x20\x2dRns
 SETUVAR _fish_abbr_ys:yay\x20\x2dSs
