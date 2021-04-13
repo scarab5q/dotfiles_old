@@ -130,6 +130,11 @@ in {
     # system packages
     systemPackages = with pkgs; [
 
+
+      discord
+
+
+      
       imagemagick # for image-dired
       zstd # for undo-fu-session/undo-tree compression
 
