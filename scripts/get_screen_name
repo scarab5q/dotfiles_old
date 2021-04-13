@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+import i3ipc
+
+i3 = i3ipc.Connection()
+
+focused_window = i3.get_tree().find_focused()
+print(focused_window.name)

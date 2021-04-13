@@ -1,0 +1,19 @@
+#!/usr/bin/env fish
+
+set sheff_process (ps aux | grep -c "rclone_wallpaper")
+
+if test $sheff_process -gt 1
+    notify-send "wallpaper sync alredy running"
+
+else 
+    while true
+        rclone sync gdrive:Wallpaper /home/jack/wallpaper
+        while inotifywait --recursive --timeout 300 -e modify -e delete -e create -e move /home/jack/wallpaper;
+            rclone sync /home/jack/wallpaper gdrive:Wallpaper
+            printf "sleeping\n"
+            sleep 5
+        end
+    end
+end
+
+

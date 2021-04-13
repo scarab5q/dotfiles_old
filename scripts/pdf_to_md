@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+file_name=$(echo $1 | sed "s/\(.*\).pdf/\1/g")
+index_file=$(echo $1 | sed "s/\(.*\).pdf/\1_ind.html/g")
+useful_file=$(echo $1 | sed "s/\(.*\).pdf/\1s.html/g")
+markdown_file=$(echo $1 | sed "s/\(.*\).pdf/\1.md/g")
+
+pdftohtml $file 
+
+pandoc -f html -t markdown $useful_file -o $markdown_file
+sed '/Rob Gaizauskas/d' $markdown_file
+/* sed '/Mark Hepple/d' $markdown_file */
+/* sed '/COM3110\/4115\/6115/d' */
+/* sed '/^[0-9]+ \/ [0-9]+\\$' */
+
+
+
+files_to_be_deleted=( $(ls | grep "$file_name" | grep -P "html|png|jpg") )
+
+
+for file in $files_to_be_deleted; 
+do 
+    rmtrash $file
+done
+
+    
+
+

@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+source ~/.cache/wal/colors.sh
+date_time=$(date $format)
+
+printf "<span color='%s'> %s</span>" "$colorIn5" "$date_time"
+ 

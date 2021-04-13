@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+date_today="$(date +%y.%m.%e)"
+echo "$date_today"
+
+tasks_for_today=($(todoist list | grep "$date_today"))
+
+# echo $tasks_for_today
+for task in $tasks_for_today
+do 
+    echo "\n$task"
+done 
+

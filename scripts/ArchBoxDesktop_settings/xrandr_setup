@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+#for use on desktop
+
+#sets the DP-3 to the right of HDMI-0
+xrandr --output DP-3 --right-of HDMI-0

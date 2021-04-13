@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+$HOME/.screenlayout/$hostname.sh

@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+case "$1" in
+    colemak)
+        setxkbmap us -variant colemak
+        ;;
+    dvorak)
+        setxkbmap us -variant dvorak
+        ;;
+    qwerty)
+        setxkbmap us 
+        ;;
+    *)
+        echo "Usage: $0 {colemak|dvorak|qwerty}"
+        exit 2
+esac
+
+exit 0
+

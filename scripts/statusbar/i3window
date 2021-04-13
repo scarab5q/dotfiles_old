@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import i3ipc, os, re
+
+i3 = i3ipc.Connection()
+colour_regex = re.compile(r'color\d+=\'(.+)\'')
+inverted_colour_regex = re.compile(r'colorIn\d+=\'(.+)\'')
+
+# colors = [str(color) for color in filter(regex.match,open("/home/jack/.cache/wal/colors.sh").read()) ]
+colours = [match for match in re.findall(colour_regex ,open("/home/jack/.cache/wal/colors.sh").read())  ]
+inverted_colours = [match for match in re.findall(inverted_colour_regex ,open("/home/jack/.cache/wal/colors.sh").read())  ]
+
+focused = i3.get_tree().find_focused()
+color = str(inverted_colours[1])
+
+
+print('<span color=\'{}\'> {}</span>'.format(color ,focused.name) )

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+while  ! pactl list ; do
+     echo "restarting pulse"
+     pulseaudio -k
+     pulseaudio --start
+done
+
+ # i3-msg reload

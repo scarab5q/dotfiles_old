@@ -1,0 +1,122 @@
+#!/usr/bin/env python
+
+# colour=cat /home/jack/.cache/wal/sequences | grep -oP "15;(#.*)" | sed -En 's/[0-9]+\;(#.*)/\1/gp'
+# sed "s/color=.*/color=$colour/gp" .config/i3blocks/config
+import re
+import sys
+
+
+def deal_with_colours():
+    wal_file = open("/home/jack/.cache/wal/sequences", 'r')
+    wal_sequence = wal_file.readlines()
+    return wal_sequence
+
+def invertHex(hexNumber):
+    # print("\noriginal hex number", hexNumber)
+    # invert a hex number
+    inverse = hex(abs(int(hexNumber, 16) - 255))[2:]
+    # if the number is a single digit add a preceding zero
+    if len(inverse) == 1:
+        inverse = '0'+inverse
+    # print("inverted hex number", hexNumber)
+    return inverse
+
+def colorInvert(hexCode):
+    #define an empty string for our new colour code
+    inverse = ""
+    # if the code is RGB
+    if len(hexCode) == 6:
+        R = hexCode[:2]
+        G = hexCode[2:4]
+        B = hexCode[4:]
+    # if the code is ARGB
+    elif len(hexCode) == 8:
+        A = hexCode[:2]
+        R = hexCode[2:4]
+        G = hexCode[4:6]
+        B = hexCode[6:]
+        # don't invert the alpha channel
+        inverse = inverse + A
+    else:
+        # do nothing if it is neither length
+        return hexCode
+    inverse = inverse + invertHex(R)
+    inverse = inverse + invertHex(G)
+    inverse = inverse + invertHex(B)
+    return inverse
+
+def replaceHex(matchobj):
+    #exclude the preceding hash symbol of the matched object
+    hexCode = matchobj.group(0)[1:]
+    #invert the colour code and return with the hash
+    return '#'+colorInvert(hexCode)
+
+#open and read the original file
+file = open('/home/jack/.cache/wal/sequences', 'r')
+f = file.read()
+file.close()
+
+f = re.findall(r"4;\d+\;(\#[\w|\d]{6})", f)
+inverted_f = [ replaceHex(re.search(r'.*', colour)) for i, colour in enumerate(f) ]
+print(f[int(sys.argv[1])])
+
+
+# print("original f ")
+# [print(i, colour) for i, colour in enumerate(f)]
+
+# print("inverted f")
+# [print(i, colour) for i, colour in enumerate(inverted_f)]
+
+
+# i3blocks_config =open('/home/jack/.config/i3blocks/config', "r")
+# i3blocks_config_txt = i3blocks_config.readlines()
+# i3blocks_config.close()
+# for line in re.findall("color=.*", i3blocks_config_txt):
+#     print(line)
+i = 0
+def replace_colour(line, i):
+    i = i % len(f)
+    if re.search("^color=\#[a-fA-F0-9]+$",line):
+        return "color={}\n".format(inverted_f[i])
+        # return "color={}\n".format(f[i])
+        # random_colour = random.choice(inverted_f)
+        # return "color={}\n".format(random_colour)
+    else:
+        return line
+    # random_colour = random.choice(inverted_f)
+    # random_colour = f[-2]
+    # return "color={}\n".format(inverted_f[y])
+    # return "color={}\n".format(random_inverted_colour)
+
+# i3blocks_new_txt = re.sub(r"color=#[a-fA-F0-9]+", replace_colour(), i3blocks_config_txt)
+# i3blocks_new_txt = [replace_colour(line, i) for i, line in enumerate(i3blocks_config_txt) ]
+
+
+
+# print(i3blocks_new_txt)
+# i3_blocks_config = open('/home/jack/.config/i3blocks/config', 'w')
+# i3_blocks_config.writelines(i3blocks_new_txt)
+# i3_blocks_config.close()
+# i3blocks_config_txt = open('/home/jack/.config/i3blocks/config' ,'r')
+# for line in re.findall("color=.*", i3blocks_config_txt.read()):
+#     print(line)
+
+# i3blocks_config =open('/home/jack/.config/i3blocks/config', "w")
+# print(i3blocks_config_txt)
+
+# print("original file input" + str(f))
+# f_list = f.replace("]", "")
+# f_list = f.replace("]", "")
+# f_list = f.replace("[", "")
+# print(f_list)
+
+
+
+
+#invert every match of the regular expression from f
+# invertedcode = re.sub('#([0-9a-fA-F]{6,8})', replaceHex, f)
+
+
+# g = open('Inverted Monokai.tmTheme', 'w')
+# g.write(invertedcode)
+# g.close()

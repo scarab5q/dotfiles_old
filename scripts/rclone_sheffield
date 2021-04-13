@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+sheff_process=$(ps aux | grep -c "rclone_sheffield")
+notify-send "$sheff_process"
+
+if [ "$sheff_process"  -gt "3" ]; then
+    notify-send "uni work sync alredy running"
+else 
+    notify-send "Sheffield sync starting ..."
+    while [[ true ]]; do
+        rclone sync gdrive:Sheffield /home/jack/google_drive --transfers=40 --checkers=40 --tpslimit=10 --drive-chunk-size=1M --verbose --log-file=/home/jack/rclone_logs/gdrive_to_local(date +"%d-%m-%y").log --fast-list
+        while inotifywait --recursive --timeout 300 -e modify -e delete -e create -e move /home/jack/google_drive; do
+            rclone sync /home/jack/google_drive gdrive:Sheffield --transfers=40 --checkers=40 --tpslimit=10 --drive-chunk-size=1M --verbose --log-file=/home/jack/rclone_logs/local_to_gdrive(date +"%d-%m-%y").log --fast-list
+            printf "sleeping\n"
+            sleep 5
+        done
+    done
+fi

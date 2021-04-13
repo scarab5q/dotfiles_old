@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+text=''
+
+# checks if the first argument is empty
+if [ -z '$1' ]; then
+    project=$1
+else
+    echo "input project name:"
+    read project
+fi
+
+
+
+echo "what kind of project is it?\n"
+project_type=$(ls -d ~/nixos/environments/* | fzf) 
+
+cp -r $project_type  ~/Projects/$project
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+antibody bundle < ~/.zsh/.zsh_plugins.txt > ~/.zsh/.zsh_plugins.sh
+dunstify "updated plugins"

@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+i3status -c ~/.config/i3status/config | while :
+do
+  read line
+  pomodoro=`python /home/jack/i3-gnome-pomodoro/pomodoro-client.py status`
+  echo "$pomodoro| $line" || exit 1
+done
+
+# i3-gnome-pomodoro-git /usr/
+# i3-gnome-pomodoro-git /usr/bin/
+# i3-gnome-pomodoro-git /usr/bin/i3-gnome-pomodoro

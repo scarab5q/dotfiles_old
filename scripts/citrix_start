@@ -1,0 +1,12 @@
+#!/usr/bin/env bash 
+
+ica_files=`ls -1 ~/citrix_ica_files`
+
+if [ -z $ica_files ]; then
+    echo "there are no ica files go to https://myworkspace.jpmchase.com and get one"
+else
+    file=`echo $ica_files | shuf -n 1`
+    wfica ~/citrix_ica_files/$file
+fi
+
+

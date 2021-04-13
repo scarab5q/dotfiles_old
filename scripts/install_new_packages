@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+if [ ! -f ~/installed_packages_master.txt ]; then
+    touch ~/installed_packages_master.txt
+fi
+
+# expac --timefmt='%Y-%m-%d %T' '%l\t%n'| sort | awk '{print $NF}'  
+
+touch ~/to_install
+# to_install=~/to_install
+
+master=~/installed_packages_master.txt
+
+# if [ ! -f ~/packages_to_install.txt ]; then
+#     touch ~/packages_to_install.txt
+# fi
+
+packages=( $(ls ~ | pcregrep "installed_packages_(?!manjaro\.txt|master\.txt)") )
+echo $packages
+
+for i in $packages; do
+    # sort "$i" > "$i"
+    # diff installed_packages_master.txt $i | pcregrep "[\<\>]" | awk '{print $NF}'
+    diff $master $i | pcregrep "[\<\>]" | awk '{print $NF}' >> ~/to_install
+done
+cat ~/to_install
+
+# printf '%s\n' "${to_install[@]}"
+# yay -S --needed - <( ~/to_install)
+rmtrash ~/to_install

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# eval "export $(egrep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u $LOGNAME gnome-session)/environ)";
+
+
+# git_repos=(
+    # /home/jack/.cfg
+# )
+if [ -r "$HOME/.dbus/Xdbus" ]; then
+  . "$HOME/.dbus/Xdbus"
+fi
+alias config="/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME add /home/jack/scripts
+conf_status="$(/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME status)"
+branch=$(echo "$conf_status" | grep -oP "On branch [a-z0-9A-z_\-\.]+" | sed -rn 's/^On branch (.*)$/\1/gp')
+conf_commits="$(/usr/bin/env git --git-dir=$HOME/.cfg/ --work-tree=$HOME log --oneline --decorate origin\/$branch\.\.HEAD)"
+
+if echo "$conf_status" | grep -qP "Changes (not staged for commit|to be committed)";
+then
+    changes=$(echo $conf_status | grep -oP "(new file|modified):\s[\.0-9a-zA-Z\/_\-]+")
+    DISPLAY=:0 notify-send  "Please Commit:
+
+$changes"
+fi
+
+if echo "$conf_status" | grep -qP "Your branch is ahead of \'origin\/$branch\' by [0-9]+ commit"
+then
+    commits=$(echo "$conf_commits" |awk '{first = $1; $1 = ""; print $0}')
+    DISPLAY=:0 notify-send "dotfiles has unpushed commits
+$commits
+"
+fi

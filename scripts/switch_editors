@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+editor="$1"
+echo $editor
+old_editor=$(cat ~/.zshrc | grep -oP "^\s*export EDITOR=\"[a-zA-Z0-9]+\"")
+echo $old_editor
+new_editor=echo $old_editor | sed 's/\"[a-z0-9]+\"/\"$editor\"/gp' | echo
+echo $new_editor
+
+
+
+

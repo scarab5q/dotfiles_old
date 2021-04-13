@@ -1,0 +1,95 @@
+#!/usr/bin/env sh
+# Give a battery name (e.g. BAT0) as an argument.
+
+source ~/.cache/wal/colors.sh
+
+if [ $# -eq 0 ]; then
+    battery="BAT0"
+else
+    battery="$1"
+fi
+
+case $BLOCK_BUTTON in
+    3) pgrep -x dunst >/dev/null && notify-send "<b>🔋 Battery module:</b>
+🔋: discharging
+♻: stagnant charge
+🔌: charging
+⚡: charged
+❗: battery very low!
+- Text color reflects charge left" ;;
+esac
+
+capacity=$(cat /sys/class/power_supply/$battery/capacity) || exit
+status=$(cat /sys/class/power_supply/$battery/status)
+
+if [ "$capacity" -ge 80 ]; then
+	color="$colorIn0"
+elif [ "$capacity" -ge 60 ]; then
+	color="$colorIn4"
+elif [ "$capacity" -ge 40 ]; then
+	color="$colorIn8"
+elif [ "$capacity" -ge 20 ]; then
+	color="$colorIn10"
+else
+	color="$colorIn15"
+	warn="❗"
+fi
+
+[ -z $warn ] && warn=" "
+
+[ "$status" = "Charging" ] && color="#FFF"
+
+# colours=( $(cat /home/jack/.cache/wal/sequences | grep -P "[0-9]\;[0-9]+\;\#[a-fA-F0-9]{6}" | sed 's/4\;[0-9]+\;\([0-9a-fA-F]{6}\)/ \1 /g') )
+# echo $colours
+
+printf "<span color='%s'>%s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+
+
+
+
+
+##!/bin/sh
+## Give a battery name (e.g. BAT0) as an argument.
+
+## get xresources colors
+## for x in "$(xrdb -query | sed "s/.*\./export /g;s/:\s*/=\"/g;s/$/\"/g")"; do eval "$x"; done
+
+#if [ $# -eq 0 ]; then
+#    battery="BAT0"
+#else
+#    battery="$1"
+#fi
+
+#for i in $colours; do
+#    echo $i
+#done
+#case $BLOCK_BUTTON in
+#    3) pgrep -x dunst >/dev/null && notify-send "<b>🔋 Battery module:</b>
+#🔋: discharging
+#♻: stagnant charge
+#🔌: charging
+#⚡: charged
+#❗: battery very low!
+#- Text color reflects charge left" ;;
+#esac
+
+#capacity=$(cat /sys/class/power_supply/"$battery"/capacity) || exit
+#status=$(cat /sys/class/power_supply/"$battery"/status)
+
+#if [ "$capacity" -ge 75 ]; then
+#	color=$colours[3]
+#elif [ "$capacity" -ge 50 ]; then
+#	color=$colours[6]
+#elif [ "$capacity" -ge 25 ]; then
+#	color=$colours[9]
+#else
+#	color=$colours[15]
+#	warn="❗"
+#fi
+
+#[ -z $warn ] && warn=" "
+
+#printf ""
+## [ "$status" = "Charging" ] && color=$(bar_colours 16)""
+
+## printf "<span color='%s'>%s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"

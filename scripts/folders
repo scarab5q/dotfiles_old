@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+home		h
+.config         c -r
+Desktop         de
+Downloads       do
+Dropbox         dr -r
+emacs_configs   em -r
+google_drive    gd -r
+scripts         sc -r
+
+ed .emacs.d 
+dk Desktop 
+dc Documents 
+dw Downloads 
+dp Dropbox 
+ec emacs_configs 
+g google_drive 
+s scripts  

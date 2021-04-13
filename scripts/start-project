@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+text=''
+
+# checks if there are no arguments
+if [ $# -eq 0 ]; then
+    echo "input project name:"
+    read project
+else
+    project=$2
+fi
+
+echo "what kind of project is it?\n"
+project_type=$(ls -d ~/nixos/envs/* | fzf) 
+
+mkdir -p ~/Projects/$project
+
+cp -r $project_type/*  ~/Projects/$project
+
+
+# if ! [ -x $(command -v nixify) ]; then
+#     echo "nixify doesn't exist installing it" 
+#     nix-env -f https://github.com/kalbasit/nur-packages/archive/master.tar.gz -iA nixify &
+# fi
+
+cd ~/Projects/$project
+
+# nixify .
+
+exec zsh
+
+
+
+
+
+
+

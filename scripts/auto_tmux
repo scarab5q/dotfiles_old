@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+[ -z "$TMUX"  ] && {
+    tmux 
+    tmux attach || exec tmux new-session && exit;
+}
+

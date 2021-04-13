@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+ed=".emacs.d" 
+dk="Desktop" 
+dc="Documents" 
+dw="Downloads" 
+dp="Dropbox" 
+ec="emacs_configs" 
+g="google_drive" 
+s="scripts"  

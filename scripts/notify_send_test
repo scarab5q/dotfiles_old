@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+PIDS=$(pgrep sh)
+for p in $PIDS; do
+    echo "$p"
+    15916
+    echo "(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$p/environ)"
+    echo "(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$p/environ)"
+    dbus=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$p/environ | sed 's/DBUS_SESSION_BUS_ADDRESS=//')
+    user=$(grep -z USER /proc/$p/environ | sed 's/USER=//')
+    dply=$(grep -z DISPLAY /proc/$p/environ | sed 's/DISPLAY=//')
+
+    sudo -u $user sh -c "DBUS_SESSION_BUS_ADDRESS=\"$dbus\" DISPLAY=\"$dply\" /usr/bin/notify-send -i \"$ICON\" \"$TITLE\" \"$BODY\""
+done

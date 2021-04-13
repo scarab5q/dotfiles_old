@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+update_pkg_list () {
+	currently_intalled=$(yay -Qqn)	
+	# pkg_to_remove=(
+diff --suppress-common-lines $currently_intalled ~/"installed_packages_$HOST" 
+# | grep ">")
+	# echo $pkg_to_remove
+}

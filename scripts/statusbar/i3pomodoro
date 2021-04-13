@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+pomodoro_status=$(echo $(i3-gnome-pomodoro status))
+
+if [[ $pomodoro_status ]]; then
+    echo $pomodoro_status
+else 
+    echo "No Timer"
+fi
+
