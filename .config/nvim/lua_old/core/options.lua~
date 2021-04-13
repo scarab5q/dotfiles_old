@@ -1,0 +1,117 @@
+local g = vim.g
+local set = vim.o
+local options = setmetatable({}, {__index = { global_local = {}, window_local = {} } })
+local home = os.getenv('HOME')
+
+g.mapleader = " "
+
+function options:load_options()
+  self.global_local = {
+    hidden          = true;
+    secure          = true;
+    title           = true;
+    lazyredraw      = true;
+    splitright      = true;
+    modeline        = false;
+    ttimeout        = true;
+    wildignorecase  = true;
+    expandtab       = true;
+    shiftround      = true;
+    ignorecase      = true;
+    smartcase       = true;
+    undofile        = true;
+    backup          = true;
+    magic           = true;
+    number          = true;
+    tags            = ""; 
+    -- let gutentags handle this
+
+    undolevels      = 1000;
+    ttimeoutlen     = 20;
+    shiftwidth      = 2;
+    softtabstop     = 2;
+    synmaxcol       = 200;
+    synmaxcol       = 2500;
+    cmdheight       = 2;
+    updatetime      = 200;
+    conceallevel    = 2;
+    showbreak       = string.rep(' ', 3) ;
+    -- Make it so that long lines wrap smartly;
+
+    mouse           = "nv";
+    foldopen        = "search";
+    encoding        = "UTF-8";
+    fileformat      = 'unix';
+    diffopt         = "hiddenoff,iwhiteall,algorithm:patience";
+    nrformats       = "bin,hex,alpha";
+    grepprg         = "rg --smart-case --vimgrep --block-buffered";
+    virtualedit     = "block";
+    inccommand      = "split";
+    path            = '.,,,**';
+    -- tabline         = gitBranch();
+    showtabline     = 2;
+    completeopt     = 'menuone,noinsert,noselect,longest';
+    listchars       = 'tab:░░,trail:·,space:·,extends:»,precedes:«,nbsp:⣿';
+    complete        = '.,w,b,u';
+    formatlistpat   = "^\\s*\\[({]\\?\\([0-9]\\+\\|[a-zA-Z]\\+\\)[\\]:.)}]\\s\\+\\|^\\s*[-–+o*•]\\s\\+";
+    wildignore      = '*/dist*/*,*/target/*,*/builds/*,*/flow-typed/*,*.png,*.PNG,*.jpg,*.jpeg,*.JPG,*.JPEG,*.pdf,*.exe,*.o,*.obj,*.dll,*.DS_Store,*.ttf,*.otf,*.woff,*.woff2,*.eot';
+    shortmess       = vim.o.shortmess .. 's';
+    undodir         = home .. "/.cache/Vim/undofile";
+    backupdir       = home .. "/.cache/Vim/backup";
+    directory       = home .. "/.cache/Vim/swap";
+
+    -- UI OPTS
+    termguicolors  = true;
+    wrap           = false;
+    cursorline     = true;
+    fillchars      = "stlnc:»,vert:║,fold:·";
+    number         = true;
+    pumblend       = 20;
+    pumheight      = 15;
+    scrolloff      = 1;
+    sidescrolloff  = 5;
+    display        = "lastline";
+    guicursor      = "n:blinkwait60-blinkon175-blinkoff175,i-ci-ve:ver25";
+
+    smartindent    = true;
+
+
+    lazyredraw     = true;
+    titlestring    = '';
+    inccommand     = 'split';
+    number         = true;             -- show current line number;
+    relativenumber = true; -- show relative line numbers;
+    ignorecase     = true;
+    smartcase      = true;
+    hls            = true;
+    incsearch      = true;
+    showmatch      = true;
+    ic             = true;
+    hidden         = true;
+    showmatch      = true;
+    ai             = true;
+    winaltkeys     = no;
+    encoding       = 'UTF-8';
+    modeline       = false;
+
+    smarttab       = true;
+    wildmenu       = true;
+    fdm            = marker;
+    foldmethod     = 'expr';
+    foldexpr       = y;
+
+    -- sets tab settings;
+
+    nocompatible   = true;
+    splitbelow     = true;
+
+    fdm            = 'marker';
+  }
+  for name,value in pairs( self.global_local ) do
+    vim.o[name] = value
+  end
+end
+
+-- options:load_options()
+
+return options
