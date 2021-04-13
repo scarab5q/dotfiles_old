@@ -57,3 +57,6 @@ set PATH "$HOME/.cargo/bin:$PATH" $PATH
 direnv hook fish | source
 starship init fish | source
 
+abbr -a ylg "lazygit --git-dir $HOME/.config/yadm/repo.git/ --work-tree $HOME"
+
+
